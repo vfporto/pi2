@@ -2,6 +2,7 @@ import datetime
 
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.admin import User
 
 
 # Create your models here.
@@ -43,13 +44,13 @@ class SaborPizza(models.Model):
         return self.nome
 
 
-class SaborPizzaIngredientes(models.Model):
+class SaborPizzaIngrediente(models.Model):
     sabor_pizza = models.ForeignKey(SaborPizza, on_delete=models.CASCADE)
     ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT)
     quantidade = models.DecimalField(decimal_places=2, max_digits=7, default=0)
 
 
-class SaborBordaIngredientes(models.Model):
+class SaborBordaIngrediente(models.Model):
     sabor_borda = models.ForeignKey(SaborBorda, on_delete=models.CASCADE)
     ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT)
     quantidade = models.DecimalField(decimal_places=2, max_digits=7, default=0)
@@ -109,6 +110,7 @@ class Cliente(models.Model):
     telefone = models.CharField(max_length=100)
     endereco = models.OneToOneField(Endereco, on_delete=models.CASCADE)
     # para demais campos, integrar com classe User
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, unique=True, null=True)
 
     def __str__(self):
         return self.nome
