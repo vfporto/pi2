@@ -6,7 +6,11 @@ from pyzza.models import TipoPizza, Ingrediente, SaborBorda, TamanhoPizza, Sabor
     SaborBordaIngrediente
 
 admin.site.register(TipoPizza)
-admin.site.register(Ingrediente)
+
+class IngredienteAdmin(admin.ModelAdmin):
+    search_fields = ['nome']
+
+admin.site.register(Ingrediente, IngredienteAdmin)
 
 class BordaIngredienteInLine(admin.TabularInline):
     model = SaborBordaIngrediente
@@ -23,6 +27,8 @@ admin.site.register(SaborBorda, SaborBordaAdmin)
 
 class PizzaIngredienteInLine(admin.TabularInline):
     model = SaborPizzaIngrediente
+    fields = ['ingrediente', 'quantidade']
+    autocomplete_fields = ['ingrediente']
     extra = 0
 
 class SaborPizzaAdmin(admin.ModelAdmin):

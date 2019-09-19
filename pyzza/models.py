@@ -25,6 +25,10 @@ class TipoPizza(models.Model):
     def __str__(self):
         return self.nome
 
+    class Meta:
+        verbose_name = 'Tipo de Pizza'
+        verbose_name_plural = 'Tipos de Pizzas'
+
 
 class SaborBorda(models.Model):
     nome = models.CharField(max_length=50)
@@ -34,20 +38,33 @@ class SaborBorda(models.Model):
     def __str__(self):
         return self.nome
 
+    class Meta:
+        verbose_name = 'Sabor da Borda'
+        verbose_name_plural = 'Sabores de Bordas'
+
 
 class SaborPizza(models.Model):
     nome = models.CharField(max_length=50)
-    valor_adicional = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     tipo_pizza = models.ForeignKey(TipoPizza, on_delete=models.PROTECT)
+    descricao = models.TextField(default='')
+    valor_adicional = models.DecimalField(decimal_places=2, max_digits=7, default=0)
 
     def __str__(self):
         return self.nome
+
+    class Meta:
+        verbose_name = 'Sabor de Pizza'
+        verbose_name_plural = 'Sabores de Pizzas'
 
 
 class SaborPizzaIngrediente(models.Model):
     sabor_pizza = models.ForeignKey(SaborPizza, on_delete=models.CASCADE)
     ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT)
     quantidade = models.DecimalField(decimal_places=2, max_digits=7, default=0)
+
+    class Meta:
+        verbose_name = 'Ingrediente do Sabor de Pizza'
+        verbose_name_plural = 'Ingredientes do Sabor de Pizza'
 
 
 class SaborBordaIngrediente(models.Model):
@@ -58,14 +75,16 @@ class SaborBordaIngrediente(models.Model):
 
 class TamanhoPizza(models.Model):
     nome = models.CharField(max_length=50)
-    descricao = models.TextField(default='')
     max_sabores = models.IntegerField(default=1)
-    valor_adicional = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     preco = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     multiplicador = models.DecimalField(decimal_places=2, max_digits=7, default=0)
 
     def __str__(self):
         return self.nome
+
+    class Meta:
+        verbose_name = 'Tamanho da Pizza'
+        verbose_name_plural = 'Tamanhos de Pizzas'
 
 
 # Bebidas
@@ -74,6 +93,10 @@ class TamanhoBebida(models.Model):
 
     def __str__(self):
         return self.nome
+
+    class Meta:
+        verbose_name = 'Tamanho da Bebida'
+        verbose_name_plural = 'Tamanhos de Bebidas'
 
 
 class Bebida(models.Model):
@@ -104,13 +127,21 @@ class Entregador(models.Model):
     telefone = models.CharField(max_length=100)
     endereco = models.OneToOneField(Endereco, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.nome
+
+    class Meta:
+        verbose_name = 'Entregador'
+        verbose_name_plural = 'Entregadores'
+
 
 class Cliente(models.Model):
     nome = models.CharField(max_length=100)
     telefone = models.CharField(max_length=100)
     endereco = models.OneToOneField(Endereco, on_delete=models.CASCADE)
     # para demais campos, integrar com classe User
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE, unique=True, null=True)
+    # usuario = models.ForeignKey(User, on_delete=models.CASCADE, unique=True, null=True)
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nome
@@ -120,17 +151,25 @@ class Cliente(models.Model):
 # Pedido
 
 class StatusPedido(models.Model):
-    nome = models.CharField(max_length=30)
+    nome = models.CharField(max_length=30, unique=True)
 
     def __str__(self):
         return self.nome
+
+    class Meta:
+        verbose_name = 'Status do Pedido'
+        verbose_name_plural = 'Status de Pedidos'
 
 
 class FormaDePagamento(models.Model):
-    nome = models.CharField(max_length=50)
+    nome = models.CharField(max_length=50, unique=True)
 
     def __str__(self):
         return self.nome
+
+    class Meta:
+        verbose_name = 'Forma de Pagamento'
+        verbose_name_plural = 'Formas de Pagamento'
 
 
 class Pedido(models.Model):
