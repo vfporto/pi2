@@ -3,9 +3,13 @@ from django.contrib import admin
 # Register your models here.
 from pyzza.models import TipoPizza, Ingrediente, SaborBorda, TamanhoPizza, SaborPizza, TamanhoBebida, Bebida, \
     Entregador, Cliente, StatusPedido, FormaDePagamento, BebidaTamanhoBebida, SaborPizzaIngrediente, \
-    SaborBordaIngrediente
+    SaborBordaIngrediente, Pedido
 
-admin.site.register(TipoPizza)
+
+class TipoPizzaAdmin(admin.ModelAdmin):
+    search_fields = ['nome']
+
+admin.site.register(TipoPizza, TipoPizzaAdmin)
 
 class IngredienteAdmin(admin.ModelAdmin):
     search_fields = ['nome']
@@ -36,6 +40,7 @@ class SaborPizzaAdmin(admin.ModelAdmin):
     list_display = ['id', 'tipo_pizza', 'nome', 'valor_adicional']
     list_display_links = ['id', 'tipo_pizza', 'nome', 'valor_adicional']
     ordering = ['nome']
+    autocomplete_fields = ['tipo_pizza']
     inlines = [PizzaIngredienteInLine]
 admin.site.register(SaborPizza, SaborPizzaAdmin)
 
@@ -68,3 +73,4 @@ admin.site.register(StatusPedido)
 admin.site.register(FormaDePagamento)
 
 
+admin.site.register(Pedido)

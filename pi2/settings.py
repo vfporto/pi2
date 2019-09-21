@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -74,20 +75,26 @@ WSGI_APPLICATION = 'pi2.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'pyzza',
+#     }
+# }
 DATABASES = {
     'default': {
-        # engine padrao mysqlclient: 'django.db.backends.mysql'
-        # mas eu usei esse cara: pip install mysql-connector-python
-        'ENGINE': 'mysql.connector.django',
+        # 'ENGINE': 'django.db.backends.mysql',      #MySQL 1 -> pip install mysqlclient
+        'ENGINE': 'mysql.connector.django',          #MySQL 2 -> pip install mysql-connector-python==8.0.12
+        # 'ENGINE': 'django.db.backends.postgresql', #Postgres-> pip install psycopg2
         'NAME': 'pyzza',
         'USER': 'root',
         'PASSWORD': 'bancodedados',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
-        'options': {
-            'use_pure': True,
-        }
+        # Tentativa de resolver incompatibilidade das versoes > 8.0.12 do mysql-connector-python
+        # 'OPTIONS': {
+        #     'use_pure': True,
+        # }
     }
 }
 
