@@ -1,0 +1,5 @@
+Django==2.2.5
+django-reverse-admin==2.6.1
+django-suit==0.2.26
+mysql-connector-python==8.0.12
+psycopg2==2.8.3
