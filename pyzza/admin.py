@@ -1,6 +1,8 @@
 from django.contrib import admin
 
 # Register your models here.
+from django_reverse_admin import ReverseModelAdmin
+
 from pyzza.models import TipoPizza, Ingrediente, SaborBorda, TamanhoPizza, SaborPizza, TamanhoBebida, Bebida, \
     Entregador, Cliente, StatusPedido, FormaDePagamento, BebidaTamanhoBebida, SaborPizzaIngrediente, \
     SaborBordaIngrediente, Pedido
@@ -59,7 +61,15 @@ class BebidaAdmin(admin.ModelAdmin):
     inlines = [TamanhoBebidaInLine]
 
 admin.site.register(Bebida, BebidaAdmin)
-admin.site.register(Entregador)
+
+class EntregadorAdmin(ReverseModelAdmin):
+    inline_type = 'stacked'
+    search_fields = ['nome']
+    inline_reverse = [
+        ('endereco', { 'fields': ['logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf']}),
+    ]
+
+admin.site.register(Entregador, EntregadorAdmin)
 
 # class PaisAdmin(admin.ModelAdmin):
 #     search_fields = ['nome']

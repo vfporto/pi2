@@ -125,7 +125,7 @@ class Endereco(models.Model):
 class Entregador(models.Model):
     nome = models.CharField(max_length=100)
     telefone = models.CharField(max_length=100)
-    endereco = models.OneToOneField(Endereco, on_delete=models.CASCADE)
+    endereco = models.OneToOneField(Endereco, on_delete=models.CASCADE, related_name='endereco')
 
     def __str__(self):
         return self.nome
