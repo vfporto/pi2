@@ -5,7 +5,7 @@ from django_reverse_admin import ReverseModelAdmin
 
 from pyzza.models import TipoPizza, Ingrediente, SaborBorda, TamanhoPizza, SaborPizza, TamanhoBebida, Bebida, \
     Entregador, Cliente, StatusPedido, FormaDePagamento, BebidaTamanhoBebida, SaborPizzaIngrediente, \
-    SaborBordaIngrediente, Pedido
+    SaborBordaIngrediente, Pedido, ItemPizza
 
 
 class TipoPizzaAdmin(admin.ModelAdmin):
@@ -91,5 +91,15 @@ admin.site.register(Cliente, ClienteAdmin)
 admin.site.register(StatusPedido)
 admin.site.register(FormaDePagamento)
 
+class ItemPizzaInline(admin.StackedInline):
+    model = ItemPizza
+    extra = 0
 
-admin.site.register(Pedido)
+class PedidoAdmin(admin.ModelAdmin):
+    #search_fields = ['']
+    list_display = ['id', 'data', 'cliente', 'status_pedido']
+    list_display_links = ['id', 'data', 'cliente', 'status_pedido']
+    ordering = ['data']
+    inlines = [ItemPizzaInline]
+
+admin.site.register(Pedido, PedidoAdmin)
