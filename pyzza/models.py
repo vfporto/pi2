@@ -182,7 +182,7 @@ class Pedido(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.PROTECT)
 
     def __str__(self):
-        return  self.cliente #self.data + " " +
+        return self.data.strftime("%B %d, %Y, %I:%M %p") +" "+self.cliente.nome
 
 class ItemBebida(models.Model):
     quantidade = models.PositiveIntegerField(null=False, default=1)
