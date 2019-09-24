@@ -173,7 +173,7 @@ class FormaDePagamento(models.Model):
 
 
 class Pedido(models.Model):
-    data = models.DateTimeField(auto_now=True)
+    data = models.DateTimeField(auto_now_add=True)
     total = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     troco_para = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     forma_de_pagamento = models.ForeignKey(FormaDePagamento, on_delete=models.PROTECT)
@@ -181,8 +181,8 @@ class Pedido(models.Model):
     entregador = models.ForeignKey(Entregador, on_delete=models.PROTECT)
     cliente = models.ForeignKey(Cliente, on_delete=models.PROTECT)
 
-    def __str__(self):
-        return self.data + " " + self.cliente
+    # def __str__(self):
+    #     return  self.cliente #self.data + " " +
 
 
 class ItemBebida(models.Model):

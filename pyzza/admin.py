@@ -44,6 +44,7 @@ class SaborPizzaAdmin(admin.ModelAdmin):
     ordering = ['nome']
     autocomplete_fields = ['tipo_pizza']
     inlines = [PizzaIngredienteInLine]
+
 admin.site.register(SaborPizza, SaborPizzaAdmin)
 
 admin.site.register(TamanhoPizza)
@@ -77,7 +78,15 @@ admin.site.register(Entregador, EntregadorAdmin)
 #     list_display = ['id','nome']
 #     list_editable = ['nome']
 #     ordering = ['nome']
-admin.site.register(Cliente)
+
+class ClienteAdmin(ReverseModelAdmin):
+    inline_type = 'stacked'
+    search_fields = ['nome']
+    inline_reverse = [
+        ('endereco', { 'fields': ['logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf']}),
+    ]
+admin.site.register(Cliente, ClienteAdmin)
+
 
 admin.site.register(StatusPedido)
 admin.site.register(FormaDePagamento)
