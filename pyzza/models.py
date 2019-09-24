@@ -181,8 +181,8 @@ class Pedido(models.Model):
     entregador = models.ForeignKey(Entregador, on_delete=models.PROTECT)
     cliente = models.ForeignKey(Cliente, on_delete=models.PROTECT)
 
-    # def __str__(self):
-    #    return  self.cliente #self.data + " " +
+    def __str__(self):
+        return  self.cliente #self.data + " " +
 
 class ItemBebida(models.Model):
     quantidade = models.PositiveIntegerField(null=False, default=1)
