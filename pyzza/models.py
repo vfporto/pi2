@@ -33,7 +33,8 @@ class TipoPizza(models.Model):
 class SaborBorda(models.Model):
     nome = models.CharField(max_length=50)
     valor_adicional = models.DecimalField(decimal_places=2, max_digits=7, default=0)
-    #ingredientes = models.ManyToManyField(Ingrediente, related_name='ingredientes')
+    disponivel = models.BooleanField(default=True)
+   # ingredientes = models.ManyToManyField(Ingrediente, related_name='ingredientes')
 
     def __str__(self):
         return self.nome
@@ -71,7 +72,6 @@ class SaborBordaIngrediente(models.Model):
     sabor_borda = models.ForeignKey(SaborBorda, on_delete=models.CASCADE)
     ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT)
     quantidade = models.DecimalField(decimal_places=2, max_digits=7, default=0)
-    disponivel = models.BooleanField(default=True)
 
 
 class TamanhoPizza(models.Model):
