@@ -43,12 +43,14 @@ class SaborBorda(models.Model):
         verbose_name = 'Sabor da Borda'
         verbose_name_plural = 'Sabores de Bordas'
 
-
 class SaborPizza(models.Model):
     nome = models.CharField(max_length=50)
     tipo_pizza = models.ForeignKey(TipoPizza, on_delete=models.PROTECT)
     descricao = models.TextField(default='')
     valor_adicional = models.DecimalField(decimal_places=2, max_digits=7, default=0)
+    disponivel = models.BooleanField(default=True)
+    imagem = models.ImageField(null=True, blank=True, upload_to="sabor_pizza_img/", verbose_name="Imagem")
+
 
     def __str__(self):
         return self.nome

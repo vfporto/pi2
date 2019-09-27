@@ -1,0 +1,6 @@
+{% load static %}
+<h1>olá mundo</h1>
+<h2>{% get_media_prefix %}</h2>
+<h3>{{ MEDIA_URL }}</h3>
+{#<img src="{% static 'pizza2.png' %}" alt="">#}
+<img src="{{ MEDIA_URL }}{{ 'sabor_pizza_img/pizza2.png' }}" alt="">
