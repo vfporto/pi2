@@ -1,11 +1,12 @@
 from django.contrib import admin
 
 # Register your models here.
+from django.utils.safestring import mark_safe
 from django_reverse_admin import ReverseModelAdmin
 
 from pyzza.models import TipoPizza, Ingrediente, SaborBorda, TamanhoPizza, SaborPizza, TamanhoBebida, Bebida, \
     Entregador, Cliente, StatusPedido, FormaDePagamento, BebidaTamanhoBebida, SaborPizzaIngrediente, \
-    SaborBordaIngrediente, Pedido
+    SaborBordaIngrediente, Pedido, ItemPizza
 
 
 class TipoPizzaAdmin(admin.ModelAdmin):
@@ -24,12 +25,14 @@ class BordaIngredienteInLine(admin.TabularInline):
 
 class SaborBordaAdmin(admin.ModelAdmin):
     search_fields = ['nome']
-    list_display = ['id', 'nome', 'valor_adicional']
+    list_display = ['id', 'nome', 'valor_adicional', 'disponivel']
     list_display_links = ['id', 'nome', 'valor_adicional']
+    list_editable = ['disponivel']
     ordering = ['nome']
     inlines = [BordaIngredienteInLine]
 
 admin.site.register(SaborBorda, SaborBordaAdmin)
+
 
 class PizzaIngredienteInLine(admin.TabularInline):
     model = SaborPizzaIngrediente
@@ -39,11 +42,21 @@ class PizzaIngredienteInLine(admin.TabularInline):
 
 class SaborPizzaAdmin(admin.ModelAdmin):
     search_fields = ['nome']
-    list_display = ['id', 'tipo_pizza', 'nome', 'valor_adicional']
+    list_display = ['id', 'tipo_pizza', 'nome', 'valor_adicional','disponivel']
     list_display_links = ['id', 'tipo_pizza', 'nome', 'valor_adicional']
+    list_editable = ['disponivel']
+    readonly_fields = ["show_imagem"]
     ordering = ['nome']
     autocomplete_fields = ['tipo_pizza']
     inlines = [PizzaIngredienteInLine]
+
+    def show_imagem(self, obj):
+        return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
+            url=obj.imagem.url,
+            width=obj.imagem.width,
+            height=obj.imagem.height,
+        )
+    )
 
 admin.site.register(SaborPizza, SaborPizzaAdmin)
 
@@ -91,5 +104,17 @@ admin.site.register(Cliente, ClienteAdmin)
 admin.site.register(StatusPedido)
 admin.site.register(FormaDePagamento)
 
+class ItemPizzaInline(admin.StackedInline):
+    model = ItemPizza
+    extra = 0
+    fields = ['tamanho_pizza','sabor_borda','sabores','observacao', 'quantidade', 'preco']
+    autocomplete_fields = ['sabores']
 
-admin.site.register(Pedido)
+class PedidoAdmin(admin.ModelAdmin):
+    #search_fields = ['']
+    list_display = ['id', 'data', 'cliente', 'status_pedido']
+    list_display_links = ['id', 'data', 'cliente', 'status_pedido']
+    ordering = ['data']
+    inlines = [ItemPizzaInline]
+
+admin.site.register(Pedido, PedidoAdmin)
