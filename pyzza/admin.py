@@ -107,6 +107,8 @@ admin.site.register(FormaDePagamento)
 class ItemPizzaInline(admin.StackedInline):
     model = ItemPizza
     extra = 0
+    fields = ['tamanho_pizza','sabor_borda','sabores','observacao', 'quantidade', 'preco']
+    autocomplete_fields = ['sabores']
 
 class PedidoAdmin(admin.ModelAdmin):
     #search_fields = ['']

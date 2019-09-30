@@ -61,8 +61,8 @@ class SaborPizza(models.Model):
 
 
 class SaborPizzaIngrediente(models.Model):
-    sabor_pizza = models.ForeignKey(SaborPizza, on_delete=models.CASCADE)
-    ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT)
+    sabor_pizza = models.ForeignKey(SaborPizza, on_delete=models.CASCADE, related_name='ingredientes')
+    ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT, related_name='sabores')
     quantidade = models.DecimalField(decimal_places=2, max_digits=7, default=0)
 
     class Meta:
@@ -199,9 +199,18 @@ class ItemBebida(models.Model):
 class ItemPizza(models.Model):
     quantidade = models.IntegerField(default=1)
     preco = models.DecimalField(decimal_places=2, max_digits=7, default=0)
-    observacao = models.TextField(default='')
+    observacao = models.TextField(default='', blank=True, null=True)
     pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
     tamanho_pizza = models.ForeignKey(TamanhoPizza, on_delete=models.PROTECT)
     sabor_borda = models.ForeignKey(SaborBorda, on_delete=models.PROTECT)
     #sabor_pizza = models.ForeignKey(SaborPizza, on_delete=models.PROTECT)
     sabores = models.ManyToManyField(SaborPizza)
+
+    def __str__(self): #Frufru pra sair no admin o nome do ItemPizza para o pedido
+        titulo = self.tamanho_pizza.nome + " ("
+        for sabor in self.sabores.all():
+            titulo += "%s, " % sabor.nome
+        titulo += ")"
+        return titulo
+
+

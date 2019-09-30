@@ -1,6 +1,19 @@
 {% load static %}
-<h1>olá mundo</h1>
-<h2>{% get_media_prefix %}</h2>
-<h3>{{ MEDIA_URL }}</h3>
-{#<img src="{% static 'pizza2.png' %}" alt="">#}
-<img src="{{ MEDIA_URL }}{{ 'sabor_pizza_img/pizza2.png' }}" alt="">
+<h1>Teste safado - listando sabores de pizza</h1>
+
+{% if lista %}
+    {% for sabor in lista %}
+        <img src="{{ sabor.imagem.url }}" alt="">
+        <h3>Nome: {{ sabor.nome }}</h3>
+        <h3>Descricao: {{ sabor.descricao }}</h3>
+        <h3>Tipo: {{ sabor.tipo_pizza.nome }}</h3>
+        <ul>Ingredientes:</ul>
+        {% for ing in sabor.ingredientes.all %}
+            <li>{{ ing.ingrediente.nome }} - {{ ing.quantidade }} {{ ing.ingrediente.un_medida }}</li>
+        {% endfor %}
+        <hr>
+    {% endfor %}
+{% else %}
+    <h2>Nenhum sabor de pizza disponível</h2>
+
+{% endif %}
