@@ -33,7 +33,8 @@ class TipoPizza(models.Model):
 class SaborBorda(models.Model):
     nome = models.CharField(max_length=50)
     valor_adicional = models.DecimalField(decimal_places=2, max_digits=7, default=0)
-    #ingredientes = models.ManyToManyField(Ingrediente, related_name='ingredientes')
+    disponivel = models.BooleanField(default=True)
+   # ingredientes = models.ManyToManyField(Ingrediente, related_name='ingredientes')
 
     def __str__(self):
         return self.nome
@@ -42,12 +43,14 @@ class SaborBorda(models.Model):
         verbose_name = 'Sabor da Borda'
         verbose_name_plural = 'Sabores de Bordas'
 
-
 class SaborPizza(models.Model):
     nome = models.CharField(max_length=50)
     tipo_pizza = models.ForeignKey(TipoPizza, on_delete=models.PROTECT)
     descricao = models.TextField(default='')
     valor_adicional = models.DecimalField(decimal_places=2, max_digits=7, default=0)
+    disponivel = models.BooleanField(default=True)
+    imagem = models.ImageField(null=True, blank=True, upload_to="sabor_pizza_img/", verbose_name="Imagem")
+
 
     def __str__(self):
         return self.nome
@@ -58,8 +61,8 @@ class SaborPizza(models.Model):
 
 
 class SaborPizzaIngrediente(models.Model):
-    sabor_pizza = models.ForeignKey(SaborPizza, on_delete=models.CASCADE)
-    ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT)
+    sabor_pizza = models.ForeignKey(SaborPizza, on_delete=models.CASCADE, related_name='ingredientes')
+    ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT, related_name='sabores')
     quantidade = models.DecimalField(decimal_places=2, max_digits=7, default=0)
 
     class Meta:
@@ -196,9 +199,18 @@ class ItemBebida(models.Model):
 class ItemPizza(models.Model):
     quantidade = models.IntegerField(default=1)
     preco = models.DecimalField(decimal_places=2, max_digits=7, default=0)
-    observacao = models.TextField(default='')
+    observacao = models.TextField(default='', blank=True, null=True)
     pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
     tamanho_pizza = models.ForeignKey(TamanhoPizza, on_delete=models.PROTECT)
     sabor_borda = models.ForeignKey(SaborBorda, on_delete=models.PROTECT)
     #sabor_pizza = models.ForeignKey(SaborPizza, on_delete=models.PROTECT)
     sabores = models.ManyToManyField(SaborPizza)
+
+    def __str__(self): #Frufru pra sair no admin o nome do ItemPizza para o pedido
+        titulo = self.tamanho_pizza.nome + " ("
+        for sabor in self.sabores.all():
+            titulo += "%s, " % sabor.nome
+        titulo += ")"
+        return titulo
+
+

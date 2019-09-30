@@ -22,4 +22,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('pedido', views.pedido, name='pedido'),
     path('login', views.login, name='login'),
+    path('mocha/', views.mocha, name='mocha'),
 ]
