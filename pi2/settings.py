@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pyzza.apps.PyzzaConfig',
+    'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

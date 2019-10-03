@@ -1,14 +1,27 @@
-/*MENU LATERAL*/
-$('.btn-expand-collapse').click(function(e) {
-				$('.navbar-primary').toggleClass('collapsed');
-});
 /*END MENU LATERAL*/
+ let headers = {
+            'Content-Type': 'application/json;charset=utf-8',
+            "X-CSRFToken": token
+          };
 
-/*MEU ARRAY DE PIZZAS*/
-var arrayPizza = new Array("calabresa","peperoni","mussarela","tomate-seco");
+ /*
+document.HTMLElement = function (selecionada) {
+    return selecionada;
+}
+*/
 
-var options = ["1", "2", "3", "4", "5"];
-$('#pizzasEscolha').empty();
-$.each(options, function(i, p) {
-    $('#pizzasEscolha').append($('<select></select>').val(p).html(p));
-});
+function pizza_escolhida() {
+     var selecionada = document.getElementById("titulo");
+     let pizza =new Array()
+        //converte strings para um objeto e coloca no localstorage
+        if(localStorage.hasOwnProperty("pizza")){
+            pizza = JSON.parse(localStorage.getItem(pizza) || '[]');
+        }
+     selecionada.addEventListener('click', function () {
+         console.log(selecionada);
+
+     });
+
+  }
+
+
