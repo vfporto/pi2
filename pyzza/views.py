@@ -22,12 +22,11 @@ def mocha(request):
     return render(request, 'pyzza/mocha.html', {'lista': lista})
 
 
-#classe de seriaizacao que transforma um model em JSON
+#classe de serializacao que transforma um model em JSON
 class Pizza_Serializer(serializers.ModelSerializer):
     class Meta:
         model = SaborPizza
         fields = ('__all__')
-
 
 
 class Pizza_Viewset (viewsets.ModelViewSet):
