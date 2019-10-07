@@ -27,6 +27,6 @@ rotas_api.register('pizza',Pizza_Viewset,'SaborPizza')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(rotas_api.urls)),#inclui as rotas da api
+    path('api/', include(rotas_api.urls)),#inclui as rotas da api, podendo criar mais rotas
     path('', include('pyzza.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

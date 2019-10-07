@@ -71,7 +71,7 @@ body,
 		}
 /*************************************FIM DA ESTILIZAÇÃO DA TELA DE LOGIN*******************************/
 /*MENU LATERAL PEDIDO*/
-	.navbar-global {
+.navbar-global {
   background-color: #c0392b;
 }
 
@@ -83,14 +83,13 @@ body,
 {
   color: #60a3bc;
 }
-
 .navbar-primary {
   background-color: #f39c12;
   bottom: 0px;
   left: 0px;
   position: absolute;
   top: 51px;
-  width: 300px;
+  width: 600px;
   z-index: 8;
   overflow: hidden;
   -webkit-transition: all 0.1s ease-in-out;
