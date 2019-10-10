@@ -28,6 +28,10 @@ $(document).ready(function () {
         });
 });
 
+function finalizarPedido() {
+
+
+}
  function teste() {
      alert('vai voltar memô tio? fica ae poha!!!!');
  }
