@@ -4,31 +4,62 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Sistema de Gerenciamento de Pizzarias</title>
+    <title>S.G.P</title>
 
-    <!--CDN BOOTSTRAP-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static '' %}">
+    <!-- BOOTSTRAP-->
+        <!-- USANDO VUE JS-->
 
-    <!--inserir javascript-->
-    <script type="text/javascript" src="{% static 'app_admin/customizerjs.js' %}"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="{% static 'pyzza/customizerjs.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+<script src="{% static 'pyzza/funcoesVUE.js' %}"></script>
+
+<!-- BOOTSTRAP JQUERY -->
+ <script src="{% static 'pyzza/jquery/jquery-3.4.1.min.js' %}"></script>
+ <script src="{% static 'pyzza/popper/popper.min.js' %}"></script>
+ <script src="{% static 'pyzza/bootstrap-4.3.1/js/bootstrap.min.js' %}"></script>
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet"  type="text/css" href="{% static 'pyzza/bootstrap-4.3.1/css/bootstrap.min.css' %}">
+
+
+
+<!-- CDN JQUERY E JAVASCRIPT BOOTSTRAP -->
+{#<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>#}
+{#<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>#}
+{#<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>#}
+
+
+
+<link rel="stylesheet"  type="text/css" href="{% static 'pyzza/bootstrap-4.3.1/css/bootstrap.css' %}">
+{#    <link rel="stylesheet"  type="text/css" href="{% static 'pyzza/bootstrap-4.3.1/css/bootstrap.min.css' %}">#}
+{#     <link rel="stylesheet"  type="text/css" href="{% static 'pyzza/bootstrap-4.3.1/css/bootstrap.min.css.map' %}">#}
+{#     <link rel="stylesheet"  type="text/css" href="{% static 'pyzza/bootstrap-4.3.1/css/bootstrap.css.map' %}">#}
+{#     <link rel="stylesheet"  type="text/css" href="{% static 'pyzza/bootstrap-4.3.1/css/bootstrap-grid.css' %}">#}
+{#     <link rel="stylesheet"  type="text/css" href="{% static 'pyzza/bootstrap-4.3.1/css/bootstrap-grid.min.css' %}">#}
+
+    <!--CSS STYLE CUSTOM -->
+    <link rel="stylesheet" type="text/css" href="{% static 'pyzza/style.css' %}">
+    <!--FONTAWESOME-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
 </head>
-<body style="background-color: white !important;">
-<!--Navbar -->
-<!--Navbar -->
+<body>
+
 <nav id="menu-principal" class="mb-1 navbar navbar-expand-lg navbar-dark info-color">
-  <a class="navbar-brand" href="#">Navbar</a>
+    <div class="menu-header">
+    <a class="navbar-brand" href="#"><img src="{% static 'pyzza/image/logo_top_do_projeto.png' %}"> </a>
+    <a class="navbar-brand" href="#"> Home</a>
+    <a class="navbar-brand" href="#">Contato</a>
+    <a class="navbar-brand" href="#">Cardápio</a>
+    </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
     aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
-    <ul class="navbar-nav ml-auto">
+
+     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#">
           <i class="fab fa-facebook-f"></i> Facebook
@@ -39,25 +70,35 @@
         <a class="nav-link" href="#">
           <i class="fab fa-instagram"></i> Instagram</a>
       </li>
+    <!--
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user"></i> Profile </a>
         <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
           <a class="dropdown-item" href="#">My account</a>
+          <a class="dropdown-item" href="#">Log in</a>
           <a class="dropdown-item" href="#">Log out</a>
         </div>
       </li>
+         -->
     </ul>
   </div>
-</nav>
-<!--/.Navbar -->
-<!--/.Navbar -->
 
-<div class="main-content">
+</nav>
+
+<div id="app" class="container-fluid">
     {% block content %}
-        <h1>TEMPLATE BASE</h1>
-        {% endblock %}
+
+    {% endblock %}
+
 </div>
+  <!-- Footer -->
+  <footer id="footer-custom" class="py-5 bg-dark" style="position: relative">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Jefferson - Fabricio e Fernando Satoro / Projeto Integrador II - TADS 2017</p>
+    </div><!-- /.container -->
+  </footer>
+
 </body>
 </html>

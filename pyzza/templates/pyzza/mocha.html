@@ -1,5 +1,9 @@
+{% extends 'pyzza/base.html' %}
 {% load static %}
+    {% block content %}
+
 <h1>Teste safado - listando sabores de pizza</h1>
+
 
 {% if lista %}
     {% for sabor in lista %}
@@ -18,3 +22,4 @@
 
 {% endif %}
 <h1>Waaaaa</h1>
+    {% endblock %}
