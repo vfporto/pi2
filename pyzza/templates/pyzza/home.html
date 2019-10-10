@@ -40,7 +40,6 @@
         </a>
       </div>
       </div>
-
               <!-- FIM DO CARROSSEL -->
 
               <div class="container marketing">
@@ -66,7 +65,7 @@
                 <img class="rounded-circle" src="{% static 'pyzza/image/media-pizza.png' %}" alt="Generic placeholder image" width="200" height="200">
                   <div style="color: #ffffff"><h2>II SABORES</h2></div>
                    <!-- Botão para acionar modal -->
-                    <a data-toggle="modal" href="#myModal" class="btn btn-warning">Pedir Agora!</a>
+                    <a data-toggle="modal" href="#outrapagina" class="btn btn-warning">Faça seu pedido!</a>
 
               </div><!-- /.col-lg-4 -->
 
@@ -79,121 +78,6 @@
                     </button>
               </div><!-- /.col-lg-4 -->
             </div>
-<!--
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Escolha um sabor</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-
-                          <div class="modal-body">
-                            <div class="list-group">
-                                   <div class="form-group input-group">
-                                       <span style="background-color: #828282;" class="input-group-addon"><i class="glyphicon glyphicon-search"></i>GO!!</span>
-                                       <input name="consulta" id="txt_consulta" placeholder="Consultar sabores de pizzas" type="text" class="form-control">
-                                   </div>
-                             </div>
-                              <div  id="app"  v-for="pizza in pizzas">
-                          <button type="button" class="list-group-item list-group-item-action">
-                              <h4 id="titulo" class="card-title" v-on:click="adicionar_pizza(pizza)"></h4>
-                              <p class="teste">[[pizza.nome]]</p>
-                              <p>Descricao da pizza, contendo os sabores e demais insumos.</p>
-                              <p>Valor: R$ 30,00</p>
-                          </button>
-
-                        </div>
-                         <div class="modal-footer">
-                        <button type="button" class="btn btn-default btn-prev" onclick="teste()">Prev</button>
-                        <button type="button" class="btn btn-default btn-next" data-toggle="exampleModal"  href="#exampleModal2">Next</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                        </div>
-                      </div>
-                    </div>
-                        -->
-
-                                <div class="modal fade" id="myModal">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                    <h4 class="modal-title">Modal 1</h4>
-                                            </div>
-                                            <div class="container"></div>
-                                            <div class="modal-body">Alguma coisa aqui dentro.
-                                              colocar as pizzas
-                                            </div>
-                                            <div class="modal-footer">
-                                              <a href="#" data-dismiss="modal" class="btn btn-danger">Fechar</a>
-                                                <a data-toggle="modal" href="#myModal2" class="btn btn-primary">Abrir</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="modal fade" id="myModal2">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                    <h4 class="modal-title">Modal 2</h4>
-                                            </div>
-                                            <div class="container"></div>
-                                            <div class="modal-body">
-                                                Colocar as pizzas aqui
-                                            </div>
-                                            <div class="modal-footer">
-                                              <a href="#" data-dismiss="modal" class="btn btn-danger">Fechar</a>
-                                                <a data-toggle="modal" href="#myModal3" class="btn btn-primary">Abrir</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                 <div class="modal fade" id="myModal3">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                    <h4 class="modal-title">Modal 2</h4>
-                                            </div>
-                                            <div class="container"></div>
-                                            <div class="modal-body">
-                                                Colocar as pizzas aqui
-                                            </div>
-                                            <div class="modal-footer">
-                                              <a href="#" data-dismiss="modal" class="btn btn-danger">Fechar</a>
-                                                <a data-toggle="modal" href="#myModal4" class="btn btn-primary">Abrir</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="modal fade" id="myModal4">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                    <h4 class="modal-title">Modal 4</h4>
-                                            </div>
-                                            <div class="container"></div>
-                                            <div class="modal-body">bouuuaaa chegou ate aqui carai!
-                                            </div>
-                                            <div class="modal-footer">
-                                              <a href="#" data-dismiss="modal" class="btn btn-danger">Fechar</a>
-                                                <a href="#" data-dismiss="close" class="btn btn-primary">Finalizar Pedido!</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-            </div><!-- /.row -->
 
         <!-- START THE FEATURETTES-- CONTEUDO COMPLEMENTAR SE FOR NECESSARIO!!!
 
