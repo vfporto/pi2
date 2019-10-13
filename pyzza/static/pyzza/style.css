@@ -114,6 +114,10 @@ a.navbar-brand:hover {
 	background-color: #c0392b;
 	text-align: center;
 }
+#imagem_pizzas{
+	width: 50% !important;
+	height: auto;
+}
 /* CUSTOMIZANDO O CARROSSEL
 -------------------------------------------------- */
 

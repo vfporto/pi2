@@ -16,19 +16,19 @@
   <div class="row">
     <div class="col-12 col-sm-12 col-lg-12">
         <div class="pedidos"><h2>PEDIDOS</h2></div>
-      <ul class="list-group">
-        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          <div class="flex-column" v-for="pizza in pizzas">
-            <p v-on:click="adicionar_pizza(pizza)">
-                <large>[[pizza.nome]]</large></p>
+      <ul class="list-group" v-for="pizza in pizzas">
+        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" v-on:click="adicionar_pizza(pizza)">
+          <div class="flex-column" >
+            <p><large>[[pizza.nome]]</large></p>
+              <span class="badge badge-info badge-pill">[[pizza.tipo_pizza]]</span>
                 <p><large>[[pizza.descricao]]</large></p>
-                <p><large>[[pizza.valor_adicional]]</large></p>
+                <p><large>R$ [[pizza.valor_adicional]]</large></p>
           </div>
-            <!--
+
           <div class="image-parent">
-              <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/don_quixote.jpg" class="img-fluid" alt="quixote">
+              <img src="http://127.0.0.1:8000/imagens/sabor_pizza_img/calabresa.png" id="imagem_pizzas" class="img-fluid" alt="pizzas">
           </div>
-          -->
+
         </a>
 
       </ul>
