@@ -21,10 +21,9 @@
 
             /*busca as pizzas na api*/
             busca_pizzas: function () {
-              this.$http.get('api/pizza/').then(dados => {
+              this.$http.get('/api/pizza/').then(dados => {
                   this.pizzas = dados.body;
-                console.log(dados);
-            })
+             })
             },
 
             /*recebe o obj e add na lista*/
