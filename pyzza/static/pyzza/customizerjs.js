@@ -7,10 +7,6 @@
      modal.find('.teste').val(recipient)
  })
 
- /*funcao buscar*/
- $('input#txt_consulta').quicksearch('table#exampleModal modal-body p');
-
-
  /*abrir modals*/
 
 $(document).ready(function () {
@@ -27,11 +23,3 @@ $(document).ready(function () {
             }, 0);
         });
 });
-
-function finalizarPedido() {
-
-
-}
- function teste() {
-     alert('vai voltar memô tio? fica ae poha!!!!');
- }

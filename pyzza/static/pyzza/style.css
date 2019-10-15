@@ -83,6 +83,8 @@ h1{
 }
 #menu-principal{
  	background-color: #361b00;
+
+
  }
 #footer-custom{
 	background-color: #361b00 !important;
@@ -99,6 +101,22 @@ h1{
 }
 a.navbar-brand:hover {
     font-size: 28px;
+}
+.carrinho{
+	padding-top: 15px;
+	padding-bottom: 5px;
+	background-color: #f39c12;
+	text-align: center;
+}
+.pedidos{
+	padding-top: 15px;
+	padding-bottom: 5px;
+	background-color: #c0392b;
+	text-align: center;
+}
+#imagem_pizzas{
+	width: 50% !important;
+	height: auto;
 }
 /* CUSTOMIZANDO O CARROSSEL
 -------------------------------------------------- */
