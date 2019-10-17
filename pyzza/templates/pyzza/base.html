@@ -41,9 +41,9 @@
 <nav id="menu-principal" class="mb-1 navbar navbar-expand-lg navbar-dark info-color">
     <div class="menu-header">
     <a class="navbar-brand" href="#"><img src="{% static 'pyzza/image/logo_top_do_projeto_novo.png' %}"> </a>
-    <a class="navbar-brand" href="#"> Home</a>
-    <a class="navbar-brand" href="#">Contato</a>
-    <a class="navbar-brand" href="#">Cardápio</a>
+    <a class="navbar-brand" href="/home"> Home</a>
+    <a class="navbar-brand" href="/contato">Contato</a>
+    <a class="navbar-brand" href="/cardapio">Cardápio</a>
     </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
     aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,14 +85,16 @@
     {% endblock %}
 
 </div>
-  <!-- Footer -->
-  <footer id="footer-custom" class="py-5 bg-dark" style="position: relative">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Jefferson - Fabricio e Fernando Satoro / Projeto Integrador II - TADS 2017</p>
-    </div><!-- /.container -->
-  </footer>
+ <!-- Footer -->
+<footer class="page-footer font-small blue">
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <a href="#"> Projeto Integrador II - Jefferson - Fernando & Fabricio</a>
+  </div>
+  <!-- Copyright -->
 
-
+</footer>
+<!-- Footer -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
     <script src="{% static 'pyzza/funcoesVUE.js' %}"></script>
