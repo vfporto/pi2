@@ -20,13 +20,13 @@
         <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" v-on:click="adicionar_pizza(pizza)">
           <div class="flex-column" >
             <p><large>[[pizza.nome]]</large></p>
-              <span class="badge badge-info badge-pill">[[pizza.tipo_pizza]]</span>
+              <span v-bind:class="pizza.tipo_pizza.nome" >[[pizza.tipo_pizza.nome]]</span>
                 <p><large>[[pizza.descricao]]</large></p>
                 <p><large>R$ [[pizza.valor_adicional]]</large></p>
           </div>
 
           <div class="image-parent">
-              <img src="http://127.0.0.1:8000/imagens/sabor_pizza_img/calabresa.png" id="imagem_pizzas" class="img-fluid" alt="pizzas">
+              <img src="" id="imagem_pizzas" class="img-fluid" alt="pizzas">
           </div>
 
         </a>
@@ -46,6 +46,7 @@
           <ul class="list-group" v-for="pizza in pizzas_selecionadas">
           <li class="list-group-item d-flex justify-content-between align-items-center">
            [[pizza.nome]]
+              <p>[[pizza.valor_adicional]]</p>
           </li>
         </ul>
                 </div>

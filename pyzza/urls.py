@@ -22,6 +22,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('pedido/', views.pedido, name='pedido'),
     path('login', views.login, name='login'),
-    path('mocha/', views.mocha, name='mocha'),
-
+    path('contato/', views.contato, name='contato'),
+    path('cardapio/', views.cardapio, name='cardapio'),
 ]

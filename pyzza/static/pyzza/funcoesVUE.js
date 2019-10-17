@@ -35,6 +35,7 @@
             remover_pizza: function (pizza) {
                 this.pizzas_selecionadas = this.pizzas_selecionadas.filter(x => x.id != pizza.id);
             }
+
         }
     })
 
