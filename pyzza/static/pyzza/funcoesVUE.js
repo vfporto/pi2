@@ -39,3 +39,27 @@
         }
     })
 
+//ABRE MODAL SELECIONADO DE ACORDO COM O TAMANHO ESCOLHIDO
+$('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Botão que acionou o modal
+  var recipient = button.data('whatever') // Extrai informação dos atributos data-*
+  var modal = $(this)
+  modal.find('.modal-title').text('Tamanho escolhido: ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+})
+
+$('#exampleModal2').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Botão que acionou o modal
+  var recipient = button.data('whatever') // Extrai informação dos atributos data-*
+  var modal = $(this)
+  modal.find('.modal-title').text('2 sabores: ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+})
+
+     $('#exampleModal3').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Botão que acionou o modal
+  var recipient = button.data('whatever') // Extrai informação dos atributos data-*
+  var modal = $(this)
+  modal.find('.modal-title').text('3 sabores: ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+})
