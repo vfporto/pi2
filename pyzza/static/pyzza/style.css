@@ -85,9 +85,11 @@ h1{
 	font-size: 55px;
 }
 #menu-principal{
- 	background-color: #361b00;
+ 	background-color: #22110a;
  }
-
+footer{
+	background-color: #22110a;
+}
 .escolha-tamanho{
 	margin-top: 2em;
 	font-family: "Guthen Bloots Personal Use";
@@ -111,12 +113,15 @@ a.navbar-brand:hover {
     font-size: 28px;
 }
 .carrinho{
+	margin-top: 1em;
 	padding-top: 15px;
 	padding-bottom: 5px;
 	background-color: #f39c12;
 	text-align: center;
+	font-family: "Guthen Bloots Personal Use";
 }
 .pedidos{
+	margin-top: 1em;
 	padding-top: 15px;
 	padding-bottom: 5px;
 	background-color: #c0392b;
@@ -126,6 +131,19 @@ a.navbar-brand:hover {
 #imagem_pizzas{
 	width: 50% !important;
 	height: auto;
+}
+#texto_copyright{
+	color: #ffffff !important;
+}
+#sub_titulo_cardapio{
+	color: #ffffff;
+	font-family: "Klavika Regular";
+}
+#colunas-cardapio{
+	background-color: #e8e8e8;
+	border-radius: 5px;
+	padding: 5px;
+
 }
 /* CUSTOMIZANDO O CARROSSEL
 -------------------------------------------------- */
@@ -194,7 +212,7 @@ body{
 	}
 	.contact{
 		padding: 4%;
-		height: 400px;
+		/*height: 400px;*/
 	}
 	.col-md-3{
 		background: #ff9b00;
@@ -231,6 +249,10 @@ body{
 	}
 
 /*FINAL PAGINA DE CONTATOS*/
+
+.pizzas_img_pedidos{
+	border-radius: 35px;
+}
 
 /* RESPONSIVE CSS mobile
 -------------------------------------------------- */
