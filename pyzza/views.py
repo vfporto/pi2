@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from pyzza.models import SaborPizza,TipoPizza
+from pyzza.models import SaborPizza, TipoPizza, Bebida, BebidaTamanhoBebida, ItemBebida, TamanhoBebida
 from rest_framework import serializers,viewsets
 from rest_framework.filters import SearchFilter
 
@@ -43,6 +43,20 @@ class Pizza_Serializer(serializers.ModelSerializer):
         # fields = ('__all__')
         fields = ('id', 'nome', 'descricao', 'valor_adicional', 'imagem','tipo_pizza')
 
+# nao to conseguindo serializar igual a pizza
+class BebidaTamanhoBebida_Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = BebidaTamanhoBebida
+        fields = ('preco', 'bebida', 'tamanho_bebida')
+
+
+class Bebida_Serializer(serializers.ModelSerializer):
+    #tamanho_bebida = BebidaTamanhoBebida_Serializer()
+    class Meta:
+        model = Bebida
+        fields = ('__all__')
+        # fields = ('preco', 'bebida', 'tamanho_bebida')
+
 
 class Pizza_Viewset (viewsets.ModelViewSet):
     # queryset = SaborPizza.objects.filter(disponivel=True)
@@ -50,6 +64,10 @@ class Pizza_Viewset (viewsets.ModelViewSet):
     # queryset = queryset.prefetch_related()
     serializer_class = Pizza_Serializer
 
+
+class Bebida_Viewset (viewsets.ModelViewSet):
+    queryset = Bebida.objects.all()
+    serializer_class = Bebida_Serializer
 
 
 
