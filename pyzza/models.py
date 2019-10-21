@@ -62,7 +62,7 @@ class SaborPizza(models.Model):
 
 class SaborPizzaIngrediente(models.Model):
     sabor_pizza = models.ForeignKey(SaborPizza, on_delete=models.CASCADE, related_name='ingredientes')
-    ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT, related_name='sabores')
+    ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT, related_name='sabores_pizza')
     quantidade = models.DecimalField(decimal_places=2, max_digits=7, default=0)
 
     class Meta:
@@ -71,8 +71,8 @@ class SaborPizzaIngrediente(models.Model):
 
 
 class SaborBordaIngrediente(models.Model):
-    sabor_borda = models.ForeignKey(SaborBorda, on_delete=models.CASCADE)
-    ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT)
+    sabor_borda = models.ForeignKey(SaborBorda, on_delete=models.CASCADE, related_name='ingredientes')
+    ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT, related_name='sabores_borda')
     quantidade = models.DecimalField(decimal_places=2, max_digits=7, default=0)
 
 
@@ -111,8 +111,8 @@ class Bebida(models.Model):
 
 class BebidaTamanhoBebida(models.Model):
     preco = models.DecimalField(decimal_places=2, max_digits=7, default=0)
-    bebida = models.ForeignKey(Bebida, on_delete=models.CASCADE)
-    tamanho_bebida = models.ForeignKey(TamanhoBebida, on_delete=models.CASCADE)
+    bebida = models.ForeignKey(Bebida, on_delete=models.CASCADE, related_name='tamanhos')
+    tamanho_bebida = models.ForeignKey(TamanhoBebida, on_delete=models.CASCADE, related_name='bebidas')
 
 
 # Entregador e Cliente (provisorio)
