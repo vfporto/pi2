@@ -1,9 +1,2 @@
-Django==2.2.5
-django-reverse-admin==2.6.1
-django-suit==0.2.26
-mysql-connector-python==8.0.12
-psycopg2==2.8.3
-Pillow==6.1.0
-djangorestframework==3.10.3
-django-filter==2.2.0
-Markdown==3.1.1
+-r requirements-dev.txt
+gunicorn

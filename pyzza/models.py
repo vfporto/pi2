@@ -1,8 +1,5 @@
-import datetime
-
+import django.contrib.auth.admin
 from django.db import models
-from django.utils import timezone
-from django.contrib.auth.admin import User
 
 
 # Create your models here.
@@ -144,7 +141,7 @@ class Cliente(models.Model):
     endereco = models.OneToOneField(Endereco, on_delete=models.CASCADE)
     # para demais campos, integrar com classe User
     # usuario = models.ForeignKey(User, on_delete=models.CASCADE, unique=True, null=True)
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    usuario = models.OneToOneField(django.contrib.auth.admin.User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nome
