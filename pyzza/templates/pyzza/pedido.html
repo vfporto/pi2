@@ -183,24 +183,25 @@
         </button>
       </div>
       <div class="modal-body">
-              <ul class="list-group" v-for="bebida in bebidas">
-              <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-             v-on:click="adicionar_bebidas(bebidas)">
-          <div class="flex-column" >
-            <p>[[bebida.nome]]</p>
-              <!--
-              <span v-bind:class="pizza.tipo_pizza.nome" >[[pizza.tipo_pizza.nome]]</span>
-                <p><large>[[pizza.descricao]]</large></p>
-                <p><large>R$ [[pizza.valor_adicional]]</large></p>
-                -->
+          <div v-for="bebida in bebidas">
+              <ul class="list-group" v-for="tamanho in bebida.tamanhos">
+                  <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" v-on:click="adicionar_bebidas(bebida.id, tamanho.id)">
+                      <div class="flex-column" >
+                          <p>[[bebida.nome]] - [[tamanho.tamanho_bebida.nome]] - R$ [[tamanho.preco]]</p>
+                              <!--
+                              <span v-bind:class="pizza.tipo_pizza.nome" >[[pizza.tipo_pizza.nome]]</span>
+                                <p><large>[[pizza.descricao]]</large></p>
+                                <p><large>R$ [[pizza.valor_adicional]]</large></p>
+                                -->
+                      </div>
+                      <div class="image-parent">
+                          <img src="" id="imagem_bebidas" class="img-fluid">
+                      </div>
+                  </a>
+              </ul>
           </div>
-          <div class="image-parent">
-              <img src="" id="imagem_bebidas" class="img-fluid">
-          </div>
-        </a>
-
-      </ul>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">FECHAR</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">PEDIR PIZZA</button>

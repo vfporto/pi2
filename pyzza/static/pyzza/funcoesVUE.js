@@ -106,8 +106,11 @@
             },
 
                    /*recebe o obj e add na lista*/
-            adicionar_bebidas: function (bebidas) {
-                this.bebidas_selecionadas.push(bebidas);
+            adicionar_bebidas: function (bebida_id, tamanho_id) {
+                console.log("bebida_id: "+bebida_id);
+                console.log("tamanho_id: "+tamanho_id);
+                this.bebidas_selecionadas.push("Bebida "+bebida_id+", "+tamanho_id);
+                localStorage.setItem('bebidas', JSON.stringify(this.bebidas_selecionadas));
             },
 
             /*funcao que remove as pizzas da comanda.*/
