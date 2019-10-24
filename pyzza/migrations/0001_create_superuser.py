@@ -17,7 +17,7 @@ def create_superuser(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('pyzza', '0011_remove_saborborda_ingredientes'),
+
     ]
 
     operations = [
