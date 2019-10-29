@@ -15,6 +15,7 @@
             pizzas : [],
             pizzas_selecionadas:[],
             bebidas:[],
+            tamanhos_pizza:[],
             bebidas_selecionadas:[],
         },
         /*quando gera a pagina, dentro temos uma funcao que sera executada quando a pagina for criada
@@ -22,6 +23,8 @@
         created:function () {
               this.busca_pizzas();
               this.busca_bebidas();
+              this.busca_tamanhos();
+
         },
         monted:function () {
 
@@ -59,9 +62,14 @@
 
                   /*busca as pizzas na api*/
             busca_pizzas: function () {
-              this.$http.get('/api/pizza/').then(dados => {
-                  this.pizzas = dados.body;
-             })
+                this.$http.get('/api/pizza/').then(dados => {
+                    this.pizzas = dados.body;
+                })
+            },
+            busca_tamanhos: function() {
+              this.$http.get('/api/tamanho_pizza').then(dados => {
+                  this.tamanhos_pizza = dados.body;
+              })
             },
 
             /*recebe o obj e add na lista*/

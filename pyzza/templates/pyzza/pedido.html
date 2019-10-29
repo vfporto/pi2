@@ -41,12 +41,17 @@
                 </button>
               </div>
               <div class="modal-body">
-                <button type="button" class="btn btn-outline-warning offset-1" data-toggle="modal" data-target="#modalUmSabor" data-whatever="PEQUENA - ESCOLHA 1 SABOR">
-                    PEQUENA
-                </button>
-                  <button type="button" class="btn btn-outline-dark">MÉDIA</button>
-                  <button type="button" class="btn btn-outline-danger">GRANDE</button>
-                  <button type="button" class="btn btn-outline-primary">GIGANTE</button>
+{#                <button type="button" class="btn btn-outline-warning offset-1" data-toggle="modal" data-target="#modalUmSabor" data-whatever="PEQUENA - ESCOLHA 1 SABOR">#}
+{#                    PEQUENA#}
+{#                </button>#}
+{#                  <button type="button" class="btn btn-outline-dark">MÉDIA</button>#}
+{#                  <button type="button" class="btn btn-outline-danger">GRANDE</button>#}
+{#                  <button type="button" class="btn btn-outline-primary">GIGANTE</button>#}
+                  <button  v-for="tamanho in tamanhos_pizza">
+                        [[ tamanho.nome ]]
+                  </button>
+
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
