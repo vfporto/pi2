@@ -12,10 +12,10 @@
 {% block content %}
 <div class="row">
   <div class="col-8"> <!-- coluna da esquerda para formar pedidos -->
-         <div class="container">
-  <div class="row">
-    <div class="col-12 col-sm-12 col-lg-12">
-        <div class="pedidos"><h1>FAÇA SEU PEDIDO</h1></div>
+      <div class="container">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-lg-12">
+                <div class="pedidos"><h1>FAÇA SEU PEDIDO</h1></div>
 
         <!-- PEDIDOS PIZZAS -->
                 <!--<div class="titulo_tipo_salgadas"><h2>Pizzas Salgadas</h2></div>-->
@@ -41,12 +41,15 @@
                 </button>
               </div>
               <div class="modal-body">
-                <button type="button" class="btn btn-outline-warning offset-1" data-toggle="modal" data-target="#modalUmSabor" data-whatever="PEQUENA - ESCOLHA 1 SABOR">
-                    PEQUENA
+                <button type="button" class="btn btn-outline-warning offset-1"
+                        data-toggle="modal" data-target="#modalUmSabor"
+                        data-whatever="PEQUENA - ESCOLHA 1 SABOR"  v-for="tamanho in tamanhos">
+                    [[ tamanho.nome ]]
                 </button>
-                  <button type="button" class="btn btn-outline-dark">MÉDIA</button>
-                  <button type="button" class="btn btn-outline-danger">GRANDE</button>
-                  <button type="button" class="btn btn-outline-primary">GIGANTE</button>
+{#                  <button type="button" class="btn btn-outline-dark">MÉDIA</button>#}
+{#                  <button type="button" class="btn btn-outline-danger">GRANDE</button>#}
+{#                  <button type="button" class="btn btn-outline-primary">GIGANTE</button>#}
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -69,7 +72,7 @@
       </div>
       <div class="modal-body">
               <ul class="list-group" v-for="pizza in pizzas">
-           <a href="#" v-bind:class="{disabled: UmSaborLimite} "
+           <a href="#"
              v-on:click="adicionar_pizza(pizza)" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
           <div class="flex-column" >
             <p> [[pizza.nome]] </p>
@@ -108,7 +111,7 @@
               </div>
         <div class="modal-body">
               <ul class="list-group" v-for="pizza in pizzas">
-         <a href="#" v-bind:class="{disabled: DoisSaborLimite} "
+         <a href="#"
              v-on:click="adicionar_pizza(pizza)" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
           <div class="flex-column" >
             <p>[[pizza.nome]]</p>
@@ -187,7 +190,7 @@
               <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
              v-on:click="adicionar_bebidas(bebidas)">
           <div class="flex-column" >
-            <p>[[bebida.nome]]</p>
+            <p>[[bebida.nome]] - [[bebidas.precos]]</p>
               <!--
               <span v-bind:class="pizza.tipo_pizza.nome" >[[pizza.tipo_pizza.nome]]</span>
                 <p><large>[[pizza.descricao]]</large></p>
