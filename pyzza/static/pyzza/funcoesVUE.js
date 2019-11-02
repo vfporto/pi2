@@ -12,6 +12,10 @@
             bebidas_selecionadas:[],
             tamanhos:[],
             tamanhos_selecionados:[],
+            qtd_sabores: [],
+            qtd_sabores_selecionados: [],
+
+
         },
         /*quando gera a pagina, dentro temos uma funcao que sera executada quando a pagina for criada
         * podemos inserir todas as funcoes que quisermos executar qndo a pagina for criada.*/
@@ -19,6 +23,7 @@
               this.busca_pizzas();
               this.busca_bebidas();
               this.busca_tamanhos();
+              this.busca_qtd_sabores();
         },
         monted:function () {
 
@@ -28,7 +33,6 @@
 
         },
         methods: {
-
             adicionar_pizza: function(pizza){
                 this.pizzas_selecionadas.push(pizza);
             },
@@ -66,8 +70,26 @@
                     this.tamanhos = dados.body;
                 })
             },
+            adicionar_tamanhos: function (tamanhos) {
+                this.tamanhos_selecionados.push(tamanhos);
+                }
+            },
+            remover_tamanhos: function(tamanhos){
+                this.tamanhos_selecionados = this.tamanhos_selecionados.filter(x => x.id != tamanhos.id);
+            },
 
-        }
+            busca_qtd_sabores: function () {
+                this.$http.get('api/sabores_pizza/').then(dados=>{
+                    this.qtd_sabores = dados.body;
+                })
+            },
+           adicionar_qtd_sabores: function (qtd_sabores) {
+               this.qtd_sabores_selecionados.push(qtd_sabores);
+            },
+
+            remover_qtd_sabores: function (qtd_sabores) {
+              this.qtd_sabores_selecionados = this.qtd_sabores_selecionados.filter(x => x.id != qtd_sabores.id);
+            },
     })
 
 //ABRE MODAL SELECIONADO DE ACORDO COM O TAMANHO ESCOLHIDO
@@ -93,7 +115,15 @@ $('#modalbebidas').on('show.bs.modal', function (event) {
   modal.find('.modal-title').text(recipient)
   modal.find('.modal-body input').val(recipient)
 })
-/*
+  $('#modalQuantidadedeSabor').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Botão que acionou o modal
+  var recipient = button.data('whatever') // Extrai informação dos atributos data-*
+  var modal = $(this)
+  modal.find('.modal-title').text(recipient)
+  modal.find('.modal-body input').val(recipient)
+})
+
+     /*
      $('#exampleModal3').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Botão que acionou o modal
   var recipient = button.data('whatever') // Extrai informação dos atributos data-*

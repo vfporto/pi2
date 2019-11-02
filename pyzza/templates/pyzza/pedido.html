@@ -31,7 +31,8 @@
         <!-- FINAL PEDIDOS PIZZAS -->
 
         <!--MODAL TAMANHO PIZZA-->
-        <div class="modal fade" id="modalTamanhoPizza" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal fade" id="modalTamanhoPizza" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalLongTitle" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -40,16 +41,12 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
+              <div v-on:click="adicionar_tamanhos(tamanhos)" class="modal-body">
                 <button type="button" class="btn btn-outline-warning offset-1"
-                        data-toggle="modal" data-target="#modalUmSabor"
-                        data-whatever="PEQUENA - ESCOLHA 1 SABOR"  v-for="tamanho in tamanhos">
-                    [[ tamanho.nome ]]
+                        data-toggle="modal" data-target="#modalQuantidadedeSabor"
+                        data-whatever="PEQUENA - QUANTOS SABORES?"  v-for="tamanho in tamanhos">
+                    [[tamanho.nome]]
                 </button>
-{#                  <button type="button" class="btn btn-outline-dark">MÉDIA</button>#}
-{#                  <button type="button" class="btn btn-outline-danger">GRANDE</button>#}
-{#                  <button type="button" class="btn btn-outline-primary">GIGANTE</button>#}
-
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -59,7 +56,37 @@
         </div>
                                             <!-- FIM DA MODAL TAMANHO -->
 
-                                        <!-- MODAL PARA PIZZAS 1 SABOR-->
+
+                                        <!--INICIO DA MODAL ESCOLHA SABORES DE PIZZA-->
+        <div class="modal fade" id="modalQuantidadedeSabor" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div v-on:click="adicionar_qtd_sabores(qtd_sabores)" class="modal-body">
+                <button type="button" class="btn btn-outline-warning offset-1"
+                        data-toggle="modal" data-target="#modalUmSabor"
+                        data-whatever="PEQUENA" v-for="qtd_sabor in qtd_sabores">
+                     oloko meu!
+                </button>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+               </div>
+            </div>
+          </div>
+        </div>
+
+                                        <!--FIM DA MODAL ESCOLHA SABORES DE PIZZA-->
+
+
+                                        <!-- INICIO DA MODAL PARA PIZZAS 1 SABOR-->
 
         <div class="modal fade" id="modalUmSabor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -96,7 +123,6 @@
   </div>
 </div>
                                     <!--FIM DO MODAL PARA PIZZAS COM 1 SABORES -->
-
 
                                             <!--MODAL PARA PIZZAS COM ATE 2 SABORES-->
 
