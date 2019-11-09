@@ -1,237 +1,190 @@
 {% extends 'pyzza/base.html' %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Efetuar Pedidos</title>
-
 </head>
-
 <body>
 {% block content %}
+
+<div class="container-fluid ">
 <div class="row">
-  <div class="col-8"> <!-- coluna da esquerda para formar pedidos -->
-         <div class="container">
-  <div class="row">
-    <div class="col-12 col-sm-12 col-lg-12">
-        <div class="pedidos"><h1>FAÇA SEU PEDIDO</h1></div>
-
-        <!-- PEDIDOS PIZZAS -->
-                <!--<div class="titulo_tipo_salgadas"><h2>Pizzas Salgadas</h2></div>-->
-            <div class="row" style=" padding: 2em; margin-bottom: 1em;" >
-              <div class="col-md-6" data-toggle="modal" data-target="#modalTamanhoPizza" data-whatever="ESCOLHA O TAMANHO DA PIZZA">
-                  <a href="#"><img class="pizzas_img_pedidos"  src="{% static 'pyzza/image/escolha-pizza.jpg' %}"></a>
-              </div>
-              <div class="col-md-5"  data-toggle="modal" data-target="#modalbebidas" data-whatever="BEBIDAS">
-                  <a href="#"><img class="pizzas_img_pedidos" src="{% static 'pyzza/image/escolha-bebidas.jpg' %}"></a>
-              </div>
-
-            </div>
-        <!-- FINAL PEDIDOS PIZZAS -->
-
-        <!--MODAL TAMANHO PIZZA-->
-        <div class="modal fade" id="modalTamanhoPizza" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <button type="button" class="btn btn-outline-warning offset-1" data-toggle="modal" data-target="#modalUmSabor" data-whatever="PEQUENA - ESCOLHA 1 SABOR">
-                    PEQUENA
-                </button>
-                  <button type="button" class="btn btn-outline-dark">MÉDIA</button>
-                  <button type="button" class="btn btn-outline-danger">GRANDE</button>
-                  <button type="button" class="btn btn-outline-primary">GIGANTE</button>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-               </div>
-            </div>
-          </div>
+{#COLUNA FAZER PEDIDOS#}
+    <div class="col-12"><!--col-12-->
+        <div class="pedidos"><h1>FAÇA SEU PEDIDO FERA!</h1></div>
+    </div>
+        <div class="col-lg-4" >
+            <img src="{% static 'pyzza/image/escolha-pizza.jpg' %}" alt="" class="img-pedidos">
         </div>
-                                            <!-- FIM DA MODAL TAMANHO -->
+        <div class="col-lg-4">
+            <img src="{% static 'pyzza/image/escolha-bebidas.jpg' %}" alt="" class="img-pedidos">
+        </div>
+            <!--dados do pedido-->
+             <div ID="app" class="col-4">
+                 {% csrf_token %}
+                <div class="pedidos"><h3>DADOS DO PEDIDO</h3></div>
+                 <div class="container">
+                       <ul class="list-group" v-for="pizza in pizzas_selecionadas">
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                              <[[pizza.nome]]  [[pizza.valor_adicional]]
+                          </li>
+                    </ul>
+                </div>
+            </div>
+</div><!--end col-12-->
+</div>
 
-                                        <!-- MODAL PARA PIZZAS 1 SABOR-->
+    <!-- INICIO DA IMPLEMENTAÇÃO DAS MODAIS -->
 
-        <div class="modal fade" id="modalUmSabor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<a data-toggle="modal" href="#myModal" class="btn btn-primary">Launch modal</a>
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">  </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
+{#        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>#}
+        <h4 class="modal-title">QUAL TAMANHO?</h4>
       </div>
-      <div class="modal-body">
-              <ul class="list-group" v-for="pizza in pizzas">
-           <a href="#" v-bind:class="{disabled: UmSaborLimite} "
-             v-on:click="adicionar_pizza(pizza)" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          <div class="flex-column" >
-            <p> [[pizza.nome]] </p>
-              <span v-bind:class="pizza.tipo_pizza.nome" >[[pizza.tipo_pizza.nome]]</span>
-                <p> [[pizza.descricao]] </p>
-                <p> R$ [[pizza.valor_adicional]] </p>
-          </div>
-          <div class="image-parent">
-              <img src="" id="imagem_pizzas" class="img-fluid" alt="pizzas">
-          </div>
-        </a>
-
-      </ul>
+      <div class="container">
+             <div class="modal-body">
+                 <label>ESCOLHA O TAMANHO DA SUA PIZZA!</label>
+                <select id="selectTamanho" class="custom-select" v-model="tamanho_selecionado">
+                    <option v-for="tamanho in tamanhos" v-bind:value="tamanho">[[tamanho.nome]] </option>
+                  </select>
+                <label>ESCOLHA QUANTOS SABORES!</label>
+                 <div id="selectSabores" v-model="num_sabores_selecionado">
+                      <button type="button" class="btn btn-outline-warning"
+                              v-for="qtd in tamanho_selecionado.max_sabores" v-bind:key="qtd" v-bind:value="qtd">
+                          [[ qtd ]]
+                       </button>
+                  </div>
+            </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">VOLTAR</button>
-        <button type="button" class="btn btn-primary">BEBIDAS</button>
-           <button type="button" class="btn btn-primary">FINALIZAR PEDIDO</button>
+      <div class="modal-footer"> <a href="#" data-dismiss="modal" class="btn">Fechar</a>
+        <a data-toggle="modal" href="#myModal2" class="btn btn-primary">Próximo</a>
       </div>
     </div>
   </div>
 </div>
-                                    <!--FIM DO MODAL PARA PIZZAS COM 1 SABORES -->
-
-
-                                            <!--MODAL PARA PIZZAS COM ATE 2 SABORES-->
-
-        <div class="modal fade" id="modalDoisSabores" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"> </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-        <div class="modal-body">
-              <ul class="list-group" v-for="pizza in pizzas">
-         <a href="#" v-bind:class="{disabled: DoisSaborLimite} "
-             v-on:click="adicionar_pizza(pizza)" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          <div class="flex-column" >
-            <p>[[pizza.nome]]</p>
-              <span v-bind:class="pizza.tipo_pizza.nome" >[[pizza.tipo_pizza.nome]]</span>
-                <p> [[pizza.descricao]] </p>
-                <p> R$ [[pizza.valor_adicional]] </p>
-          </div>
-          <div class="image-parent">
-              <img src="" id="imagem_pizzas" class="img-fluid" alt="pizzas">
-          </div>
-        </a>
-      </ul>
+<div class="modal fade" id="myModal2">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+        <h4 class="modal-title">AGORA ESCOLHA UM SABOR TOP!!</h4>
+      </div>
+      <div class="container">
+            <div class="modal-body" v-for="pizza in pizzas">
+             <div class="list-group">
+                  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">[[pizza.nome]]</h5>
+                      <small>[[pizza.tipo_pizza.nome]]</small>
+                    </div>
+                    <p class="mb-1">[[pizza.descricao]]</p>
+                    <small>R$ [[pizza.valor_adicional]]</small>
+                  </a>
+            </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Pedir Bebida</button>
-        <button type="button" class="btn btn-primary">Enviar Pedido</button>
+           <a data-toggle="modal" href="#myModal2" class="btn btn-primary">ANTERIOR</a>
+            <a data-toggle="modal" href="#myModal3" class="btn btn-primary">PRÓXIMO</a>
       </div>
     </div>
   </div>
 </div>
-                                    <!-- FIM DO MODAL PARA PIZZAS COM 2 SABORES -->
-
-
-                                        <!-- MODAL PARA PIZZAS COM 3 SABORES-->
-
-        <div class="modal fade" id="modalTresSabores" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="myModal3">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h4 class="modal-title">NÃO VAI ESQUECER O GOLÊ!!</h4>
       </div>
-      <div class="modal-body">
-              <ul class="list-group" v-for="pizza in pizzas">
-          <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-             v-on:click="adicionar_pizza(pizza)">
-          <div class="flex-column" >
-            <p>[[pizza.nome]]</p>
-              <span v-bind:class="pizza.tipo_pizza.nome" >[[pizza.tipo_pizza.nome]]</span>
-                <p> [[pizza.descricao]] </p>
-                <p>R$ [[pizza.valor_adicional]] </p>
-          </div>
-          <div class="image-parent">
-              <img src="" id="imagem_pizzas" class="img-fluid" alt="pizzas">
-          </div>
-        </a>
-
-      </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">VOLTAR</button>
-        <button type="button" class="btn btn-primary">FINALIZAR PEDIDO</button>
-      </div>
-    </div>
-  </div>
-</div>
-                                   <!-- FIM DO MODAL PARA PIZZAS COM 3 SABORES -->
-
-
-                                            <!-- MODAL PARA BEBIDAS -->
-
-        <div class="modal fade" id="modalbebidas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h6 class="modal-title" id="exampleModalLabel"> </h6>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-              <ul class="list-group" v-for="bebida in bebidas">
-              <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-             v-on:click="adicionar_bebidas(bebidas)">
-          <div class="flex-column" >
-            <p>[[bebida.nome]]</p>
-              <!--
-              <span v-bind:class="pizza.tipo_pizza.nome" >[[pizza.tipo_pizza.nome]]</span>
-                <p><large>[[pizza.descricao]]</large></p>
-                <p><large>R$ [[pizza.valor_adicional]]</large></p>
-                -->
-          </div>
-          <div class="image-parent">
-              <img src="" id="imagem_bebidas" class="img-fluid">
-          </div>
-        </a>
-
-      </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">FECHAR</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">PEDIR PIZZA</button>
-        <button type="button" class="btn btn-primary">FINALIZAR PEDIDO</button>
-      </div>
-    </div>
-  </div>
-</div>
-                                                <!-- FIM DO MODAL DAS BEBIDAS -->
+      <div class="container">
+        <div class="modal-body" v-for="bebida in bebidas">
+            <div class="list-group">
+                  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" v-on:click="adicionar_bebidas(bebidas)">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">[[bebida.nome]]</h5>
+                      <small>R$ 10,00</small>
+                    </div>
+                    <p class="mb-1">2 litros</p>
+{#                    <small>R$ [[pizza.valor_adicional]]</small>#}
+                  </a>
+            </div>
         </div>
       </div>
+      <div class="modal-footer">
+{#          <a href="#" data-dismiss="modal" class="btn">Close</a>#}
+          <a data-toggle="modal" href="#myModal2" class="btn-outline-warning">ANTERIOR</a>
+          <a data-toggle="modal" href="#myModal4" class="btn btn-outline-dark">PRÓXIMO</a>
+      </div>
     </div>
-  </div><!-- fim da coluna da esquerda para formar pedidos -->
+  </div>
+</div>
+<div class="modal fade" id="myModal4">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">ESCOLHA O SABOR DA BORDA</h4>
+      </div>
+      <div class="container">
+          <div class="modal-body">
+            <div class="list-group">
+                  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" v-on:click="adicionar_borda(borda)">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">Borda Siciliana</h5>
+                      <small>Bacon, Mussarela Ralada e Requeijão</small>
+                    </div>
+{#                    <p class="mb-1">2 litros</p>#}
+                    <small>R$ 8,00 </small>
+                  </a>
+                   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" v-on:click="adicionar_borda(borda)">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">Borda de Mussarela</h5>
+                      <small>R$ 8,00</small>
+                    </div>
+                    <p class="mb-1">Muitaaaa mussarela ralada!!</p>
 
-    <!-- CARRINHO DE COMPRAS-->
-        <div id="app" class="col-4 col-sm-4 col-lg-4">
-            <div class="container">
-                     {% csrf_token %}
-                <div class="carrinho"><h1>CARRINHO</h1></div>
+                  </a>
+                   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" v-on:click="adicionar_borda(borda)">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">Borda de nutela</h5>
+{#                      <small>Nutela, muita nutela!</small>#}
+                        <small>R$ 18,00 </small>
+                    </div>
+                    <p class="mb-1">Nutela, muita nutela!</p>
+{#                    <small>R$ 18,00 </small>#}
+                  </a>
+                   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" v-on:click="adicionar_borda(borda)">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">Borda chocolate</h5>
+                        <small>R$ 6,00 </small>
+                    </div>
+                    <p class="mb-1">Chocolate com 80% de cacau, feito com leite das vacas do himalaia</p>
+{#                    <small>R$ 6,00 </small>#}
+                  </a>
+                   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" v-on:click="adicionar_borda(borda)">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">Borda chocolate branco</h5>
+                      <small>R$ 10,00</small>
+                    </div>
+                    <p class="mb-1">Chocolate branco MILKA, feito com puro leite suiço seloko!</p>
+{#                    <small>R$ 10,00 </small>#}
+                  </a>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+          <a href="#" class="btn btn-outline-warning">SEM BORDA</a>
+          <a data-toggle="modal" href="#myModal3" class="btn-outline-warning">ANTERIOR</a>
+          <a href="#" class="btn btn-primary">Enviar para carrinho</a>
 
-          <ul class="list-group" v-for="pizza in pizzas_selecionadas">
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-           [[pizza.nome]]
-              <p>[[pizza.valor_adicional]]</p>
-          </li>
-        </ul>
-
+      </div>
     </div>
-<!-- FIM DO CARRINHO DE COMPRAS -->
+  </div>
 </div>
-</div>
+
+
 
 {% endblock %}
 </body>
