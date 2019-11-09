@@ -250,9 +250,27 @@ body{
 
 /*FINAL PAGINA DE CONTATOS*/
 
-.pizzas_img_pedidos{
+.img-pedidos {
 	border-radius: 35px;
+	height: 70vh;
+	width: 60vh;
+	display: flex;
+	padding: 20px;
 }
+.coluna-pedido{
+	align-items: center;
+	align-content: center;
+	display: table-cell;
+	margin-left: 1em;
+}
+.col-8{
+	background-color: #e89d00;
+	padding: 5px;
+}
+.col-4{
+	background-color: #fefefe;
+ }
+
 
 /* RESPONSIVE CSS mobile
 -------------------------------------------------- */

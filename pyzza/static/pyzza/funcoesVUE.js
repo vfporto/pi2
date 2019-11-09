@@ -9,11 +9,15 @@
             pizzas : [],
             pizzas_selecionadas:[],
             bebidas:[],
-            bebidas_selecionadas:[],
+            bebida_selecionada:{max_bebidas:0},
+            num_bebidas_selecionada:[],
             tamanhos:[],
-            tamanhos_selecionados:[],
-            qtd_sabores: [],
-            qtd_sabores_selecionados: [],
+            tamanho_selecionado: {max_sabores:0},
+            num_sabores_selecionado: {},
+
+            // tamanhos_selecionados:[], //jogar fora
+            // qtd_sabores:[], //acho que tb vai fora
+            // qtd_sabores_selecionados: [], //e esse tambem...S
 
 
         },
@@ -23,12 +27,10 @@
               this.busca_pizzas();
               this.busca_bebidas();
               this.busca_tamanhos();
-              this.busca_qtd_sabores();
-        },
+         },
         monted:function () {
-
-            /*tudo que colocar aqui eh executado a pagina for montada*/
-        },
+             /*tudo que colocar aqui eh executado a pagina for montada*/
+         },
         updated: function(){
 
         },
@@ -70,66 +72,63 @@
                     this.tamanhos = dados.body;
                 })
             },
-            adicionar_tamanhos: function (tamanhos) {
-                this.tamanhos_selecionados.push(tamanhos);
+            adicionar_tamanhos: function (tamanho) {
+                this.tamanhos_selecionados.push(tamanho);
                 }
             },
             remover_tamanhos: function(tamanhos){
                 this.tamanhos_selecionados = this.tamanhos_selecionados.filter(x => x.id != tamanhos.id);
             },
-
             busca_qtd_sabores: function () {
+
                 this.$http.get('api/sabores_pizza/').then(dados=>{
                     this.qtd_sabores = dados.body;
+                     console.log("to aqui");
                 })
             },
-           adicionar_qtd_sabores: function (qtd_sabores) {
-               this.qtd_sabores_selecionados.push(qtd_sabores);
-            },
 
-            remover_qtd_sabores: function (qtd_sabores) {
-              this.qtd_sabores_selecionados = this.qtd_sabores_selecionados.filter(x => x.id != qtd_sabores.id);
-            },
     })
 
-//ABRE MODAL SELECIONADO DE ACORDO COM O TAMANHO ESCOLHIDO
-$('#modalUmSabor').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Botão que acionou o modal
-  var recipient = button.data('whatever') // Extrai informação dos atributos data-*
-  var modal = $(this)
-  modal.find('.modal-title').text(recipient)
-  modal.find('.modal-body input').val(recipient)
-})
 
-$('#modalbebidas').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Botão que acionou o modal
-  var recipient = button.data('whatever') // Extrai informação dos atributos data-*
-  var modal = $(this)
-  modal.find('.modal-title').text(recipient)
-  modal.find('.modal-body input').val(recipient)
-})
-  $('#modalTamanhoPizza').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Botão que acionou o modal
-  var recipient = button.data('whatever') // Extrai informação dos atributos data-*
-  var modal = $(this)
-  modal.find('.modal-title').text(recipient)
-  modal.find('.modal-body input').val(recipient)
-})
-  $('#modalQuantidadedeSabor').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Botão que acionou o modal
-  var recipient = button.data('whatever') // Extrai informação dos atributos data-*
-  var modal = $(this)
-  modal.find('.modal-title').text(recipient)
-  modal.find('.modal-body input').val(recipient)
-})
 
-     /*
-     $('#exampleModal3').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Botão que acionou o modal
-  var recipient = button.data('whatever') // Extrai informação dos atributos data-*
-  var modal = $(this)
-  modal.find('.modal-title').text('3 sabores: ' + recipient)
-  modal.find('.modal-body input').val(recipient)
-})
-
- */
+// //ABRE MODAL SELECIONADO DE ACORDO COM O TAMANHO ESCOLHIDO
+// $('#modalUmSabor').on('show.bs.modal', function (event) {
+//   var button = $(event.relatedTarget) // Botão que acionou o modal
+//   var recipient = button.data('whatever') // Extrai informação dos atributos data-*
+//   var modal = $(this)
+//   modal.find('.modal-title').text(recipient)
+//   modal.find('.modal-body input').val(recipient)
+// })
+//
+// $('#modalbebidas').on('show.bs.modal', function (event) {
+//   var button = $(event.relatedTarget) // Botão que acionou o modal
+//   var recipient = button.data('whatever') // Extrai informação dos atributos data-*
+//   var modal = $(this)
+//   modal.find('.modal-title').text(recipient)
+//   modal.find('.modal-body input').val(recipient)
+// })
+//   $('#modalTamanhoPizza').on('show.bs.modal', function (event) {
+//   var button = $(event.relatedTarget) // Botão que acionou o modal
+//   var recipient = button.data('whatever') // Extrai informação dos atributos data-*
+//   var modal = $(this)
+//   modal.find('.modal-title').text(recipient)
+//   modal.find('.modal-body input').val(recipient)
+// })
+//   $('#modalQuantidadedeSabor').on('show.bs.modal', function (event) {
+//   var button = $(event.relatedTarget) // Botão que acionou o modal
+//   var recipient = button.data('whatever') // Extrai informação dos atributos data-*
+//   var modal = $(this)
+//   modal.find('.modal-title').text(recipient)
+//   modal.find('.modal-body input').val(recipient)
+// })
+//
+//      /*
+//      $('#exampleModal3').on('show.bs.modal', function (event) {
+//   var button = $(event.relatedTarget) // Botão que acionou o modal
+//   var recipient = button.data('whatever') // Extrai informação dos atributos data-*
+//   var modal = $(this)
+//   modal.find('.modal-title').text('3 sabores: ' + recipient)
+//   modal.find('.modal-body input').val(recipient)
+// })
+//
+//  */

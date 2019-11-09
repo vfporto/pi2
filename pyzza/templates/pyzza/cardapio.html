@@ -13,26 +13,27 @@
 
         <div class="pedidos">
             <h1>OLHA ESSES SABORES.. waaahh!</h1>
-            <h4 id="sub_titulo_cardapio">Um mais gostoso que o outro!! :)</h4>
+            <h4 id="sub_titulo_cardapio">Alienígenas!!</h4>
         </div>
-    <div class="row" >
-        <div id="colunas-cardapio" class="col-3">sabor 1</div>
-        <div id="colunas-cardapio" class="col-3">sabor 1</div>
-        <div id="colunas-cardapio" class="col-3">sabor 1</div>
-        <div id="colunas-cardapio" class="col-3">sabor 1</div>
+
+    <div class="row" v-for="pizza in pizzas">
+        <div id="colunas-cardapio" class="col-3">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="[[pizza.imagem]]" alt="Imagem de capa do card">
+              <div class="card-body">
+                <h5 class="card-title">[[pizza.nome]]</h5>
+                <p class="card-text">[[pizza.descricao]]</p>
+                <a href="#" class="btn btn-primary">Pedir</a>
+              </div>
+            </div>
+        </div>
+
+
+        </div>
+        <div id="colunas-cardapio" class="col-3">[[pizza.valor_adicional]]</div>
+        <div id="colunas-cardapio" class="col-3"><img src="[[pizza.imagem]]" ></div>
     </div>
-     <div class="row" >
-        <div id="colunas-cardapio" class="col-3">sabor 1</div>
-        <div id="colunas-cardapio" class="col-3">sabor 1</div>
-        <div id="colunas-cardapio" class="col-3">sabor 1</div>
-        <div id="colunas-cardapio" class="col-3">sabor 1</div>
-    </div>
-     <div class="row" >
-        <div id="colunas-cardapio" class="col-3">sabor 1</div>
-        <div id="colunas-cardapio" class="col-3">sabor 1</div>
-        <div id="colunas-cardapio" class="col-3">sabor 1</div>
-        <div id="colunas-cardapio" class="col-3">sabor 1</div>
-    </div>
+
 
 
 
