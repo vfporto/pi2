@@ -2,6 +2,8 @@ from django.db import models
 from bebidas.models import BebidaTamanhoBebida
 from pizzas.models import TamanhoPizza, SaborBorda, SaborPizza
 from pessoas.models import Entregador, Cliente
+from django.db.models.signals import m2m_changed
+from django.dispatch import receiver
 
 
 # Pedido Models
@@ -29,15 +31,27 @@ class FormaDePagamento(models.Model):
 
 class Pedido(models.Model):
     data = models.DateTimeField(auto_now_add=True)
-    total = models.DecimalField(decimal_places=2, max_digits=7, default=0)
+    total = models.DecimalField(decimal_places=2, max_digits=7, default=0, blank=True, null=True)
     troco_para = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     forma_de_pagamento = models.ForeignKey(FormaDePagamento, on_delete=models.PROTECT)
     status_pedido = models.ForeignKey(StatusPedido, on_delete=models.PROTECT)
     entregador = models.ForeignKey(Entregador, on_delete=models.PROTECT)
     cliente = models.ForeignKey(Cliente, on_delete=models.PROTECT)
 
+    def get_total(self):
+        tot = 0
+        for p in self.objects.itens_pizza.all():
+            pass
+        return 0
+
+
+
     def __str__(self):
         return self.data.strftime("%B %d, %Y, %I:%M %p") + " " + self.cliente.nome
+
+# @receiver(m2m_changed, sender=Pedido.objects.itens_pizza.trough) # FIXME: essa m... só funciona muitos pra muitos
+def update_pedido_total(sender, instance, **kwargs):
+    pass
 
 
 class ItemBebida(models.Model):
