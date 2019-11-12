@@ -17,15 +17,15 @@ class FormaDePagamentoSerializer(serializers.ModelSerializer):
         fields = ('__all__')
 
 class ItemBebidaSerializer(serializers.ModelSerializer):
-    bebida_tamanho = BebidaTamanhoBebida_Serializer()
+    # bebida_tamanho = BebidaTamanhoBebida_Serializer()
     class Meta:
         model = ItemBebida
         fields = ('__all__')
 
 class ItemPizzaSerializer(serializers.ModelSerializer):
-    sabores = SaborPizzaSerializer(many=True)
-    sabor_borda = SaborBordaSerializer()
-    tamanho_pizza = TamanhoPizzaSerializer()
+    # sabores = SaborPizzaSerializer(many=True)
+    # sabor_borda = SaborBordaSerializer()
+    # tamanho_pizza = TamanhoPizzaSerializer()
     class Meta:
         model = ItemPizza
         fields = ('__all__')
@@ -33,8 +33,8 @@ class ItemPizzaSerializer(serializers.ModelSerializer):
 class PedidoSerializer(serializers.ModelSerializer):
     itens_pizza = ItemPizzaSerializer(many=True)
     itens_bebida = ItemBebidaSerializer(many=True)
-    forma_de_pagamento = FormaDePagamentoSerializer()
-    status_pedido = StatusPedidoSerializer()
+    # forma_de_pagamento = FormaDePagamentoSerializer()
+    # status_pedido = StatusPedidoSerializer()
 
     class Meta:
         model = Pedido

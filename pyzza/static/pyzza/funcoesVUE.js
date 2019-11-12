@@ -14,6 +14,7 @@
             tamanhos:[],
             tamanho_selecionado: {max_sabores:0},
             num_sabores_selecionado: {},
+            pedido: {},
 
             // tamanhos_selecionados:[], //jogar fora
             // qtd_sabores:[], //acho que tb vai fora

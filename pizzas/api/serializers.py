@@ -8,7 +8,7 @@ class Ingrediente_Serializer(serializers.ModelSerializer):
         fields = ('__all__')
 
 class SaborPizzaIngrediente_Serializer(serializers.ModelSerializer):
-    ingrediente = Ingrediente_Serializer()
+    # ingrediente = Ingrediente_Serializer()
     class Meta:
         model = SaborPizzaIngrediente
         fields = ('__all__')
@@ -22,7 +22,7 @@ class TipoPizza_Serializer(serializers.ModelSerializer):
 
 class Pizza_Serializer(serializers.ModelSerializer):
     tipo_pizza = TipoPizza_Serializer()
-    ingredientes = SaborPizzaIngrediente_Serializer(many=True, read_only=True)
+    # ingredientes = SaborPizzaIngrediente_Serializer(many=True, read_only=True)
     class Meta:
         model = SaborPizza
         # fields = ('__all__')
