@@ -3,17 +3,20 @@ from django.contrib import admin
 from pedidos.models import ItemPizza, StatusPedido, FormaDePagamento, Pedido, ItemBebida
 
 
-class ItemPizzaInline(admin.StackedInline):
+class ItemPizzaInline(admin.TabularInline):
     model = ItemPizza
     extra = 0
-    fields = ['tamanho_pizza', 'sabor_borda', 'sabores', 'observacao', 'quantidade', 'preco']
+    fields = ['tamanho_pizza', 'sabor_borda', 'sabores', 'quantidade', 'get_preco']
+    readonly_fields = ['get_preco']
     autocomplete_fields = ['sabores']
 
 
-class ItemBebidaInline(admin.StackedInline):
+class ItemBebidaInline(admin.TabularInline):
     model = ItemBebida
     extra = 0
-    fields = ['id','bebida_tamanho' , 'quantidade', 'preco']
+    fields = ['id','bebida_tamanho' , 'quantidade', 'preco', 'get_preco']
+    readonly_fields = ['get_preco']
+
 """
     quantidade = models.PositiveIntegerField(null=False, default=1)
     preco = models.DecimalField(decimal_places=2, max_digits=7, default=0)
@@ -25,9 +28,10 @@ class ItemBebidaInline(admin.StackedInline):
 
 class PedidoAdmin(admin.ModelAdmin):
     # search_fields = ['']
-    list_display = ['id', 'data', 'cliente', 'status_pedido']
-    list_display_links = ['id', 'data', 'cliente', 'status_pedido']
+    list_display = ['id', 'data', 'cliente', 'status_pedido', 'get_total']
+    list_display_links = ['id', 'data', 'cliente','get_total', 'status_pedido']
     ordering = ['data']
+    readonly_fields = ['get_total']
     inlines = [ItemPizzaInline, ItemBebidaInline]
 
 
