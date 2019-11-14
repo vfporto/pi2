@@ -17,19 +17,22 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from django.urls import include
-from pyzza.views import Pizza_Viewset, Bebida_Viewset, TamanhoPizza_Viewset
+
+from pizzas.api.viewsets import Pizza_Viewset, TamanhoPizza_Viewset
+from bebidas.api.viewsets import Bebida_Viewset
+from pedidos.api.viewsets import PedidoViewSet
 
 from pi2 import settings
 rotas_api = routers.DefaultRouter()
 rotas_api.register('pizza',Pizza_Viewset,'SaborPizza')
 rotas_api.register('bebida',Bebida_Viewset,"Bebida")
 rotas_api.register('tamanho_pizza', TamanhoPizza_Viewset, 'TamanhoPizza')
+rotas_api.register('pedidos', PedidoViewSet, basename='Pedido')
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(rotas_api.urls)),#inclui as rotas da api, podendo criar mais rotas
     path('', include('pyzza.urls')),
-
-              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

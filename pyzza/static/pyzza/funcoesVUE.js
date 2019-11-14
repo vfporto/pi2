@@ -1,4 +1,34 @@
      /*aqui criamos as estancias do vue*/
+
+     var exemplo = {
+         "itens_pizza": [
+             {
+                 "id": 3,
+                 "quantidade": 2,
+                 "pedido": 2,
+                 "tamanho_pizza": 1,
+                 "sabor_borda": 2,
+                 "sabores": [
+                     3,
+                     4
+                 ]
+             }
+         ],
+         "itens_bebida": [
+             {
+                 "id": 2,
+                 "quantidade": 1,
+                 "pedido": 2,
+                 "bebida_tamanho": 1
+             }
+         ],
+         "troco_para": "0.00",
+         "observacao": "",
+         "forma_de_pagamento": 1,
+         "cliente": 1
+     };
+
+
     var app = new Vue({
 
         el:'#app',
@@ -14,6 +44,7 @@
             tamanhos:[],
             tamanho_selecionado: {max_sabores:0},
             num_sabores_selecionado: {},
+            pedido: {},
 
             // tamanhos_selecionados:[], //jogar fora
             // qtd_sabores:[], //acho que tb vai fora
