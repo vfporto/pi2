@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from django.utils.datetime_safe import datetime
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     'pessoas',
     'pedidos',
     # 'django_filters',
+    'rest_framework_simplejwt'
 ]
 
 MIDDLEWARE = [
@@ -159,3 +162,10 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/imagens/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "imagens/")
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}

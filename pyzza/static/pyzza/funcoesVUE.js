@@ -27,8 +27,6 @@
          "forma_de_pagamento": 1,
          "cliente": 1
      };
-
-
     var app = new Vue({
 
         el:'#app',
@@ -126,14 +124,14 @@
 
     /*modal login e registro*/
 
-      $("#btnLogin").click(function(event) {
-          var form = $("#formLogin")
-
-        if (form[0].checkValidity() === false) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-        form.addClass('was-validated');
-  });
+  //     $("#btnLogin").click(function(event) {
+  //         var form = $("#formLogin")
+  //
+  //       if (form[0].checkValidity() === false) {
+  //         event.preventDefault()
+  //         event.stopPropagation()
+  //       }
+  //       form.addClass('was-validated');
+  // });
 
      /*final da modal de login e registro*/
