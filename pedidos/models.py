@@ -37,7 +37,7 @@ class Pedido(models.Model):
     troco_para = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     forma_de_pagamento = models.ForeignKey(FormaDePagamento, on_delete=models.PROTECT, default=1)
     status_pedido = models.ForeignKey(StatusPedido, on_delete=models.PROTECT, default=1)
-    entregador = models.ForeignKey(Entregador, on_delete=models.PROTECT)
+    entregador = models.ForeignKey(Entregador, on_delete=models.PROTECT, null=True, blank=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.PROTECT)
     observacao = models.TextField(default='', blank=True, null=True)
 
@@ -61,21 +61,34 @@ class Pedido(models.Model):
         #TODO: Utilizar funções de banco para consumirIngredientes
         itens_pizza = self.itens_pizza.all()
         for item in itens_pizza:
-            for sabor in item.sabores.all():
-                print("%s %s" % ("SaborPizza: ", sabor.nome))
-                for ingrediente in sabor.ingredientes.all():
-                    pivot = sabor.ingredientes_pivot.filter(ingrediente=ingrediente).get()
-                    nova_quantidade = ingrediente.qt_estoque - pivot.quantidade
-                    print("  %s :  %5.2f - %5.2f = %5.2f" % (
-                        ingrediente.nome, ingrediente.qt_estoque, pivot.quantidade, nova_quantidade
-                    ))
+            num_sabores = item.sabores.count()
+            if(num_sabores > 0):
+                print("ItemPizza -> tamanho: %s (%d sabor(es)) -> Qtde: %s " % (item.tamanho_pizza.nome, num_sabores, item.quantidade))
+                for sabor in item.sabores.all():
+                    print("  %s %s" % ("SaborPizza: ", sabor.nome))
+                    for ingrediente in sabor.ingredientes.all():
+                        pivot = sabor.ingredientes_pivot.filter(ingrediente=ingrediente).get()
+                        qt_consumo = ((pivot.quantidade * item.tamanho_pizza.multiplicador) * item.quantidade)/num_sabores
+                        nova_quantidade = ingrediente.qt_estoque - qt_consumo
+                        print("    %s :  %5.2f - %5.2f = %5.2f" % (
+                            ingrediente.nome, ingrediente.qt_estoque, qt_consumo, nova_quantidade))
+                        ingrediente.qt_estoque = nova_quantidade
+                        ingrediente.save()
+                borda = item.sabor_borda
+                print("  %s %s" % ("SaborBorda: ", borda.nome))
+                for ingrediente in borda.ingredientes.all():
+                    pivot = borda.ingredientes_borda_pivot.filter(ingrediente=ingrediente).get()
+                    qt_consumo = (pivot.quantidade * item.tamanho_pizza.multiplicador) * item.quantidade
+                    nova_quantidade = ingrediente.qt_estoque - qt_consumo
+                    print("    %s :  %5.2f - %5.2f = %5.2f" % (
+                        ingrediente.nome, ingrediente.qt_estoque, qt_consumo, nova_quantidade))
                     ingrediente.qt_estoque = nova_quantidade
                     ingrediente.save()
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         print("--------- PEDIDO PRE SAVE() ----------")
-        # FIXME: utilizar id e deixar os status como default nas migrations
-        if(self.status_pedido.nome=="EM_PRODUCAO"):
+        # status_pedido == 2 -> "EM_PRODUCAO" --> se mudar isso vai dar problema...
+        if(self.status_pedido.id==2): ## nome=="EM_PRODUCAO"):
             print("consumirIngredientes()")
             # self.total = self.get_total()
             # self.consumirIngredientes()

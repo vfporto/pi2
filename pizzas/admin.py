@@ -10,6 +10,11 @@ class TipoPizzaAdmin(admin.ModelAdmin):
 
 class IngredienteAdmin(admin.ModelAdmin):
     search_fields = ['nome']
+    list_display = ['id', 'nome', 'qt_estoque', 'qt_minima', 'qt_maxima', 'un_medida']
+    # list_display_links = ['nome', 'qt_estoque', 'qt_minima', 'qt_maxima', 'un_medida']
+    list_display_links = ['id', 'nome']
+    ordering = ['nome']
+    list_editable = ['qt_estoque', 'qt_minima', 'qt_maxima', 'un_medida']
 
 
 class BordaIngredienteInLine(admin.TabularInline):
