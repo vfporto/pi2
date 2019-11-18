@@ -28,7 +28,7 @@ class SaborBorda(models.Model):
     nome = models.CharField(max_length=50)
     valor_adicional = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     disponivel = models.BooleanField(default=True)
-   # ingredientes = models.ManyToManyField(Ingrediente, related_name='ingredientes')
+    ingredientes = models.ManyToManyField(Ingrediente, related_name='sabores_borda', through='SaborBordaIngrediente', blank=True)
 
     def __str__(self):
         return self.nome
@@ -65,8 +65,8 @@ class SaborPizzaIngrediente(models.Model):
 
 
 class SaborBordaIngrediente(models.Model):
-    sabor_borda = models.ForeignKey(SaborBorda, on_delete=models.CASCADE, related_name='ingredientes')
-    ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT, related_name='sabores_borda')
+    sabor_borda = models.ForeignKey(SaborBorda, on_delete=models.CASCADE, related_name='ingredientes_borda_pivot')
+    ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT, related_name='sabores_borda_pivot')
     quantidade = models.DecimalField(decimal_places=2, max_digits=7, default=0)
 
 
