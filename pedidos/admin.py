@@ -31,10 +31,10 @@ class PedidoAdmin(admin.ModelAdmin):
     list_display = ['id', 'data', 'cliente', 'status_pedido', 'get_total']
     list_display_links = ['id', 'data', 'cliente','get_total', 'status_pedido']
     ordering = ['data']
-    readonly_fields = ['get_total']
+    readonly_fields = ['get_total', 'total']
     inlines = [ItemPizzaInline, ItemBebidaInline]
 
 
-admin.site.register(StatusPedido)
+# admin.site.register(StatusPedido)
 admin.site.register(FormaDePagamento)
 admin.site.register(Pedido, PedidoAdmin)
