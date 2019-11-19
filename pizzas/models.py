@@ -3,9 +3,9 @@ from django.db import models
 # Pizzas Models
 class Ingrediente(models.Model):
     nome = models.CharField(max_length=50)
-    qt_estoque = models.IntegerField()
-    qt_minima = models.IntegerField()
-    qt_maxima = models.IntegerField()
+    qt_estoque = models.DecimalField(decimal_places=2, max_digits=7, default=0)
+    qt_minima = models.DecimalField(decimal_places=2, max_digits=7, default=0)
+    qt_maxima = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     un_medida = models.CharField(max_length=20)
 
     def __str__(self):
@@ -28,7 +28,7 @@ class SaborBorda(models.Model):
     nome = models.CharField(max_length=50)
     valor_adicional = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     disponivel = models.BooleanField(default=True)
-   # ingredientes = models.ManyToManyField(Ingrediente, related_name='ingredientes')
+    ingredientes = models.ManyToManyField(Ingrediente, related_name='sabores_borda', through='SaborBordaIngrediente', blank=True)
 
     def __str__(self):
         return self.nome
@@ -44,7 +44,7 @@ class SaborPizza(models.Model):
     valor_adicional = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     disponivel = models.BooleanField(default=True)
     imagem = models.ImageField(null=True, blank=True, upload_to="sabor_pizza_img/", verbose_name="Imagem")
-
+    ingredientes = models.ManyToManyField(Ingrediente, blank=True, through='SaborPizzaIngrediente', related_name='sabores')
 
     def __str__(self):
         return self.nome
@@ -55,8 +55,8 @@ class SaborPizza(models.Model):
 
 
 class SaborPizzaIngrediente(models.Model):
-    sabor_pizza = models.ForeignKey(SaborPizza, on_delete=models.CASCADE, related_name='ingredientes')
-    ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT, related_name='sabores_pizza')
+    sabor_pizza = models.ForeignKey(SaborPizza, on_delete=models.CASCADE, related_name='ingredientes_pivot')
+    ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT, related_name='sabores_pivot')
     quantidade = models.DecimalField(decimal_places=2, max_digits=7, default=0)
 
     class Meta:
@@ -65,8 +65,8 @@ class SaborPizzaIngrediente(models.Model):
 
 
 class SaborBordaIngrediente(models.Model):
-    sabor_borda = models.ForeignKey(SaborBorda, on_delete=models.CASCADE, related_name='ingredientes')
-    ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT, related_name='sabores_borda')
+    sabor_borda = models.ForeignKey(SaborBorda, on_delete=models.CASCADE, related_name='ingredientes_borda_pivot')
+    ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT, related_name='sabores_borda_pivot')
     quantidade = models.DecimalField(decimal_places=2, max_digits=7, default=0)
 
 

@@ -10,6 +10,11 @@ class TipoPizzaAdmin(admin.ModelAdmin):
 
 class IngredienteAdmin(admin.ModelAdmin):
     search_fields = ['nome']
+    list_display = ['id', 'nome', 'qt_estoque', 'qt_minima', 'qt_maxima', 'un_medida']
+    # list_display_links = ['nome', 'qt_estoque', 'qt_minima', 'qt_maxima', 'un_medida']
+    list_display_links = ['id', 'nome']
+    ordering = ['nome']
+    list_editable = ['qt_estoque', 'qt_minima', 'qt_maxima', 'un_medida']
 
 
 class BordaIngredienteInLine(admin.TabularInline):
@@ -45,11 +50,7 @@ class SaborPizzaAdmin(admin.ModelAdmin):
 
     def show_imagem(self, obj):
         return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
-            url=obj.imagem.url,
-            width=obj.imagem.width,
-            height=obj.imagem.height,
-        )
-        )
+            url=obj.imagem.url, width=obj.imagem.width, height=obj.imagem.height, ))
 
 
 admin.site.register(TipoPizza, TipoPizzaAdmin)
