@@ -8,7 +8,7 @@ class ItemPizzaInline(admin.TabularInline):
     extra = 0
     fields = ['tamanho_pizza', 'sabor_borda', 'sabores', 'quantidade', 'get_preco']
     readonly_fields = ['get_preco']
-    autocomplete_fields = ['sabores']
+    autocomplete_fields = ['tamanho_pizza', 'sabor_borda', 'sabores']
 
 
 class ItemBebidaInline(admin.TabularInline):
@@ -27,14 +27,25 @@ class ItemBebidaInline(admin.TabularInline):
 
 
 class PedidoAdmin(admin.ModelAdmin):
-    # search_fields = ['']
+    #search_fields = ['']
     list_display = ['id', 'data', 'cliente', 'status_pedido', 'get_total']
     list_display_links = ['id', 'data', 'cliente','get_total', 'status_pedido']
     ordering = ['data']
     readonly_fields = ['get_total', 'total']
     inlines = [ItemPizzaInline, ItemBebidaInline]
+    autocomplete_fields = ['cliente','forma_de_pagamento',]
+    fieldsets = (( None, {
+      'fields': ('cliente', ('forma_de_pagamento', 'troco_para'),'observacao')
+    }),
+                 ('Opções de Entrega', {
+                     'classes': ('collapse',),
+                     'fields': ('status_pedido', 'entregador'),
+                 }),
+                 )
 
+class FormaDePagamentoAdmin(admin.ModelAdmin):
+    search_fields = ['nome']
 
 # admin.site.register(StatusPedido)
-admin.site.register(FormaDePagamento)
+admin.site.register(FormaDePagamento, FormaDePagamentoAdmin)
 admin.site.register(Pedido, PedidoAdmin)

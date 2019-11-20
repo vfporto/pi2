@@ -36,3 +36,8 @@ urlpatterns = [
     path('api/', include(rotas_api.urls)),#inclui as rotas da api, podendo criar mais rotas
     path('', include('pyzza.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+admin.site.site_header  = "Pyzzarella - Sistema de Gerenciamento"
+admin.site.index_title = 'Painel de Administração'
+admin.site.site_title = 'Seja bem vindo(a)'

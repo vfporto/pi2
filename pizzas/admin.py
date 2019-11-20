@@ -56,9 +56,12 @@ class SaborPizzaAdmin(admin.ModelAdmin):
         )
         )
 
+class TamanhoPizzaAdmin(admin.ModelAdmin):
+    search_fields = ['nome']
+
 
 admin.site.register(TipoPizza, TipoPizzaAdmin)
 admin.site.register(Ingrediente, IngredienteAdmin)
 admin.site.register(SaborBorda, SaborBordaAdmin)
 admin.site.register(SaborPizza, SaborPizzaAdmin)
-admin.site.register(TamanhoPizza)
+admin.site.register(TamanhoPizza, TamanhoPizzaAdmin)
