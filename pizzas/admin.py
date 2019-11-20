@@ -39,22 +39,29 @@ class PizzaIngredienteInLine(admin.TabularInline):
 
 
 class SaborPizzaAdmin(admin.ModelAdmin):
-    search_fields = ['nome']
     list_display = ['id', 'tipo_pizza', 'nome', 'valor_adicional', 'disponivel']
     list_display_links = ['id', 'tipo_pizza', 'nome', 'valor_adicional']
     list_editable = ['disponivel']
+    list_filter = ['tipo_pizza']
     readonly_fields = ["show_imagem"]
-    ordering = ['nome']
+    search_fields = ['nome']
     autocomplete_fields = ['tipo_pizza']
     inlines = [PizzaIngredienteInLine]
+    ordering = ['nome']
 
     def show_imagem(self, obj):
         return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
             url=obj.imagem.url, width=obj.imagem.width, height=obj.imagem.height, ))
+
+class TamanhoPizzaAdmin(admin.ModelAdmin):
+    list_display = ['id', 'nome', 'max_sabores', 'preco', 'multiplicador','ordem']
+    list_display_links = ['id', 'nome', 'max_sabores', 'preco', 'multiplicador']
+    search_fields = ['nome']
+    list_editable = ['ordem']
 
 
 admin.site.register(TipoPizza, TipoPizzaAdmin)
 admin.site.register(Ingrediente, IngredienteAdmin)
 admin.site.register(SaborBorda, SaborBordaAdmin)
 admin.site.register(SaborPizza, SaborPizzaAdmin)
-admin.site.register(TamanhoPizza)
+admin.site.register(TamanhoPizza, TamanhoPizzaAdmin)

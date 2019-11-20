@@ -1,0 +1,1368 @@
+[
+  {
+    "model": "bebidas.tamanhobebida",
+    "pk": 1,
+    "fields": {
+      "nome": "2 litros"
+    }
+  },
+  {
+    "model": "bebidas.tamanhobebida",
+    "pk": 2,
+    "fields": {
+      "nome": "1 litro"
+    }
+  },
+  {
+    "model": "bebidas.tamanhobebida",
+    "pk": 3,
+    "fields": {
+      "nome": "350 ml"
+    }
+  },
+  {
+    "model": "bebidas.tamanhobebida",
+    "pk": 4,
+    "fields": {
+      "nome": "250ml"
+    }
+  },
+  {
+    "model": "bebidas.bebida",
+    "pk": 1,
+    "fields": {
+      "nome": "Coca Cola"
+    }
+  },
+  {
+    "model": "bebidas.bebida",
+    "pk": 2,
+    "fields": {
+      "nome": "Fanta"
+    }
+  },
+  {
+    "model": "bebidas.bebida",
+    "pk": 3,
+    "fields": {
+      "nome": "Guaran\u00e1"
+    }
+  },
+  {
+    "model": "bebidas.bebidatamanhobebida",
+    "pk": 1,
+    "fields": {
+      "preco": "8.00",
+      "bebida": 1,
+      "tamanho_bebida": 1
+    }
+  },
+  {
+    "model": "bebidas.bebidatamanhobebida",
+    "pk": 2,
+    "fields": {
+      "preco": "8.00",
+      "bebida": 2,
+      "tamanho_bebida": 1
+    }
+  },
+  {
+    "model": "bebidas.bebidatamanhobebida",
+    "pk": 3,
+    "fields": {
+      "preco": "8.00",
+      "bebida": 3,
+      "tamanho_bebida": 1
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 1,
+    "fields": {
+      "nome": "Calabresa",
+      "qt_estoque": 10,
+      "qt_minima": 1,
+      "qt_maxima": 10,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 2,
+    "fields": {
+      "nome": "Molho Tomate",
+      "qt_estoque": 20,
+      "qt_minima": 4,
+      "qt_maxima": 25,
+      "un_medida": "lts"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 3,
+    "fields": {
+      "nome": "Mussarela",
+      "qt_estoque": 40000,
+      "qt_minima": 1000,
+      "qt_maxima": 40000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 4,
+    "fields": {
+      "nome": "Mussarela",
+      "qt_estoque": 40000,
+      "qt_minima": 1000,
+      "qt_maxima": 40000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 5,
+    "fields": {
+      "nome": "Tomate picado",
+      "qt_estoque": 40000,
+      "qt_minima": 1000,
+      "qt_maxima": 45000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 6,
+    "fields": {
+      "nome": "Frango",
+      "qt_estoque": 40000,
+      "qt_minima": 1000,
+      "qt_maxima": 45000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 7,
+    "fields": {
+      "nome": "Catupiry",
+      "qt_estoque": 40000,
+      "qt_minima": 1000,
+      "qt_maxima": 45000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 8,
+    "fields": {
+      "nome": "Peperoni",
+      "qt_estoque": 40000,
+      "qt_minima": 1000,
+      "qt_maxima": 45000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 9,
+    "fields": {
+      "nome": "Bacon",
+      "qt_estoque": 40000,
+      "qt_minima": 1000,
+      "qt_maxima": 45000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 10,
+    "fields": {
+      "nome": "Cheedar",
+      "qt_estoque": 50000,
+      "qt_minima": 1000,
+      "qt_maxima": 50000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 11,
+    "fields": {
+      "nome": "Chocolate",
+      "qt_estoque": 50000,
+      "qt_minima": 1000,
+      "qt_maxima": 50000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 12,
+    "fields": {
+      "nome": "Chocolate Branco",
+      "qt_estoque": 40000,
+      "qt_minima": 1000,
+      "qt_maxima": 40000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 13,
+    "fields": {
+      "nome": "Parmes\u00e3o",
+      "qt_estoque": 45000,
+      "qt_minima": 1000,
+      "qt_maxima": 45000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 14,
+    "fields": {
+      "nome": "Banana",
+      "qt_estoque": 45000,
+      "qt_minima": 1000,
+      "qt_maxima": 45000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 15,
+    "fields": {
+      "nome": "Salaminho",
+      "qt_estoque": 45000,
+      "qt_minima": 1000,
+      "qt_maxima": 45000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 16,
+    "fields": {
+      "nome": "Oreg\u00e2no",
+      "qt_estoque": 4500,
+      "qt_minima": 1000,
+      "qt_maxima": 4500,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 17,
+    "fields": {
+      "nome": "Milho Verde",
+      "qt_estoque": 20000,
+      "qt_minima": 1000,
+      "qt_maxima": 20000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 18,
+    "fields": {
+      "nome": "Ervilha",
+      "qt_estoque": 10000,
+      "qt_minima": 1000,
+      "qt_maxima": 10000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 19,
+    "fields": {
+      "nome": "Ervilha",
+      "qt_estoque": 10000,
+      "qt_minima": 1000,
+      "qt_maxima": 10000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 20,
+    "fields": {
+      "nome": "Fil\u00e9 Agulha",
+      "qt_estoque": 20000,
+      "qt_minima": 1000,
+      "qt_maxima": 20000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 21,
+    "fields": {
+      "nome": "Farinha de trigo",
+      "qt_estoque": 30000,
+      "qt_minima": 5000,
+      "qt_maxima": 30000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 22,
+    "fields": {
+      "nome": "Oleo de Soja",
+      "qt_estoque": 20000,
+      "qt_minima": 1000,
+      "qt_maxima": 20000,
+      "un_medida": "lts"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 23,
+    "fields": {
+      "nome": "Batata Frita",
+      "qt_estoque": 20000,
+      "qt_minima": 1000,
+      "qt_maxima": 20000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 24,
+    "fields": {
+      "nome": "Presunto Picado",
+      "qt_estoque": 20000,
+      "qt_minima": 1000,
+      "qt_maxima": 20000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 25,
+    "fields": {
+      "nome": "Azeitona",
+      "qt_estoque": 20000,
+      "qt_minima": 1000,
+      "qt_maxima": 20000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 26,
+    "fields": {
+      "nome": "Azeitona Picada",
+      "qt_estoque": 20000,
+      "qt_minima": 1000,
+      "qt_maxima": 20000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 27,
+    "fields": {
+      "nome": "Palmito",
+      "qt_estoque": 10000,
+      "qt_minima": 1000,
+      "qt_maxima": 10000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 28,
+    "fields": {
+      "nome": "Piment\u00e3o Verde",
+      "qt_estoque": 1000,
+      "qt_minima": 500,
+      "qt_maxima": 1000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 29,
+    "fields": {
+      "nome": "Piment\u00e3o Vermelho",
+      "qt_estoque": 1000,
+      "qt_minima": 500,
+      "qt_maxima": 1000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 30,
+    "fields": {
+      "nome": "Batata Palha",
+      "qt_estoque": 10000,
+      "qt_minima": 1000,
+      "qt_maxima": 10000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 31,
+    "fields": {
+      "nome": "M&M",
+      "qt_estoque": 2000,
+      "qt_minima": 1000,
+      "qt_maxima": 2000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 32,
+    "fields": {
+      "nome": "Ovo",
+      "qt_estoque": 12,
+      "qt_minima": 6,
+      "qt_maxima": 12,
+      "un_medida": "un"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 33,
+    "fields": {
+      "nome": "Sal",
+      "qt_estoque": 3000,
+      "qt_minima": 1000,
+      "qt_maxima": 3000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 34,
+    "fields": {
+      "nome": "Tomate em rodelas",
+      "qt_estoque": 2000,
+      "qt_minima": 1000,
+      "qt_maxima": 2000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 35,
+    "fields": {
+      "nome": "Canela em p\u00f3",
+      "qt_estoque": 1000,
+      "qt_minima": 500,
+      "qt_maxima": 1000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 36,
+    "fields": {
+      "nome": "Leite Condensado",
+      "qt_estoque": 1000,
+      "qt_minima": 500,
+      "qt_maxima": 1000,
+      "un_medida": "ml"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 37,
+    "fields": {
+      "nome": "Champignon",
+      "qt_estoque": 2000,
+      "qt_minima": 1000,
+      "qt_maxima": 1000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 38,
+    "fields": {
+      "nome": "Molho Barbecue",
+      "qt_estoque": 1000,
+      "qt_minima": 1000,
+      "qt_maxima": 2000,
+      "un_medida": "ml"
+    }
+  },
+  {
+    "model": "pizzas.tipopizza",
+    "pk": 1,
+    "fields": {
+      "nome": "Tradicional",
+      "valor_adicional": "0.00"
+    }
+  },
+  {
+    "model": "pizzas.tipopizza",
+    "pk": 2,
+    "fields": {
+      "nome": "Especial",
+      "valor_adicional": "10.00"
+    }
+  },
+  {
+    "model": "pizzas.tipopizza",
+    "pk": 3,
+    "fields": {
+      "nome": "Premium",
+      "valor_adicional": "20.00"
+    }
+  },
+  {
+    "model": "pizzas.tipopizza",
+    "pk": 4,
+    "fields": {
+      "nome": "Doce",
+      "valor_adicional": "5.00"
+    }
+  },
+  {
+    "model": "pizzas.saborborda",
+    "pk": 1,
+    "fields": {
+      "nome": "Catupiry",
+      "valor_adicional": "3.00",
+      "disponivel": true
+    }
+  },
+  {
+    "model": "pizzas.saborborda",
+    "pk": 2,
+    "fields": {
+      "nome": "Mussarela",
+      "valor_adicional": "6.00",
+      "disponivel": true
+    }
+  },
+  {
+    "model": "pizzas.saborborda",
+    "pk": 3,
+    "fields": {
+      "nome": "Chocolate",
+      "valor_adicional": "8.00",
+      "disponivel": true
+    }
+  },
+  {
+    "model": "pizzas.saborborda",
+    "pk": 4,
+    "fields": {
+      "nome": "Siciliana",
+      "valor_adicional": "10.00",
+      "disponivel": true
+    }
+  },
+  {
+    "model": "pizzas.saborborda",
+    "pk": 5,
+    "fields": {
+      "nome": "Chocolate Branco",
+      "valor_adicional": "8.00",
+      "disponivel": true
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 1,
+    "fields": {
+      "nome": "Calabresa",
+      "tipo_pizza": 1,
+      "descricao": "Pizza de calabresa c/ as melhores calabresas.",
+      "valor_adicional": "0.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/calabresa_tradicional_SkMrYjw.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 2,
+    "fields": {
+      "nome": "Fil\u00e9 com Fritas",
+      "tipo_pizza": 3,
+      "descricao": "Pizza premiun com batatas selecionadas fritas na hora, fil\u00e9 agulha e muito queijo!",
+      "valor_adicional": "10.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/file_Bacon_especial.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 3,
+    "fields": {
+      "nome": "4 queijo",
+      "tipo_pizza": 1,
+      "descricao": "de 4 vaca diferente",
+      "valor_adicional": "0.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/4queijos_tradicional_RlRBepe.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 4,
+    "fields": {
+      "nome": "Bacon",
+      "tipo_pizza": 1,
+      "descricao": "Pizza sabor bacon, com bacons fritos na hora, uma delicia!!",
+      "valor_adicional": "0.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/bacon_tradicional.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 5,
+    "fields": {
+      "nome": "Marguerita",
+      "tipo_pizza": 1,
+      "descricao": "Pizza com deliciosas azeitonas e  mussarela, tomates selecionados e n\u00e3o podemos esquecer do oreg\u00e2no para dar aquele tempero especial.",
+      "valor_adicional": "0.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/marguerita_tradicional.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 6,
+    "fields": {
+      "nome": "Banana com canela",
+      "tipo_pizza": 4,
+      "descricao": "Pizza doce de banana com canela, uma combina\u00e7\u00e3o perfeita que s\u00f3 a pizzarella oferece para voc\u00ea.",
+      "valor_adicional": "5.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/doce_banana_canela.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 7,
+    "fields": {
+      "nome": "Chocolate",
+      "tipo_pizza": 4,
+      "descricao": "Pizza doce de chocolate uma delicia!",
+      "valor_adicional": "5.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/doce_brigadeiro.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 8,
+    "fields": {
+      "nome": "M&M c/ Chocolate",
+      "tipo_pizza": 4,
+      "descricao": "Pizza de chocolate coberta com deliciosos M&M!",
+      "valor_adicional": "5.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/doce_MM.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 9,
+    "fields": {
+      "nome": "Siciliana",
+      "tipo_pizza": 2,
+      "descricao": "Diretamente da italia para o nosso paladar. A pizza siciliana \u00e9 uma delicia.",
+      "valor_adicional": "8.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/siciliana_tradicional.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 10,
+    "fields": {
+      "nome": "Barbecue",
+      "tipo_pizza": 3,
+      "descricao": "Com um delicioso molho barbecue esta pizza se destaca entre as demais, venha experimentar!!",
+      "valor_adicional": "10.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/thumb_Barbecue.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 1,
+    "fields": {
+      "sabor_pizza": 2,
+      "ingrediente": 2,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 2,
+    "fields": {
+      "sabor_pizza": 2,
+      "ingrediente": 5,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 3,
+    "fields": {
+      "sabor_pizza": 2,
+      "ingrediente": 20,
+      "quantidade": "350.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 4,
+    "fields": {
+      "sabor_pizza": 2,
+      "ingrediente": 21,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 5,
+    "fields": {
+      "sabor_pizza": 2,
+      "ingrediente": 22,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 6,
+    "fields": {
+      "sabor_pizza": 2,
+      "ingrediente": 3,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 7,
+    "fields": {
+      "sabor_pizza": 2,
+      "ingrediente": 23,
+      "quantidade": "400.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 8,
+    "fields": {
+      "sabor_pizza": 3,
+      "ingrediente": 7,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 9,
+    "fields": {
+      "sabor_pizza": 3,
+      "ingrediente": 21,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 10,
+    "fields": {
+      "sabor_pizza": 3,
+      "ingrediente": 22,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 11,
+    "fields": {
+      "sabor_pizza": 3,
+      "ingrediente": 4,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 12,
+    "fields": {
+      "sabor_pizza": 3,
+      "ingrediente": 13,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 13,
+    "fields": {
+      "sabor_pizza": 4,
+      "ingrediente": 2,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 14,
+    "fields": {
+      "sabor_pizza": 4,
+      "ingrediente": 3,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 15,
+    "fields": {
+      "sabor_pizza": 4,
+      "ingrediente": 9,
+      "quantidade": "400.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 16,
+    "fields": {
+      "sabor_pizza": 4,
+      "ingrediente": 21,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 17,
+    "fields": {
+      "sabor_pizza": 4,
+      "ingrediente": 22,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 18,
+    "fields": {
+      "sabor_pizza": 4,
+      "ingrediente": 33,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 19,
+    "fields": {
+      "sabor_pizza": 5,
+      "ingrediente": 21,
+      "quantidade": "0.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 20,
+    "fields": {
+      "sabor_pizza": 5,
+      "ingrediente": 22,
+      "quantidade": "0.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 21,
+    "fields": {
+      "sabor_pizza": 5,
+      "ingrediente": 33,
+      "quantidade": "0.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 22,
+    "fields": {
+      "sabor_pizza": 5,
+      "ingrediente": 2,
+      "quantidade": "0.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 23,
+    "fields": {
+      "sabor_pizza": 5,
+      "ingrediente": 34,
+      "quantidade": "0.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 24,
+    "fields": {
+      "sabor_pizza": 5,
+      "ingrediente": 3,
+      "quantidade": "0.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 25,
+    "fields": {
+      "sabor_pizza": 6,
+      "ingrediente": 14,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 26,
+    "fields": {
+      "sabor_pizza": 6,
+      "ingrediente": 3,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 27,
+    "fields": {
+      "sabor_pizza": 6,
+      "ingrediente": 21,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 28,
+    "fields": {
+      "sabor_pizza": 6,
+      "ingrediente": 35,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 29,
+    "fields": {
+      "sabor_pizza": 6,
+      "ingrediente": 36,
+      "quantidade": "30.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 30,
+    "fields": {
+      "sabor_pizza": 6,
+      "ingrediente": 22,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 31,
+    "fields": {
+      "sabor_pizza": 6,
+      "ingrediente": 33,
+      "quantidade": "50.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 32,
+    "fields": {
+      "sabor_pizza": 7,
+      "ingrediente": 33,
+      "quantidade": "50.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 33,
+    "fields": {
+      "sabor_pizza": 7,
+      "ingrediente": 21,
+      "quantidade": "150.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 34,
+    "fields": {
+      "sabor_pizza": 7,
+      "ingrediente": 22,
+      "quantidade": "150.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 35,
+    "fields": {
+      "sabor_pizza": 7,
+      "ingrediente": 11,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 36,
+    "fields": {
+      "sabor_pizza": 8,
+      "ingrediente": 33,
+      "quantidade": "50.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 37,
+    "fields": {
+      "sabor_pizza": 8,
+      "ingrediente": 21,
+      "quantidade": "150.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 38,
+    "fields": {
+      "sabor_pizza": 8,
+      "ingrediente": 22,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 39,
+    "fields": {
+      "sabor_pizza": 8,
+      "ingrediente": 11,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 40,
+    "fields": {
+      "sabor_pizza": 8,
+      "ingrediente": 31,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 41,
+    "fields": {
+      "sabor_pizza": 8,
+      "ingrediente": 32,
+      "quantidade": "1.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 42,
+    "fields": {
+      "sabor_pizza": 9,
+      "ingrediente": 33,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 43,
+    "fields": {
+      "sabor_pizza": 9,
+      "ingrediente": 21,
+      "quantidade": "140.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 44,
+    "fields": {
+      "sabor_pizza": 9,
+      "ingrediente": 22,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 45,
+    "fields": {
+      "sabor_pizza": 9,
+      "ingrediente": 3,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 46,
+    "fields": {
+      "sabor_pizza": 9,
+      "ingrediente": 13,
+      "quantidade": "150.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 47,
+    "fields": {
+      "sabor_pizza": 9,
+      "ingrediente": 37,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 48,
+    "fields": {
+      "sabor_pizza": 9,
+      "ingrediente": 2,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 49,
+    "fields": {
+      "sabor_pizza": 10,
+      "ingrediente": 21,
+      "quantidade": "140.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 50,
+    "fields": {
+      "sabor_pizza": 10,
+      "ingrediente": 22,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 51,
+    "fields": {
+      "sabor_pizza": 10,
+      "ingrediente": 3,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 52,
+    "fields": {
+      "sabor_pizza": 10,
+      "ingrediente": 34,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 53,
+    "fields": {
+      "sabor_pizza": 10,
+      "ingrediente": 2,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 54,
+    "fields": {
+      "sabor_pizza": 10,
+      "ingrediente": 38,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 55,
+    "fields": {
+      "sabor_pizza": 10,
+      "ingrediente": 20,
+      "quantidade": "400.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 56,
+    "fields": {
+      "sabor_pizza": 10,
+      "ingrediente": 33,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborbordaingrediente",
+    "pk": 1,
+    "fields": {
+      "sabor_borda": 4,
+      "ingrediente": 9,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborbordaingrediente",
+    "pk": 2,
+    "fields": {
+      "sabor_borda": 4,
+      "ingrediente": 10,
+      "quantidade": "250.00"
+    }
+  },
+  {
+    "model": "pizzas.saborbordaingrediente",
+    "pk": 3,
+    "fields": {
+      "sabor_borda": 2,
+      "ingrediente": 3,
+      "quantidade": "500.00"
+    }
+  },
+  {
+    "model": "pizzas.saborbordaingrediente",
+    "pk": 4,
+    "fields": {
+      "sabor_borda": 3,
+      "ingrediente": 11,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborbordaingrediente",
+    "pk": 5,
+    "fields": {
+      "sabor_borda": 1,
+      "ingrediente": 7,
+      "quantidade": "350.00"
+    }
+  },
+  {
+    "model": "pizzas.saborbordaingrediente",
+    "pk": 6,
+    "fields": {
+      "sabor_borda": 5,
+      "ingrediente": 12,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.tamanhopizza",
+    "pk": 1,
+    "fields": {
+      "nome": "Pequena",
+      "max_sabores": 1,
+      "preco": "20.00",
+      "multiplicador": "0.00"
+    }
+  },
+  {
+    "model": "pizzas.tamanhopizza",
+    "pk": 2,
+    "fields": {
+      "nome": "M\u00e9dia",
+      "max_sabores": 1,
+      "preco": "30.00",
+      "multiplicador": "0.15"
+    }
+  },
+  {
+    "model": "pizzas.tamanhopizza",
+    "pk": 3,
+    "fields": {
+      "nome": "Grande",
+      "max_sabores": 2,
+      "preco": "40.00",
+      "multiplicador": "0.20"
+    }
+  },
+  {
+    "model": "pizzas.tamanhopizza",
+    "pk": 4,
+    "fields": {
+      "nome": "Gigante",
+      "max_sabores": 3,
+      "preco": "50.00",
+      "multiplicador": "0.30"
+    }
+  },
+  {
+    "model": "pessoas.endereco",
+    "pk": 1,
+    "fields": {
+      "logradouro": "Rua Flor de lis",
+      "numero": "100",
+      "complemento": "casa branca muro cinza",
+      "bairro": "Vila Adriana I",
+      "cidade": "Foz do Igua\u00e7u",
+      "uf": "PR"
+    }
+  },
+  {
+    "model": "pessoas.endereco",
+    "pk": 2,
+    "fields": {
+      "logradouro": "Av Parana",
+      "numero": "3456",
+      "complemento": "nao tem",
+      "bairro": "Centro",
+      "cidade": "Foz do Igua\u00e7u",
+      "uf": "PR"
+    }
+  },
+  {
+    "model": "pessoas.endereco",
+    "pk": 3,
+    "fields": {
+      "logradouro": "Av Trancredo Neves",
+      "numero": "10000",
+      "complemento": "condominio",
+      "bairro": "Jd Itaipu",
+      "cidade": "Foz do Igua\u00e7u",
+      "uf": "PR"
+    }
+  },
+  {
+    "model": "pessoas.entregador",
+    "pk": 1,
+    "fields": {
+      "nome": "Jefferson Sotto",
+      "telefone": "99904-8090",
+      "endereco": 1
+    }
+  },
+  {
+    "model": "pessoas.entregador",
+    "pk": 2,
+    "fields": {
+      "nome": "Vanderley Fabr\u00edcio Porto",
+      "telefone": "45 9 9999 9999",
+      "endereco": 2
+    }
+  },
+  {
+    "model": "pessoas.entregador",
+    "pk": 3,
+    "fields": {
+      "nome": "Fernando Satoro",
+      "telefone": "45 9 9999-8888",
+      "endereco": 3
+    }
+  },
+  {
+    "model": "pedidos.formadepagamento",
+    "pk": 1,
+    "fields": {
+      "nome": "Cart\u00e3o de Cr\u00e9dito"
+    }
+  },
+  {
+    "model": "pedidos.formadepagamento",
+    "pk": 2,
+    "fields": {
+      "nome": "A vista"
+    }
+  }
+]
