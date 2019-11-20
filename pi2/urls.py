@@ -23,6 +23,8 @@ from bebidas.api.viewsets import Bebida_Viewset
 from pedidos.api.viewsets import PedidoViewSet
 
 from pi2 import settings
+from site_interno import views
+
 rotas_api = routers.DefaultRouter()
 rotas_api.register('pizza',Pizza_Viewset,'SaborPizza')
 rotas_api.register('bebida',Bebida_Viewset,"Bebida")
@@ -35,4 +37,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(rotas_api.urls)),#inclui as rotas da api, podendo criar mais rotas
     path('', include('pyzza.urls')),
+    path('site_interno', views.index, name='index'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

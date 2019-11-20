@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'pizzas',
     'pessoas',
     'pedidos',
+    'site_interno',
     # 'django_filters',
 ]
 
@@ -82,31 +83,31 @@ WSGI_APPLICATION = 'pi2.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, "db.sqlite3"),
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         # 'ENGINE': 'django.db.backends.mysql',     #MySQL 1 -> pip install mysqlclient
-#         # 'ENGINE': 'mysql.connector.django',       #MySQL 2 -> pip install mysql-connector-python==8.0.12
-#         'ENGINE': 'django.db.backends.postgresql',  #Postgres-> pip install psycopg2
-#         'NAME': 'pyzza',
-#         'USER': 'postgres',                         #Postgres
-#         # 'USER': 'root',                           #MySQL
-#         'PASSWORD': 'bancodedados',
-#         'HOST': 'localhost',
-#         'PORT': '5432',                             #Porta Postgres: 5432  -  Porta MySQL: 3306
-#
-#         # Tentativa de resolver incompatibilidade das versoes > 8.0.12 do mysql-connector-python
-#         # 'OPTIONS': {
-#         #     'use_pure': True,
-#         # }
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, "db.sqlite3"),
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        # 'ENGINE': 'django.db.backends.mysql',     #MySQL 1 -> pip install mysqlclient
+        # 'ENGINE': 'mysql.connector.django',       #MySQL 2 -> pip install mysql-connector-python==8.0.12
+        'ENGINE': 'django.db.backends.postgresql',  #Postgres-> pip install psycopg2
+        'NAME': 'pyzza',
+        'USER': 'postgres',                         #Postgres
+        # 'USER': 'root',                           #MySQL
+        'PASSWORD': 'bancodedados',
+        'HOST': 'localhost',
+        'PORT': '5432',                             #Porta Postgres: 5432  -  Porta MySQL: 3306
+
+        # Tentativa de resolver incompatibilidade das versoes > 8.0.12 do mysql-connector-python
+        # 'OPTIONS': {
+        #     'use_pure': True,
+        # }
+    }
+}
 
 
 # Password validation

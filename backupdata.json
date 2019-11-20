@@ -1,0 +1,3727 @@
+[
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "bebidas",
+      "model": "bebida"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "bebidas",
+      "model": "tamanhobebida"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "bebidas",
+      "model": "bebidatamanhobebida"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "pizzas",
+      "model": "ingrediente"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "pizzas",
+      "model": "saborborda"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "pizzas",
+      "model": "saborpizza"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "pizzas",
+      "model": "tamanhopizza"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "pizzas",
+      "model": "tipopizza"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+      "app_label": "pizzas",
+      "model": "saborpizzaingrediente"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+      "app_label": "pizzas",
+      "model": "saborbordaingrediente"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
+      "app_label": "pessoas",
+      "model": "endereco"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 18,
+    "fields": {
+      "app_label": "pessoas",
+      "model": "entregador"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 19,
+    "fields": {
+      "app_label": "pessoas",
+      "model": "cliente"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 20,
+    "fields": {
+      "app_label": "pessoas",
+      "model": "customuser"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 21,
+    "fields": {
+      "app_label": "pedidos",
+      "model": "formadepagamento"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 22,
+    "fields": {
+      "app_label": "pedidos",
+      "model": "statuspedido"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 23,
+    "fields": {
+      "app_label": "pedidos",
+      "model": "pedido"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 24,
+    "fields": {
+      "app_label": "pedidos",
+      "model": "itempizza"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 25,
+    "fields": {
+      "app_label": "pedidos",
+      "model": "itembebida"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "86hmd7zngsm69oaar3wddz7lj40keaz1",
+    "fields": {
+      "session_data": "OWU2YTYxNzA2NGFiOGQ2NDEyYzgwYzRlNDI3ZDAxM2QyNDczMjhmNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJmYWJhNDI3NmUzMmUzYmJhMTQ3ZTIwZDUzOWVmOGRlNTBmMTUxYmYzIn0=",
+      "expire_date": "2019-12-02T20:47:35.527Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "gvtr6exf332tbreooc7fu095x8d9qasb",
+    "fields": {
+      "session_data": "OWU2YTYxNzA2NGFiOGQ2NDEyYzgwYzRlNDI3ZDAxM2QyNDczMjhmNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJmYWJhNDI3NmUzMmUzYmJhMTQ3ZTIwZDUzOWVmOGRlNTBmMTUxYmYzIn0=",
+      "expire_date": "2019-11-30T14:03:22.297Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "izscfo0064za0mrbwq2yduhr5976856v",
+    "fields": {
+      "session_data": "OWU2YTYxNzA2NGFiOGQ2NDEyYzgwYzRlNDI3ZDAxM2QyNDczMjhmNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJmYWJhNDI3NmUzMmUzYmJhMTQ3ZTIwZDUzOWVmOGRlNTBmMTUxYmYzIn0=",
+      "expire_date": "2019-11-29T21:25:56.537Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "wq2zd2o5lskm6dxb96608tfvofuw4wv4",
+    "fields": {
+      "session_data": "OWU2YTYxNzA2NGFiOGQ2NDEyYzgwYzRlNDI3ZDAxM2QyNDczMjhmNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJmYWJhNDI3NmUzMmUzYmJhMTQ3ZTIwZDUzOWVmOGRlNTBmMTUxYmYzIn0=",
+      "expire_date": "2019-11-30T11:22:54.958Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "zi0rtbopvvthvrado5q6mmssuy7u9jha",
+    "fields": {
+      "session_data": "OWU2YTYxNzA2NGFiOGQ2NDEyYzgwYzRlNDI3ZDAxM2QyNDczMjhmNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJmYWJhNDI3NmUzMmUzYmJhMTQ3ZTIwZDUzOWVmOGRlNTBmMTUxYmYzIn0=",
+      "expire_date": "2019-11-28T00:43:02.389Z"
+    }
+  },
+  {
+    "model": "bebidas.tamanhobebida",
+    "pk": 1,
+    "fields": {
+      "nome": "2 litros"
+    }
+  },
+  {
+    "model": "bebidas.tamanhobebida",
+    "pk": 2,
+    "fields": {
+      "nome": "1 litro"
+    }
+  },
+  {
+    "model": "bebidas.tamanhobebida",
+    "pk": 3,
+    "fields": {
+      "nome": "350 ml"
+    }
+  },
+  {
+    "model": "bebidas.tamanhobebida",
+    "pk": 4,
+    "fields": {
+      "nome": "250ml"
+    }
+  },
+  {
+    "model": "bebidas.bebida",
+    "pk": 1,
+    "fields": {
+      "nome": "Coca Cola"
+    }
+  },
+  {
+    "model": "bebidas.bebida",
+    "pk": 2,
+    "fields": {
+      "nome": "Fanta"
+    }
+  },
+  {
+    "model": "bebidas.bebida",
+    "pk": 3,
+    "fields": {
+      "nome": "Guaran\u00e1"
+    }
+  },
+  {
+    "model": "bebidas.bebidatamanhobebida",
+    "pk": 1,
+    "fields": {
+      "preco": "8.00",
+      "bebida": 1,
+      "tamanho_bebida": 1
+    }
+  },
+  {
+    "model": "bebidas.bebidatamanhobebida",
+    "pk": 2,
+    "fields": {
+      "preco": "8.00",
+      "bebida": 2,
+      "tamanho_bebida": 1
+    }
+  },
+  {
+    "model": "bebidas.bebidatamanhobebida",
+    "pk": 3,
+    "fields": {
+      "preco": "8.00",
+      "bebida": 3,
+      "tamanho_bebida": 1
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 1,
+    "fields": {
+      "nome": "Calabresa",
+      "qt_estoque": 10,
+      "qt_minima": 1,
+      "qt_maxima": 10,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 2,
+    "fields": {
+      "nome": "Molho Tomate",
+      "qt_estoque": 20,
+      "qt_minima": 4,
+      "qt_maxima": 25,
+      "un_medida": "lts"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 3,
+    "fields": {
+      "nome": "Mussarela",
+      "qt_estoque": 40000,
+      "qt_minima": 1000,
+      "qt_maxima": 40000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 4,
+    "fields": {
+      "nome": "Mussarela",
+      "qt_estoque": 40000,
+      "qt_minima": 1000,
+      "qt_maxima": 40000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 5,
+    "fields": {
+      "nome": "Tomate picado",
+      "qt_estoque": 40000,
+      "qt_minima": 1000,
+      "qt_maxima": 45000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 6,
+    "fields": {
+      "nome": "Frango",
+      "qt_estoque": 40000,
+      "qt_minima": 1000,
+      "qt_maxima": 45000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 7,
+    "fields": {
+      "nome": "Catupiry",
+      "qt_estoque": 40000,
+      "qt_minima": 1000,
+      "qt_maxima": 45000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 8,
+    "fields": {
+      "nome": "Peperoni",
+      "qt_estoque": 40000,
+      "qt_minima": 1000,
+      "qt_maxima": 45000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 9,
+    "fields": {
+      "nome": "Bacon",
+      "qt_estoque": 40000,
+      "qt_minima": 1000,
+      "qt_maxima": 45000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 10,
+    "fields": {
+      "nome": "Cheedar",
+      "qt_estoque": 50000,
+      "qt_minima": 1000,
+      "qt_maxima": 50000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 11,
+    "fields": {
+      "nome": "Chocolate",
+      "qt_estoque": 50000,
+      "qt_minima": 1000,
+      "qt_maxima": 50000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 12,
+    "fields": {
+      "nome": "Chocolate Branco",
+      "qt_estoque": 40000,
+      "qt_minima": 1000,
+      "qt_maxima": 40000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 13,
+    "fields": {
+      "nome": "Parmes\u00e3o",
+      "qt_estoque": 45000,
+      "qt_minima": 1000,
+      "qt_maxima": 45000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 14,
+    "fields": {
+      "nome": "Banana",
+      "qt_estoque": 45000,
+      "qt_minima": 1000,
+      "qt_maxima": 45000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 15,
+    "fields": {
+      "nome": "Salaminho",
+      "qt_estoque": 45000,
+      "qt_minima": 1000,
+      "qt_maxima": 45000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 16,
+    "fields": {
+      "nome": "Oreg\u00e2no",
+      "qt_estoque": 4500,
+      "qt_minima": 1000,
+      "qt_maxima": 4500,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 17,
+    "fields": {
+      "nome": "Milho Verde",
+      "qt_estoque": 20000,
+      "qt_minima": 1000,
+      "qt_maxima": 20000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 18,
+    "fields": {
+      "nome": "Ervilha",
+      "qt_estoque": 10000,
+      "qt_minima": 1000,
+      "qt_maxima": 10000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 19,
+    "fields": {
+      "nome": "Ervilha",
+      "qt_estoque": 10000,
+      "qt_minima": 1000,
+      "qt_maxima": 10000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 20,
+    "fields": {
+      "nome": "Fil\u00e9 Agulha",
+      "qt_estoque": 20000,
+      "qt_minima": 1000,
+      "qt_maxima": 20000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 21,
+    "fields": {
+      "nome": "Farinha de trigo",
+      "qt_estoque": 30000,
+      "qt_minima": 5000,
+      "qt_maxima": 30000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 22,
+    "fields": {
+      "nome": "Oleo de Soja",
+      "qt_estoque": 20000,
+      "qt_minima": 1000,
+      "qt_maxima": 20000,
+      "un_medida": "lts"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 23,
+    "fields": {
+      "nome": "Batata Frita",
+      "qt_estoque": 20000,
+      "qt_minima": 1000,
+      "qt_maxima": 20000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 24,
+    "fields": {
+      "nome": "Presunto Picado",
+      "qt_estoque": 20000,
+      "qt_minima": 1000,
+      "qt_maxima": 20000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 25,
+    "fields": {
+      "nome": "Azeitona",
+      "qt_estoque": 20000,
+      "qt_minima": 1000,
+      "qt_maxima": 20000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 26,
+    "fields": {
+      "nome": "Azeitona Picada",
+      "qt_estoque": 20000,
+      "qt_minima": 1000,
+      "qt_maxima": 20000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 27,
+    "fields": {
+      "nome": "Palmito",
+      "qt_estoque": 10000,
+      "qt_minima": 1000,
+      "qt_maxima": 10000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 28,
+    "fields": {
+      "nome": "Piment\u00e3o Verde",
+      "qt_estoque": 1000,
+      "qt_minima": 500,
+      "qt_maxima": 1000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 29,
+    "fields": {
+      "nome": "Piment\u00e3o Vermelho",
+      "qt_estoque": 1000,
+      "qt_minima": 500,
+      "qt_maxima": 1000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 30,
+    "fields": {
+      "nome": "Batata Palha",
+      "qt_estoque": 10000,
+      "qt_minima": 1000,
+      "qt_maxima": 10000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 31,
+    "fields": {
+      "nome": "M&M",
+      "qt_estoque": 2000,
+      "qt_minima": 1000,
+      "qt_maxima": 2000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 32,
+    "fields": {
+      "nome": "Ovo",
+      "qt_estoque": 12,
+      "qt_minima": 6,
+      "qt_maxima": 12,
+      "un_medida": "un"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 33,
+    "fields": {
+      "nome": "Sal",
+      "qt_estoque": 3000,
+      "qt_minima": 1000,
+      "qt_maxima": 3000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 34,
+    "fields": {
+      "nome": "Tomate em rodelas",
+      "qt_estoque": 2000,
+      "qt_minima": 1000,
+      "qt_maxima": 2000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 35,
+    "fields": {
+      "nome": "Canela em p\u00f3",
+      "qt_estoque": 1000,
+      "qt_minima": 500,
+      "qt_maxima": 1000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 36,
+    "fields": {
+      "nome": "Leite Condensado",
+      "qt_estoque": 1000,
+      "qt_minima": 500,
+      "qt_maxima": 1000,
+      "un_medida": "ml"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 37,
+    "fields": {
+      "nome": "Champignon",
+      "qt_estoque": 2000,
+      "qt_minima": 1000,
+      "qt_maxima": 1000,
+      "un_medida": "gr"
+    }
+  },
+  {
+    "model": "pizzas.ingrediente",
+    "pk": 38,
+    "fields": {
+      "nome": "Molho Barbecue",
+      "qt_estoque": 1000,
+      "qt_minima": 1000,
+      "qt_maxima": 2000,
+      "un_medida": "ml"
+    }
+  },
+  {
+    "model": "pizzas.tipopizza",
+    "pk": 1,
+    "fields": {
+      "nome": "Tradicional",
+      "valor_adicional": "0.00"
+    }
+  },
+  {
+    "model": "pizzas.tipopizza",
+    "pk": 2,
+    "fields": {
+      "nome": "Especial",
+      "valor_adicional": "10.00"
+    }
+  },
+  {
+    "model": "pizzas.tipopizza",
+    "pk": 3,
+    "fields": {
+      "nome": "Premium",
+      "valor_adicional": "20.00"
+    }
+  },
+  {
+    "model": "pizzas.tipopizza",
+    "pk": 4,
+    "fields": {
+      "nome": "Doce",
+      "valor_adicional": "5.00"
+    }
+  },
+  {
+    "model": "pizzas.saborborda",
+    "pk": 1,
+    "fields": {
+      "nome": "Catupiry",
+      "valor_adicional": "3.00",
+      "disponivel": true
+    }
+  },
+  {
+    "model": "pizzas.saborborda",
+    "pk": 2,
+    "fields": {
+      "nome": "Mussarela",
+      "valor_adicional": "6.00",
+      "disponivel": true
+    }
+  },
+  {
+    "model": "pizzas.saborborda",
+    "pk": 3,
+    "fields": {
+      "nome": "Chocolate",
+      "valor_adicional": "8.00",
+      "disponivel": true
+    }
+  },
+  {
+    "model": "pizzas.saborborda",
+    "pk": 4,
+    "fields": {
+      "nome": "Siciliana",
+      "valor_adicional": "10.00",
+      "disponivel": true
+    }
+  },
+  {
+    "model": "pizzas.saborborda",
+    "pk": 5,
+    "fields": {
+      "nome": "Chocolate Branco",
+      "valor_adicional": "8.00",
+      "disponivel": true
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 1,
+    "fields": {
+      "nome": "Calabresa",
+      "tipo_pizza": 1,
+      "descricao": "Pizza de calabresa c/ as melhores calabresas.",
+      "valor_adicional": "0.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/calabresa_tradicional_SkMrYjw.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 2,
+    "fields": {
+      "nome": "Fil\u00e9 com Fritas",
+      "tipo_pizza": 3,
+      "descricao": "Pizza premiun com batatas selecionadas fritas na hora, fil\u00e9 agulha e muito queijo!",
+      "valor_adicional": "10.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/file_Bacon_especial.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 3,
+    "fields": {
+      "nome": "4 queijo",
+      "tipo_pizza": 1,
+      "descricao": "de 4 vaca diferente",
+      "valor_adicional": "0.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/4queijos_tradicional_RlRBepe.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 4,
+    "fields": {
+      "nome": "Bacon",
+      "tipo_pizza": 1,
+      "descricao": "Pizza sabor bacon, com bacons fritos na hora, uma delicia!!",
+      "valor_adicional": "0.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/bacon_tradicional.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 5,
+    "fields": {
+      "nome": "Marguerita",
+      "tipo_pizza": 1,
+      "descricao": "Pizza com deliciosas azeitonas e  mussarela, tomates selecionados e n\u00e3o podemos esquecer do oreg\u00e2no para dar aquele tempero especial.",
+      "valor_adicional": "0.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/marguerita_tradicional.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 6,
+    "fields": {
+      "nome": "Banana com canela",
+      "tipo_pizza": 4,
+      "descricao": "Pizza doce de banana com canela, uma combina\u00e7\u00e3o perfeita que s\u00f3 a pizzarella oferece para voc\u00ea.",
+      "valor_adicional": "5.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/doce_banana_canela.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 7,
+    "fields": {
+      "nome": "Chocolate",
+      "tipo_pizza": 4,
+      "descricao": "Pizza doce de chocolate uma delicia!",
+      "valor_adicional": "5.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/doce_brigadeiro.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 8,
+    "fields": {
+      "nome": "M&M c/ Chocolate",
+      "tipo_pizza": 4,
+      "descricao": "Pizza de chocolate coberta com deliciosos M&M!",
+      "valor_adicional": "5.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/doce_MM.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 9,
+    "fields": {
+      "nome": "Siciliana",
+      "tipo_pizza": 2,
+      "descricao": "Diretamente da italia para o nosso paladar. A pizza siciliana \u00e9 uma delicia.",
+      "valor_adicional": "8.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/siciliana_tradicional.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizza",
+    "pk": 10,
+    "fields": {
+      "nome": "Barbecue",
+      "tipo_pizza": 3,
+      "descricao": "Com um delicioso molho barbecue esta pizza se destaca entre as demais, venha experimentar!!",
+      "valor_adicional": "10.00",
+      "disponivel": true,
+      "imagem": "sabor_pizza_img/thumb_Barbecue.png"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 1,
+    "fields": {
+      "sabor_pizza": 2,
+      "ingrediente": 2,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 2,
+    "fields": {
+      "sabor_pizza": 2,
+      "ingrediente": 5,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 3,
+    "fields": {
+      "sabor_pizza": 2,
+      "ingrediente": 20,
+      "quantidade": "350.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 4,
+    "fields": {
+      "sabor_pizza": 2,
+      "ingrediente": 21,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 5,
+    "fields": {
+      "sabor_pizza": 2,
+      "ingrediente": 22,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 6,
+    "fields": {
+      "sabor_pizza": 2,
+      "ingrediente": 3,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 7,
+    "fields": {
+      "sabor_pizza": 2,
+      "ingrediente": 23,
+      "quantidade": "400.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 8,
+    "fields": {
+      "sabor_pizza": 3,
+      "ingrediente": 7,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 9,
+    "fields": {
+      "sabor_pizza": 3,
+      "ingrediente": 21,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 10,
+    "fields": {
+      "sabor_pizza": 3,
+      "ingrediente": 22,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 11,
+    "fields": {
+      "sabor_pizza": 3,
+      "ingrediente": 4,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 12,
+    "fields": {
+      "sabor_pizza": 3,
+      "ingrediente": 13,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 13,
+    "fields": {
+      "sabor_pizza": 4,
+      "ingrediente": 2,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 14,
+    "fields": {
+      "sabor_pizza": 4,
+      "ingrediente": 3,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 15,
+    "fields": {
+      "sabor_pizza": 4,
+      "ingrediente": 9,
+      "quantidade": "400.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 16,
+    "fields": {
+      "sabor_pizza": 4,
+      "ingrediente": 21,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 17,
+    "fields": {
+      "sabor_pizza": 4,
+      "ingrediente": 22,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 18,
+    "fields": {
+      "sabor_pizza": 4,
+      "ingrediente": 33,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 19,
+    "fields": {
+      "sabor_pizza": 5,
+      "ingrediente": 21,
+      "quantidade": "0.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 20,
+    "fields": {
+      "sabor_pizza": 5,
+      "ingrediente": 22,
+      "quantidade": "0.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 21,
+    "fields": {
+      "sabor_pizza": 5,
+      "ingrediente": 33,
+      "quantidade": "0.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 22,
+    "fields": {
+      "sabor_pizza": 5,
+      "ingrediente": 2,
+      "quantidade": "0.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 23,
+    "fields": {
+      "sabor_pizza": 5,
+      "ingrediente": 34,
+      "quantidade": "0.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 24,
+    "fields": {
+      "sabor_pizza": 5,
+      "ingrediente": 3,
+      "quantidade": "0.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 25,
+    "fields": {
+      "sabor_pizza": 6,
+      "ingrediente": 14,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 26,
+    "fields": {
+      "sabor_pizza": 6,
+      "ingrediente": 3,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 27,
+    "fields": {
+      "sabor_pizza": 6,
+      "ingrediente": 21,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 28,
+    "fields": {
+      "sabor_pizza": 6,
+      "ingrediente": 35,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 29,
+    "fields": {
+      "sabor_pizza": 6,
+      "ingrediente": 36,
+      "quantidade": "30.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 30,
+    "fields": {
+      "sabor_pizza": 6,
+      "ingrediente": 22,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 31,
+    "fields": {
+      "sabor_pizza": 6,
+      "ingrediente": 33,
+      "quantidade": "50.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 32,
+    "fields": {
+      "sabor_pizza": 7,
+      "ingrediente": 33,
+      "quantidade": "50.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 33,
+    "fields": {
+      "sabor_pizza": 7,
+      "ingrediente": 21,
+      "quantidade": "150.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 34,
+    "fields": {
+      "sabor_pizza": 7,
+      "ingrediente": 22,
+      "quantidade": "150.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 35,
+    "fields": {
+      "sabor_pizza": 7,
+      "ingrediente": 11,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 36,
+    "fields": {
+      "sabor_pizza": 8,
+      "ingrediente": 33,
+      "quantidade": "50.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 37,
+    "fields": {
+      "sabor_pizza": 8,
+      "ingrediente": 21,
+      "quantidade": "150.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 38,
+    "fields": {
+      "sabor_pizza": 8,
+      "ingrediente": 22,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 39,
+    "fields": {
+      "sabor_pizza": 8,
+      "ingrediente": 11,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 40,
+    "fields": {
+      "sabor_pizza": 8,
+      "ingrediente": 31,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 41,
+    "fields": {
+      "sabor_pizza": 8,
+      "ingrediente": 32,
+      "quantidade": "1.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 42,
+    "fields": {
+      "sabor_pizza": 9,
+      "ingrediente": 33,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 43,
+    "fields": {
+      "sabor_pizza": 9,
+      "ingrediente": 21,
+      "quantidade": "140.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 44,
+    "fields": {
+      "sabor_pizza": 9,
+      "ingrediente": 22,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 45,
+    "fields": {
+      "sabor_pizza": 9,
+      "ingrediente": 3,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 46,
+    "fields": {
+      "sabor_pizza": 9,
+      "ingrediente": 13,
+      "quantidade": "150.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 47,
+    "fields": {
+      "sabor_pizza": 9,
+      "ingrediente": 37,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 48,
+    "fields": {
+      "sabor_pizza": 9,
+      "ingrediente": 2,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 49,
+    "fields": {
+      "sabor_pizza": 10,
+      "ingrediente": 21,
+      "quantidade": "140.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 50,
+    "fields": {
+      "sabor_pizza": 10,
+      "ingrediente": 22,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 51,
+    "fields": {
+      "sabor_pizza": 10,
+      "ingrediente": 3,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 52,
+    "fields": {
+      "sabor_pizza": 10,
+      "ingrediente": 34,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 53,
+    "fields": {
+      "sabor_pizza": 10,
+      "ingrediente": 2,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 54,
+    "fields": {
+      "sabor_pizza": 10,
+      "ingrediente": 38,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 55,
+    "fields": {
+      "sabor_pizza": 10,
+      "ingrediente": 20,
+      "quantidade": "400.00"
+    }
+  },
+  {
+    "model": "pizzas.saborpizzaingrediente",
+    "pk": 56,
+    "fields": {
+      "sabor_pizza": 10,
+      "ingrediente": 33,
+      "quantidade": "100.00"
+    }
+  },
+  {
+    "model": "pizzas.saborbordaingrediente",
+    "pk": 1,
+    "fields": {
+      "sabor_borda": 4,
+      "ingrediente": 9,
+      "quantidade": "200.00"
+    }
+  },
+  {
+    "model": "pizzas.saborbordaingrediente",
+    "pk": 2,
+    "fields": {
+      "sabor_borda": 4,
+      "ingrediente": 10,
+      "quantidade": "250.00"
+    }
+  },
+  {
+    "model": "pizzas.saborbordaingrediente",
+    "pk": 3,
+    "fields": {
+      "sabor_borda": 2,
+      "ingrediente": 3,
+      "quantidade": "500.00"
+    }
+  },
+  {
+    "model": "pizzas.saborbordaingrediente",
+    "pk": 4,
+    "fields": {
+      "sabor_borda": 3,
+      "ingrediente": 11,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.saborbordaingrediente",
+    "pk": 5,
+    "fields": {
+      "sabor_borda": 1,
+      "ingrediente": 7,
+      "quantidade": "350.00"
+    }
+  },
+  {
+    "model": "pizzas.saborbordaingrediente",
+    "pk": 6,
+    "fields": {
+      "sabor_borda": 5,
+      "ingrediente": 12,
+      "quantidade": "300.00"
+    }
+  },
+  {
+    "model": "pizzas.tamanhopizza",
+    "pk": 1,
+    "fields": {
+      "nome": "Pequena",
+      "max_sabores": 1,
+      "preco": "20.00",
+      "multiplicador": "0.00"
+    }
+  },
+  {
+    "model": "pizzas.tamanhopizza",
+    "pk": 2,
+    "fields": {
+      "nome": "M\u00e9dia",
+      "max_sabores": 1,
+      "preco": "30.00",
+      "multiplicador": "0.15"
+    }
+  },
+  {
+    "model": "pizzas.tamanhopizza",
+    "pk": 3,
+    "fields": {
+      "nome": "Grande",
+      "max_sabores": 2,
+      "preco": "40.00",
+      "multiplicador": "0.20"
+    }
+  },
+  {
+    "model": "pizzas.tamanhopizza",
+    "pk": 4,
+    "fields": {
+      "nome": "Gigante",
+      "max_sabores": 3,
+      "preco": "50.00",
+      "multiplicador": "0.30"
+    }
+  },
+  {
+    "model": "pessoas.endereco",
+    "pk": 1,
+    "fields": {
+      "logradouro": "Rua Flor de lis",
+      "numero": "100",
+      "complemento": "casa branca muro cinza",
+      "bairro": "Vila Adriana I",
+      "cidade": "Foz do Igua\u00e7u",
+      "uf": "PR"
+    }
+  },
+  {
+    "model": "pessoas.endereco",
+    "pk": 2,
+    "fields": {
+      "logradouro": "Av Parana",
+      "numero": "3456",
+      "complemento": "nao tem",
+      "bairro": "Centro",
+      "cidade": "Foz do Igua\u00e7u",
+      "uf": "PR"
+    }
+  },
+  {
+    "model": "pessoas.endereco",
+    "pk": 3,
+    "fields": {
+      "logradouro": "Av Trancredo Neves",
+      "numero": "10000",
+      "complemento": "condominio",
+      "bairro": "Jd Itaipu",
+      "cidade": "Foz do Igua\u00e7u",
+      "uf": "PR"
+    }
+  },
+  {
+    "model": "pessoas.entregador",
+    "pk": 1,
+    "fields": {
+      "nome": "Jefferson Sotto",
+      "telefone": "99904-8090",
+      "endereco": 1
+    }
+  },
+  {
+    "model": "pessoas.entregador",
+    "pk": 2,
+    "fields": {
+      "nome": "Vanderley Fabr\u00edcio Porto",
+      "telefone": "45 9 9999 9999",
+      "endereco": 2
+    }
+  },
+  {
+    "model": "pessoas.entregador",
+    "pk": 3,
+    "fields": {
+      "nome": "Fernando Satoro",
+      "telefone": "45 9 9999-8888",
+      "endereco": 3
+    }
+  },
+  {
+    "model": "pedidos.formadepagamento",
+    "pk": 1,
+    "fields": {
+      "nome": "Cart\u00e3o de Cr\u00e9dito"
+    }
+  },
+  {
+    "model": "pedidos.formadepagamento",
+    "pk": 2,
+    "fields": {
+      "nome": "A vista"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 4,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 4,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 4,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 4,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 5,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 5,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 5,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 5,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 6,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 6,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 6,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 6,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add bebida",
+      "content_type": 7,
+      "codename": "add_bebida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change bebida",
+      "content_type": 7,
+      "codename": "change_bebida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete bebida",
+      "content_type": 7,
+      "codename": "delete_bebida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view bebida",
+      "content_type": 7,
+      "codename": "view_bebida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add Tamanho da Bebida",
+      "content_type": 8,
+      "codename": "add_tamanhobebida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change Tamanho da Bebida",
+      "content_type": 8,
+      "codename": "change_tamanhobebida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete Tamanho da Bebida",
+      "content_type": 8,
+      "codename": "delete_tamanhobebida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view Tamanho da Bebida",
+      "content_type": 8,
+      "codename": "view_tamanhobebida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add bebida tamanho bebida",
+      "content_type": 9,
+      "codename": "add_bebidatamanhobebida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change bebida tamanho bebida",
+      "content_type": 9,
+      "codename": "change_bebidatamanhobebida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete bebida tamanho bebida",
+      "content_type": 9,
+      "codename": "delete_bebidatamanhobebida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view bebida tamanho bebida",
+      "content_type": 9,
+      "codename": "view_bebidatamanhobebida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add ingrediente",
+      "content_type": 10,
+      "codename": "add_ingrediente"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change ingrediente",
+      "content_type": 10,
+      "codename": "change_ingrediente"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete ingrediente",
+      "content_type": 10,
+      "codename": "delete_ingrediente"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view ingrediente",
+      "content_type": 10,
+      "codename": "view_ingrediente"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add Sabor da Borda",
+      "content_type": 11,
+      "codename": "add_saborborda"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change Sabor da Borda",
+      "content_type": 11,
+      "codename": "change_saborborda"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete Sabor da Borda",
+      "content_type": 11,
+      "codename": "delete_saborborda"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view Sabor da Borda",
+      "content_type": 11,
+      "codename": "view_saborborda"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add Sabor de Pizza",
+      "content_type": 12,
+      "codename": "add_saborpizza"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change Sabor de Pizza",
+      "content_type": 12,
+      "codename": "change_saborpizza"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete Sabor de Pizza",
+      "content_type": 12,
+      "codename": "delete_saborpizza"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view Sabor de Pizza",
+      "content_type": 12,
+      "codename": "view_saborpizza"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add Tamanho da Pizza",
+      "content_type": 13,
+      "codename": "add_tamanhopizza"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change Tamanho da Pizza",
+      "content_type": 13,
+      "codename": "change_tamanhopizza"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete Tamanho da Pizza",
+      "content_type": 13,
+      "codename": "delete_tamanhopizza"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view Tamanho da Pizza",
+      "content_type": 13,
+      "codename": "view_tamanhopizza"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can add Tipo de Pizza",
+      "content_type": 14,
+      "codename": "add_tipopizza"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can change Tipo de Pizza",
+      "content_type": 14,
+      "codename": "change_tipopizza"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+      "name": "Can delete Tipo de Pizza",
+      "content_type": 14,
+      "codename": "delete_tipopizza"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+      "name": "Can view Tipo de Pizza",
+      "content_type": 14,
+      "codename": "view_tipopizza"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+      "name": "Can add Ingrediente do Sabor de Pizza",
+      "content_type": 15,
+      "codename": "add_saborpizzaingrediente"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+      "name": "Can change Ingrediente do Sabor de Pizza",
+      "content_type": 15,
+      "codename": "change_saborpizzaingrediente"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+      "name": "Can delete Ingrediente do Sabor de Pizza",
+      "content_type": 15,
+      "codename": "delete_saborpizzaingrediente"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+      "name": "Can view Ingrediente do Sabor de Pizza",
+      "content_type": 15,
+      "codename": "view_saborpizzaingrediente"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+      "name": "Can add sabor borda ingrediente",
+      "content_type": 16,
+      "codename": "add_saborbordaingrediente"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+      "name": "Can change sabor borda ingrediente",
+      "content_type": 16,
+      "codename": "change_saborbordaingrediente"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+      "name": "Can delete sabor borda ingrediente",
+      "content_type": 16,
+      "codename": "delete_saborbordaingrediente"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+      "name": "Can view sabor borda ingrediente",
+      "content_type": 16,
+      "codename": "view_saborbordaingrediente"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+      "name": "Can add endereco",
+      "content_type": 17,
+      "codename": "add_endereco"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+      "name": "Can change endereco",
+      "content_type": 17,
+      "codename": "change_endereco"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+      "name": "Can delete endereco",
+      "content_type": 17,
+      "codename": "delete_endereco"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+      "name": "Can view endereco",
+      "content_type": 17,
+      "codename": "view_endereco"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 69,
+    "fields": {
+      "name": "Can add Entregador",
+      "content_type": 18,
+      "codename": "add_entregador"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 70,
+    "fields": {
+      "name": "Can change Entregador",
+      "content_type": 18,
+      "codename": "change_entregador"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 71,
+    "fields": {
+      "name": "Can delete Entregador",
+      "content_type": 18,
+      "codename": "delete_entregador"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 72,
+    "fields": {
+      "name": "Can view Entregador",
+      "content_type": 18,
+      "codename": "view_entregador"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 73,
+    "fields": {
+      "name": "Can add cliente",
+      "content_type": 19,
+      "codename": "add_cliente"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 74,
+    "fields": {
+      "name": "Can change cliente",
+      "content_type": 19,
+      "codename": "change_cliente"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 75,
+    "fields": {
+      "name": "Can delete cliente",
+      "content_type": 19,
+      "codename": "delete_cliente"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 76,
+    "fields": {
+      "name": "Can view cliente",
+      "content_type": 19,
+      "codename": "view_cliente"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 77,
+    "fields": {
+      "name": "Can add custom user",
+      "content_type": 20,
+      "codename": "add_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 78,
+    "fields": {
+      "name": "Can change custom user",
+      "content_type": 20,
+      "codename": "change_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 79,
+    "fields": {
+      "name": "Can delete custom user",
+      "content_type": 20,
+      "codename": "delete_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 80,
+    "fields": {
+      "name": "Can view custom user",
+      "content_type": 20,
+      "codename": "view_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 81,
+    "fields": {
+      "name": "Can add Forma de Pagamento",
+      "content_type": 21,
+      "codename": "add_formadepagamento"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 82,
+    "fields": {
+      "name": "Can change Forma de Pagamento",
+      "content_type": 21,
+      "codename": "change_formadepagamento"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 83,
+    "fields": {
+      "name": "Can delete Forma de Pagamento",
+      "content_type": 21,
+      "codename": "delete_formadepagamento"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 84,
+    "fields": {
+      "name": "Can view Forma de Pagamento",
+      "content_type": 21,
+      "codename": "view_formadepagamento"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 85,
+    "fields": {
+      "name": "Can add Status do Pedido",
+      "content_type": 22,
+      "codename": "add_statuspedido"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 86,
+    "fields": {
+      "name": "Can change Status do Pedido",
+      "content_type": 22,
+      "codename": "change_statuspedido"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 87,
+    "fields": {
+      "name": "Can delete Status do Pedido",
+      "content_type": 22,
+      "codename": "delete_statuspedido"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 88,
+    "fields": {
+      "name": "Can view Status do Pedido",
+      "content_type": 22,
+      "codename": "view_statuspedido"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 89,
+    "fields": {
+      "name": "Can add pedido",
+      "content_type": 23,
+      "codename": "add_pedido"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 90,
+    "fields": {
+      "name": "Can change pedido",
+      "content_type": 23,
+      "codename": "change_pedido"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 91,
+    "fields": {
+      "name": "Can delete pedido",
+      "content_type": 23,
+      "codename": "delete_pedido"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 92,
+    "fields": {
+      "name": "Can view pedido",
+      "content_type": 23,
+      "codename": "view_pedido"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 93,
+    "fields": {
+      "name": "Can add item pizza",
+      "content_type": 24,
+      "codename": "add_itempizza"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 94,
+    "fields": {
+      "name": "Can change item pizza",
+      "content_type": 24,
+      "codename": "change_itempizza"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 95,
+    "fields": {
+      "name": "Can delete item pizza",
+      "content_type": 24,
+      "codename": "delete_itempizza"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 96,
+    "fields": {
+      "name": "Can view item pizza",
+      "content_type": 24,
+      "codename": "view_itempizza"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 97,
+    "fields": {
+      "name": "Can add item bebida",
+      "content_type": 25,
+      "codename": "add_itembebida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 98,
+    "fields": {
+      "name": "Can change item bebida",
+      "content_type": 25,
+      "codename": "change_itembebida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 99,
+    "fields": {
+      "name": "Can delete item bebida",
+      "content_type": 25,
+      "codename": "delete_itembebida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 100,
+    "fields": {
+      "name": "Can view item bebida",
+      "content_type": 25,
+      "codename": "view_itembebida"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$150000$0jo9EwbUSJJa$N68izlYwrNiG185Zva4WOf/0VkvSdTn3wukzmU4RdnY=",
+      "last_login": "2019-11-18T20:47:35.523Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@admin.net",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2019-11-14T00:41:25.888Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$150000$4kKd3hdWGRn9$jnPOvf/L/uQXOxR24YDQR/nwpqVY6w4kDMsXEgcXEr8=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "chico",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2019-11-16T02:26:27.587Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2019-11-14T00:44:07.147Z",
+      "user": 1,
+      "content_type": 14,
+      "object_id": "1",
+      "object_repr": "Tradicional",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2019-11-14T00:44:29.183Z",
+      "user": 1,
+      "content_type": 14,
+      "object_id": "2",
+      "object_repr": "Especial",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2019-11-14T00:44:43.115Z",
+      "user": 1,
+      "content_type": 14,
+      "object_id": "3",
+      "object_repr": "Premium",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+      "action_time": "2019-11-14T00:44:49.525Z",
+      "user": 1,
+      "content_type": 14,
+      "object_id": "4",
+      "object_repr": "Doce",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+      "action_time": "2019-11-14T01:10:11.030Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "1",
+      "object_repr": "Pequena",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+      "action_time": "2019-11-14T01:10:14.447Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "1",
+      "object_repr": "Pequena",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+      "action_time": "2019-11-14T01:11:02.342Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "2",
+      "object_repr": "M\u00e9dia",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+      "action_time": "2019-11-14T01:11:32.438Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "3",
+      "object_repr": "Grande",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+      "action_time": "2019-11-14T01:12:04.843Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "4",
+      "object_repr": "Gigante",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+      "action_time": "2019-11-14T01:12:13.419Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "2",
+      "object_repr": "M\u00e9dia",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+      "action_time": "2019-11-14T01:12:19.336Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "3",
+      "object_repr": "Grande",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"max_sabores\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+      "action_time": "2019-11-14T01:12:24.708Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "2",
+      "object_repr": "M\u00e9dia",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"max_sabores\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+      "action_time": "2019-11-14T01:12:30.207Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "4",
+      "object_repr": "Gigante",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"max_sabores\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+      "action_time": "2019-11-14T01:14:22.518Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "1",
+      "object_repr": "Calabresa",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+      "action_time": "2019-11-14T01:15:00.498Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "1",
+      "object_repr": "Calabresa",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+      "action_time": "2019-11-14T01:15:11.448Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "1",
+      "object_repr": "Calabresa",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+      "action_time": "2019-11-14T01:16:11.984Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "2",
+      "object_repr": "Molho",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+      "action_time": "2019-11-14T01:16:18.943Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "2",
+      "object_repr": "Molho Tomate",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"nome\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+      "action_time": "2019-11-14T01:16:59.460Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "3",
+      "object_repr": "Mussarela",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+      "action_time": "2019-11-14T01:16:59.520Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "4",
+      "object_repr": "Mussarela",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+      "action_time": "2019-11-14T01:17:22.796Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "5",
+      "object_repr": "Tomate picado",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+      "action_time": "2019-11-14T01:17:44.474Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "6",
+      "object_repr": "Frango",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+      "action_time": "2019-11-14T01:18:16.841Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "7",
+      "object_repr": "Catupiry",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+      "action_time": "2019-11-14T01:18:39.282Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "8",
+      "object_repr": "Peperoni",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+      "action_time": "2019-11-14T22:46:06.712Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "1",
+      "object_repr": "Catupiry",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+      "action_time": "2019-11-14T22:46:23.177Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "2",
+      "object_repr": "Mussarela",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+      "action_time": "2019-11-14T22:46:31.908Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "3",
+      "object_repr": "Chocolate",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+      "action_time": "2019-11-14T22:46:43.140Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "4",
+      "object_repr": "Siciliana",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+      "action_time": "2019-11-14T22:47:12.772Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "9",
+      "object_repr": "Bacon",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+      "action_time": "2019-11-14T22:47:17.475Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "4",
+      "object_repr": "Siciliana",
+      "action_flag": 2,
+      "change_message": "[{\"added\": {\"name\": \"sabor borda ingrediente\", \"object\": \"SaborBordaIngrediente object (1)\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+      "action_time": "2019-11-14T22:47:58.639Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "10",
+      "object_repr": "Cheedar",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+      "action_time": "2019-11-14T22:48:20.815Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "4",
+      "object_repr": "Siciliana",
+      "action_flag": 2,
+      "change_message": "[{\"added\": {\"name\": \"sabor borda ingrediente\", \"object\": \"SaborBordaIngrediente object (2)\"}}, {\"changed\": {\"name\": \"sabor borda ingrediente\", \"object\": \"SaborBordaIngrediente object (1)\", \"fields\": [\"quantidade\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+      "action_time": "2019-11-14T22:48:57.301Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "2",
+      "object_repr": "Mussarela",
+      "action_flag": 2,
+      "change_message": "[{\"added\": {\"name\": \"sabor borda ingrediente\", \"object\": \"SaborBordaIngrediente object (3)\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+      "action_time": "2019-11-14T22:49:31.061Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "11",
+      "object_repr": "Chocolate",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+      "action_time": "2019-11-14T22:49:52.810Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "3",
+      "object_repr": "Chocolate",
+      "action_flag": 2,
+      "change_message": "[{\"added\": {\"name\": \"sabor borda ingrediente\", \"object\": \"SaborBordaIngrediente object (4)\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+      "action_time": "2019-11-14T22:50:08.125Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "1",
+      "object_repr": "Catupiry",
+      "action_flag": 2,
+      "change_message": "[{\"added\": {\"name\": \"sabor borda ingrediente\", \"object\": \"SaborBordaIngrediente object (5)\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+      "action_time": "2019-11-14T22:50:47.036Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "12",
+      "object_repr": "Chocolate Branco",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+      "action_time": "2019-11-14T22:50:48.704Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "5",
+      "object_repr": "Chocolate Branco",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"sabor borda ingrediente\", \"object\": \"SaborBordaIngrediente object (6)\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+      "action_time": "2019-11-14T22:50:57.878Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "5",
+      "object_repr": "Chocolate Branco",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"sabor borda ingrediente\", \"object\": \"SaborBordaIngrediente object (6)\", \"fields\": [\"quantidade\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+      "action_time": "2019-11-14T22:59:08.972Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "13",
+      "object_repr": "Parmes\u00e3o",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+      "action_time": "2019-11-14T22:59:36.846Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "14",
+      "object_repr": "Banana",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+      "action_time": "2019-11-14T22:59:53.827Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "15",
+      "object_repr": "Salaminho",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+      "action_time": "2019-11-14T23:00:40.993Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "16",
+      "object_repr": "Oreg\u00e2no",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+      "action_time": "2019-11-14T23:03:42.746Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "17",
+      "object_repr": "Milho Verde",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+      "action_time": "2019-11-14T23:04:25.046Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "18",
+      "object_repr": "Ervilha",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+      "action_time": "2019-11-14T23:04:52.502Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "19",
+      "object_repr": "Ervilha",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+      "action_time": "2019-11-14T23:05:44.535Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "20",
+      "object_repr": "Fil\u00e9 Agulha",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+      "action_time": "2019-11-14T23:06:47.508Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "21",
+      "object_repr": "Farinha de trigo",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+      "action_time": "2019-11-14T23:07:18.553Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "22",
+      "object_repr": "Oleo de Soja",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+      "action_time": "2019-11-14T23:07:38.840Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "23",
+      "object_repr": "Batata Frita",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+      "action_time": "2019-11-14T23:08:04.613Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "24",
+      "object_repr": "Presunto Picado",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+      "action_time": "2019-11-14T23:08:27.747Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "25",
+      "object_repr": "Azeitona",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+      "action_time": "2019-11-14T23:08:44.192Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "26",
+      "object_repr": "Azeitona Picada",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+      "action_time": "2019-11-14T23:09:53.315Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "27",
+      "object_repr": "Palmito",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+      "action_time": "2019-11-14T23:10:25.841Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "28",
+      "object_repr": "Piment\u00e3o Verde",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+      "action_time": "2019-11-14T23:10:53.917Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "29",
+      "object_repr": "Piment\u00e3o Vermelho",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 57,
+    "fields": {
+      "action_time": "2019-11-14T23:12:39.145Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "30",
+      "object_repr": "Batata Palha",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 58,
+    "fields": {
+      "action_time": "2019-11-14T23:13:50.062Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "31",
+      "object_repr": "M&M",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 59,
+    "fields": {
+      "action_time": "2019-11-14T23:14:36.459Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "32",
+      "object_repr": "Ovo",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 60,
+    "fields": {
+      "action_time": "2019-11-14T23:16:10.137Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "1",
+      "object_repr": "2 litros",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 61,
+    "fields": {
+      "action_time": "2019-11-14T23:16:14.050Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "1",
+      "object_repr": "Coca Cola",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"bebida tamanho bebida\", \"object\": \"Coca Cola - 2 litros\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 62,
+    "fields": {
+      "action_time": "2019-11-14T23:16:33.207Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "2",
+      "object_repr": "Fanta",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"bebida tamanho bebida\", \"object\": \"Fanta - 2 litros\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 63,
+    "fields": {
+      "action_time": "2019-11-14T23:16:53.251Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "3",
+      "object_repr": "Guaran\u00e1",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"bebida tamanho bebida\", \"object\": \"Guaran\\u00e1 - 2 litros\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 64,
+    "fields": {
+      "action_time": "2019-11-14T23:17:13.725Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "2",
+      "object_repr": "1 litro",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 65,
+    "fields": {
+      "action_time": "2019-11-14T23:17:19.047Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "3",
+      "object_repr": "350 ml",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 66,
+    "fields": {
+      "action_time": "2019-11-14T23:17:41.242Z",
+      "user": 1,
+      "content_type": 21,
+      "object_id": "1",
+      "object_repr": "Cart\u00e3o de Cr\u00e9dito",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 67,
+    "fields": {
+      "action_time": "2019-11-14T23:17:45.108Z",
+      "user": 1,
+      "content_type": 21,
+      "object_id": "2",
+      "object_repr": "A vista",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 68,
+    "fields": {
+      "action_time": "2019-11-14T23:24:53.690Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "2",
+      "object_repr": "Fil\u00e9 com Fritas",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (1)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (2)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (3)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (4)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (5)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (6)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (7)\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 69,
+    "fields": {
+      "action_time": "2019-11-14T23:29:51.927Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "3",
+      "object_repr": "4 queijo",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (8)\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 70,
+    "fields": {
+      "action_time": "2019-11-14T23:30:11.291Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "3",
+      "object_repr": "4 queijo",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"imagem\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 71,
+    "fields": {
+      "action_time": "2019-11-14T23:32:25.096Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "3",
+      "object_repr": "4 queijo",
+      "action_flag": 2,
+      "change_message": "[{\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (9)\"}}, {\"changed\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (8)\", \"fields\": [\"ingrediente\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 72,
+    "fields": {
+      "action_time": "2019-11-14T23:33:00.911Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "3",
+      "object_repr": "4 queijo",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (9)\", \"fields\": [\"quantidade\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 73,
+    "fields": {
+      "action_time": "2019-11-15T00:00:14.799Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "3",
+      "object_repr": "4 queijo",
+      "action_flag": 2,
+      "change_message": "[{\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (10)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (11)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (12)\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 74,
+    "fields": {
+      "action_time": "2019-11-15T21:37:55.309Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "33",
+      "object_repr": "Sal",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 75,
+    "fields": {
+      "action_time": "2019-11-15T21:38:24.699Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "4",
+      "object_repr": "Bacon",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (13)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (14)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (15)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (16)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (17)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (18)\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 76,
+    "fields": {
+      "action_time": "2019-11-15T21:49:01.314Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "34",
+      "object_repr": "Tomate em rodelas",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 77,
+    "fields": {
+      "action_time": "2019-11-15T21:49:40.241Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "5",
+      "object_repr": "Marguerita",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (19)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (20)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (21)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (22)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (23)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (24)\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 78,
+    "fields": {
+      "action_time": "2019-11-15T21:53:53.944Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "35",
+      "object_repr": "Canela em p\u00f3",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 79,
+    "fields": {
+      "action_time": "2019-11-15T21:54:28.104Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "36",
+      "object_repr": "Leite Condensado",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 80,
+    "fields": {
+      "action_time": "2019-11-15T21:55:37.068Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "6",
+      "object_repr": "Banana com canela",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (25)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (26)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (27)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (28)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (29)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (30)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (31)\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 81,
+    "fields": {
+      "action_time": "2019-11-15T21:58:27.608Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "7",
+      "object_repr": "Chocolate",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (32)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (33)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (34)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (35)\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 82,
+    "fields": {
+      "action_time": "2019-11-15T22:01:42.372Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "32",
+      "object_repr": "Ovo",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"un_medida\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 83,
+    "fields": {
+      "action_time": "2019-11-15T22:04:00.688Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "8",
+      "object_repr": "M&M c/ Chocolate",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (36)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (37)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (38)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (39)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (40)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (41)\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 84,
+    "fields": {
+      "action_time": "2019-11-15T22:14:17.925Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "37",
+      "object_repr": "Champignon",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 85,
+    "fields": {
+      "action_time": "2019-11-15T22:15:25.491Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "9",
+      "object_repr": "Siciliana",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (42)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (43)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (44)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (45)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (46)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (47)\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 86,
+    "fields": {
+      "action_time": "2019-11-15T22:15:50.188Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "9",
+      "object_repr": "Siciliana",
+      "action_flag": 2,
+      "change_message": "[{\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (48)\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 87,
+    "fields": {
+      "action_time": "2019-11-15T22:16:02.927Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "9",
+      "object_repr": "Siciliana",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (48)\", \"fields\": [\"quantidade\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 88,
+    "fields": {
+      "action_time": "2019-11-15T22:24:17.381Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "38",
+      "object_repr": "Molho Barbecue",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 89,
+    "fields": {
+      "action_time": "2019-11-15T22:25:35.542Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "10",
+      "object_repr": "Barbecue",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (49)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (50)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (51)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (52)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (53)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (54)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (55)\"}}, {\"added\": {\"name\": \"Ingrediente do Sabor de Pizza\", \"object\": \"SaborPizzaIngrediente object (56)\"}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 90,
+    "fields": {
+      "action_time": "2019-11-16T02:26:27.672Z",
+      "user": 1,
+      "content_type": 4,
+      "object_id": "2",
+      "object_repr": "chico",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 91,
+    "fields": {
+      "action_time": "2019-11-16T14:08:05.525Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "4",
+      "object_repr": "250ml",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  }
+]
