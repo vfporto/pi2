@@ -6,6 +6,7 @@ from .models import BebidaTamanhoBebida, TamanhoBebida, Bebida
 
 class TamanhoBebidaInLine(admin.TabularInline):
     model = BebidaTamanhoBebida
+    autocomplete_fields = ['tamanho_bebida']
     extra = 0
 
 class BebidaAdmin(admin.ModelAdmin):
@@ -15,5 +16,9 @@ class BebidaAdmin(admin.ModelAdmin):
     ordering = ['nome']
     inlines = [TamanhoBebidaInLine]
 
-admin.site.register(TamanhoBebida)
+
+class TamanhoBebidaAdmin(admin.ModelAdmin):
+    search_fields = ['id', 'nome']
+
+admin.site.register(TamanhoBebida, TamanhoBebidaAdmin)
 admin.site.register(Bebida, BebidaAdmin)

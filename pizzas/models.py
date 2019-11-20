@@ -75,6 +75,8 @@ class TamanhoPizza(models.Model):
     max_sabores = models.IntegerField(default=1)
     preco = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     multiplicador = models.DecimalField(decimal_places=2, max_digits=7, default=0)
+    ordem = models.IntegerField(default=0)
+
 
     def __str__(self):
         return self.nome
@@ -82,3 +84,5 @@ class TamanhoPizza(models.Model):
     class Meta:
         verbose_name = 'Tamanho da Pizza'
         verbose_name_plural = 'Tamanhos de Pizzas'
+        ordering = ['ordem', 'nome']
+

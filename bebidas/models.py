@@ -25,6 +25,7 @@ class BebidaTamanhoBebida(models.Model):
     preco = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     bebida = models.ForeignKey(Bebida, on_delete=models.CASCADE)#, related_name='tamanhos')
     tamanho_bebida = models.ForeignKey(TamanhoBebida, on_delete=models.CASCADE)#, related_name='bebidas')
+    disponivel = models.BooleanField(default=True)
 
     def __str__(self):
         return '%s - %s' % (self.bebida.nome, self.tamanho_bebida.nome)
