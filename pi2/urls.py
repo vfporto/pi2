@@ -21,6 +21,7 @@ from rest_framework import routers
 from pizzas.api.viewsets import Pizza_Viewset, TamanhoPizza_Viewset
 from bebidas.api.viewsets import Bebida_Viewset
 from pedidos.api.viewsets import PedidoViewSet
+from site_interno import views as site_interno_views
 
 from pi2 import settings
 rotas_api = routers.DefaultRouter()
@@ -29,11 +30,11 @@ rotas_api.register('bebida',Bebida_Viewset,"Bebida")
 rotas_api.register('tamanho_pizza', TamanhoPizza_Viewset, 'TamanhoPizza')
 rotas_api.register('pedidos', PedidoViewSet, basename='Pedido')
 
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(rotas_api.urls)),#inclui as rotas da api, podendo criar mais rotas
+    # path('interno/', include(site_interno_views.index)),
+    path('interno/', include('site_interno.urls')),
     path('', include('pyzza.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
