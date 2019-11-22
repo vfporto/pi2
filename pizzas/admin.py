@@ -50,8 +50,15 @@ class SaborPizzaAdmin(admin.ModelAdmin):
     ordering = ['nome']
 
     def show_imagem(self, obj):
-        return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
-            url=obj.imagem.url, width=obj.imagem.width, height=obj.imagem.height, ))
+        image_preview = ""
+        try:
+            image_preview = mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
+                url=obj.imagem.url, width=obj.imagem.width, height=obj.imagem.height, ))
+        except:
+            image_preview = mark_safe('<b> Imagem não encontrada. Refazer upload </b>')
+        return image_preview
+
+    show_imagem.short_description = "Visualização"
 
 class TamanhoPizzaAdmin(admin.ModelAdmin):
     list_display = ['id', 'nome', 'max_sabores', 'preco', 'multiplicador','ordem']
