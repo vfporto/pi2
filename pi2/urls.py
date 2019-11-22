@@ -24,6 +24,8 @@ from pedidos.api.viewsets import PedidoViewSet
 from site_interno import views as site_interno_views
 
 from pi2 import settings
+from site_interno import views
+
 rotas_api = routers.DefaultRouter()
 rotas_api.register('pizza',Pizza_Viewset,'SaborPizza')
 rotas_api.register('bebida',Bebida_Viewset,"Bebida")
@@ -36,6 +38,8 @@ urlpatterns = [
     # path('interno/', include(site_interno_views.index)),
     path('interno/', include('site_interno.urls')),
     path('', include('pyzza.urls')),
+    path('site_interno', views.index, name='index'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

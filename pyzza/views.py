@@ -23,3 +23,6 @@ def contato(request):
 def cardapio(request):
     return render(request, 'pyzza/cardapio.html')
 
+def index(request):
+    return render(request, 'site_interno/index.html')
+
