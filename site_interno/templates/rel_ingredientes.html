@@ -1,0 +1,26 @@
+{% extends "layout/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}
+
+
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'web/styles/loader.css' %}" media="all">
+{% endblock %}
+
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+{% block content %}
+<h1>Teste Lista Ingredientes para compra</h1>
+    {% if lista %}
+        {% for item in lista %}
+            <h3> {{ item.nome }}, Estoque: {{ item.qt_estoque }} {{ item.un_medida }}</h3>
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock %}

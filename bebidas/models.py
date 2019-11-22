@@ -22,11 +22,14 @@ class Bebida(models.Model):
 
 
 class BebidaTamanhoBebida(models.Model):
-    preco = models.DecimalField(decimal_places=2, max_digits=7, default=0)
-    bebida = models.ForeignKey(Bebida, on_delete=models.CASCADE)#, related_name='tamanhos')
     tamanho_bebida = models.ForeignKey(TamanhoBebida, on_delete=models.CASCADE)#, related_name='bebidas')
+    bebida = models.ForeignKey(Bebida, on_delete=models.CASCADE)#, related_name='tamanhos')
+    preco = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     disponivel = models.BooleanField(default=True)
 
+    class Meta:
+        verbose_name = 'Opção de Bebida'
+        verbose_name_plural = 'Opções de Bebida'
     def __str__(self):
         return '%s - %s' % (self.bebida.nome, self.tamanho_bebida.nome)
 
