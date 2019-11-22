@@ -60,14 +60,18 @@ class SaborPizzaIngrediente(models.Model):
     quantidade = models.DecimalField(decimal_places=2, max_digits=7, default=0)
 
     class Meta:
-        verbose_name = 'Ingrediente do Sabor de Pizza'
-        verbose_name_plural = 'Ingredientes do Sabor de Pizza'
+        verbose_name = 'Ingrediente'
+        verbose_name_plural = 'Ingredientes'
 
 
 class SaborBordaIngrediente(models.Model):
     sabor_borda = models.ForeignKey(SaborBorda, on_delete=models.CASCADE, related_name='ingredientes_borda_pivot')
     ingrediente = models.ForeignKey(Ingrediente, on_delete=models.PROTECT, related_name='sabores_borda_pivot')
     quantidade = models.DecimalField(decimal_places=2, max_digits=7, default=0)
+
+    class Meta:
+        verbose_name = 'Ingrediente'
+        verbose_name_plural = 'Ingredientes'
 
 
 class TamanhoPizza(models.Model):
