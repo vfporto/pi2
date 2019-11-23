@@ -15,6 +15,18 @@
 
 {% block breadcrumbs %}{% endblock %}
 {% block content %}
-<h1>Mocha!!!</h1>
+<h1>Relatório</h1>
+    {% if lista %}
+        <table class="list-group-item-light">
+        {% for item in lista %}
+            <tr>
+                <td>{{ item.nome }}</td>
+                <td>{{ item.qt_estoque }}</td>
+                <td>{{ item.un_medida }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+
+    {% endif %}
 
 {% endblock %}

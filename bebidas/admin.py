@@ -7,6 +7,7 @@ from .models import BebidaTamanhoBebida, TamanhoBebida, Bebida
 class TamanhoBebidaInLine(admin.TabularInline):
     model = BebidaTamanhoBebida
     autocomplete_fields = ['tamanho_bebida']
+    fields = ['tamanho_bebida', 'preco', 'disponivel']
     extra = 0
 
 class BebidaAdmin(admin.ModelAdmin):

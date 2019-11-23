@@ -92,23 +92,33 @@ WSGI_APPLICATION = 'pi2.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.mysql',     #MySQL 1 -> pip install mysqlclient
-        # 'ENGINE': 'mysql.connector.django',       #MySQL 2 -> pip install mysql-connector-python==8.0.12
-        'ENGINE': 'django.db.backends.postgresql',  #Postgres-> pip install psycopg2
-        'NAME': 'pyzza',
-        'USER': 'postgres',                         #Postgres
-        # 'USER': 'root',                           #MySQL
-        'PASSWORD': 'bancodedados',
-        'HOST': 'localhost',
-        'PORT': '5432',                             #Porta Postgres: 5432  -  Porta MySQL: 3306
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, "db.sqlite3"),
+    },
 
-        # Tentativa de resolver incompatibilidade das versoes > 8.0.12 do mysql-connector-python
-        # 'OPTIONS': {
-        #     'use_pure': True,
-        # }
-    }
+    # 'default': { #Postgres
+    #     'ENGINE': 'django.db.backends.postgresql',  #Postgres-> pip install psycopg2
+    #     'NAME': 'pyzza',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'bancodedados',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # },
+
+    # 'default': {  # MySQL
+    #     'ENGINE': 'django.db.backends.mysql',     #MySQL 1 -> pip install mysqlclient
+    #     # 'ENGINE': 'mysql.connector.django',       #MySQL 2 -> pip install mysql-connector-python==8.0.12
+    #     'NAME': 'pyzza',
+    #     'USER': 'root',
+    #     'PASSWORD': 'bancodedados',
+    #     'HOST': 'localhost',
+    #     'PORT': '3306',
+    #     # Tentativa de resolver incompatibilidade das versoes > 8.0.12 do mysql-connector-python
+    #     # 'OPTIONS': {
+    #     #     'use_pure': True,
+    #     # }
+    # },
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -159,3 +169,110 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/imagens/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "imagens/")
+
+SUIT_CONFIG={
+    # header
+    'ADMIN_NAME': 'Pyzzarella',
+    'HEADER_DATE_FORMAT': 'l, j \d\e F \d\e Y',
+    # 'HEADER_TIME_FORMAT': 'H:i',
+
+    # forms
+    # 'SHOW_REQUIRED_ASTERISK': True,  # Default True
+    # 'CONFIRM_UNSAVED_CHANGES': True, # Default True
+
+    # menu
+    # 'SEARCH_URL': '/admin/auth/user/',
+    # 'MENU_ICONS': {
+    #    'sites': 'icon-leaf',
+    #    'auth': 'icon-lock',
+    # },
+    # 'MENU_OPEN_FIRST_CHILD': True, # Default True
+    # 'MENU_EXCLUDE': ('auth.group',),
+    # 'MENU_OPEN_FIRST_CHILD': True, # Default True
+    # 'MENU_EXCLUDE': ('auth.group',),
+    # 'MENU': (
+    #     'sites',
+    #     {'app': 'auth', 'icon':'icon-lock', 'models': ('user', 'group')},
+    #     {'label': 'Settings', 'icon':'icon-cog', 'models': ('auth.user', 'auth.group')},
+    #     {'label': 'Support', 'icon':'icon-question-sign', 'url': '/support/'},
+    # ),
+
+    # misc
+    # 'LIST_PER_PAGE': 15
+
+    'MENU_ICONS': {
+        'pedidos': 'icon-shopping-cart',
+        'bebidas': 'icon-glass',
+        'auth': 'icon-lock',
+        'pessoas': 'icon-user',
+        'pizzas': 'icon-inbox',
+    },
+'MENU': (
+        'sites',
+            {'app': 'auth', 'icon':'icon-lock', 'models': ('user', 'group')},
+        '-',
+        {'label':'Pessoas', 'icon':'icon-user', 'models': ('pessoas.Cliente', 'pessoas.Entregador'),
+            # 'permissions': 'empresa.view_empresa'
+        },
+        {
+            'app': 'pizzas',
+            'label': 'Pizzas',
+            'icon': 'icon-inbox',
+            'models': ('TamanhoPizza','TipoPizza', 'SaborBorda','SaborPizza','Ingrediente'),
+            # 'permissions': 'empresa.view_empresa'
+        },
+        {
+            'label': 'Bebidas',
+            'icon': 'icon-glass',
+            'models': ('bebidas.Bebida', 'bebidas.TamanhoBebida'),
+            # 'permissions': 'empresa.view_empresa'
+        },
+        {
+            'label': 'Pedidos',
+            'icon': 'icon-shopping-cart',
+            'models': (
+                'pedidos.Pedido', 'pedidos.FormaDePagamento'),
+            # 'permissions': 'empresa.view_empresa'
+        },
+        '-',
+        {
+            'label': 'Relatórios',
+            'icon':'icon-list-alt',
+            'url': '/interno/',
+            # 'permissions': 'empresa.view_empresa'
+        },
+        { 'label': 'Relatório de Ingredientes', 'icon': 'icon-list-alt', 'url': '/interno/rel_ingredientes/',},
+
+),
+
+}
+# Lista de icones utilizaveis
+# https://deniskrumko.github.io/django-suit-icons/
+
+
+# https://django-suit.readthedocs.io/en/latest/configuration.html
+# # Rename app and set icon
+# {'app': 'auth', 'label': 'Authorization', 'icon': 'icon-lock'},
+#
+# # Reorder app models
+# {'app': 'auth', 'models': ('user', 'group')},
+#
+# # Custom app, with models
+# {'label': 'Settings', 'icon': 'icon-cog', 'models': ('auth.user', 'auth.group')},
+#
+# # Cross-linked models with custom name; Hide default icon
+# {'label': 'Custom', 'icon': None, 'models': (
+#     'auth.group',
+#     {'model': 'auth.user', 'label': 'Staff'}
+# )},
+#
+# # Custom app, no models (child links)
+# {'label': 'Users', 'url': 'auth.user', 'icon': 'icon-user'},
+#
+# # Separator
+# '-',
+#
+# # Custom app and model with permissions
+# {'label': 'Secure', 'permissions': 'auth.add_user', 'models': [
+#     {'label': 'custom-child', 'permissions': ('auth.add_user', 'auth.add_group')}
+# ]},
