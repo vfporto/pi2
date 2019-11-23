@@ -1,12 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "site_interno/layout/base_site.html" %}
+{% load i18n admin_static %}
 
-</body>
+{% block extrastyle %}
 
-<h1>TESTE</h1>
-</html>
+
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'web/styles/loader.css' %}" media="all">
+{% endblock %}
+
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+{% block content %}
+<h1>Mocha!!!</h1>
+
+{% endblock %}

@@ -173,7 +173,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "imagens/")
 SUIT_CONFIG={
     # header
     'ADMIN_NAME': 'Pyzzarella',
-    'HEADER_DATE_FORMAT': 'l, j F Y',
+    'HEADER_DATE_FORMAT': 'l, j \d\e F \d\e Y',
     # 'HEADER_TIME_FORMAT': 'H:i',
 
     # forms
@@ -209,22 +209,22 @@ SUIT_CONFIG={
     },
 'MENU': (
         'sites',
-        {'app': 'auth', 'icon':'icon-lock', 'models': ('user', 'group')},
+            {'app': 'auth', 'icon':'icon-lock', 'models': ('user', 'group')},
         '-',
         {'label':'Pessoas', 'icon':'icon-user', 'models': ('pessoas.Cliente', 'pessoas.Entregador'),
             # 'permissions': 'empresa.view_empresa'
         },
         {
+            'app': 'pizzas',
             'label': 'Pizzas',
             'icon': 'icon-inbox',
-            'models': ('pizzas.TamanhoPizza','pizzas.TipoPizza', 'pizzas.SaborBorda','pizzas.SaborPizza','pizzas.Ingrediente'),
+            'models': ('TamanhoPizza','TipoPizza', 'SaborBorda','SaborPizza','Ingrediente'),
             # 'permissions': 'empresa.view_empresa'
         },
         {
             'label': 'Bebidas',
             'icon': 'icon-glass',
-            'models': (
-            'bebidas.Bebida', 'bebidas.TamanhoBebida'),
+            'models': ('bebidas.Bebida', 'bebidas.TamanhoBebida'),
             # 'permissions': 'empresa.view_empresa'
         },
         {
@@ -237,15 +237,18 @@ SUIT_CONFIG={
         '-',
         {
             'label': 'Relatórios',
-            'icon':'icon-calendar',
+            'icon':'icon-list-alt',
             'url': '/interno/',
             # 'permissions': 'empresa.view_empresa'
         },
-        { 'label': 'Lista', 'icon': 'icon-calendar', 'url': '/interno/rel_ingredientes/',},
+        { 'label': 'Relatório de Ingredientes', 'icon': 'icon-list-alt', 'url': '/interno/rel_ingredientes/',},
 
 ),
 
 }
+# Lista de icones utilizaveis
+# https://deniskrumko.github.io/django-suit-icons/
+
 
 # https://django-suit.readthedocs.io/en/latest/configuration.html
 # # Rename app and set icon

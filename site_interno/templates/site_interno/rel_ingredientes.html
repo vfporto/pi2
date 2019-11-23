@@ -1,4 +1,4 @@
-{% extends "layout/base_site.html" %}
+{% extends "site_interno/layout/base_site.html" %}
 {% load i18n admin_static %}
 
 {% block extrastyle %}
@@ -15,11 +15,17 @@
 
 {% block breadcrumbs %}{% endblock %}
 {% block content %}
-<h1>Teste Lista Ingredientes para compra</h1>
+<h1>Relatório</h1>
     {% if lista %}
+        <table class="list-group-item-light">
         {% for item in lista %}
-            <h3> {{ item.nome }}, Estoque: {{ item.qt_estoque }} {{ item.un_medida }}</h3>
+            <tr>
+                <td>{{ item.nome }}</td>
+                <td>{{ item.qt_estoque }}</td>
+                <td>{{ item.un_medida }}</td>
+            </tr>
         {% endfor %}
+        </table>
 
     {% endif %}
 
