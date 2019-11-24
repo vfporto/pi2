@@ -5,6 +5,19 @@
 	font-family: "Guthen Bloots Personal Use";
 	src: local("Guthen Bloots Personal Use"), url("fontes/Guthen_Bloots.TTF") format("truetype");
 }
+
+.card {
+    width: 650px;
+    right: 70px;
+    top: 1em;
+}
+.pt-3-half{
+	font-size: 13px;
+}
+.titulo-tabela{
+	font-size: 14px;
+}
+
 body,
 		html {
 			margin: 0;
@@ -122,6 +135,7 @@ a.navbar-brand:hover {
 }
 .pedidos{
 	margin-top: 1em;
+	margin-right: 2em;
 	padding-top: 15px;
 	padding-bottom: 5px;
 	background-color: #c0392b;
@@ -249,11 +263,35 @@ body{
 	}
 
 /*FINAL PAGINA DE CONTATOS*/
-
+	span {cursor:pointer; }
+		.number{
+			margin:100px;
+		}
+		.minus, .plus{
+			width:15px;
+			height:15px;
+			background:#f2f2f2;
+			border-radius:3px;
+			/*padding:8px 5px 8px 5px;*/
+			border:1px solid #ddd;
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+		}
+		input{
+			height:30px;
+			width: 30px;
+			text-align: center;
+			font-size: 13px;
+			border:1px solid #ddd;
+			border-radius:4px;
+      		display: inline-block;
+      		vertical-align: middle;
+}
 .img-pedidos {
 	border-radius: 35px;
-	height: 70vh;
-	width: 60vh;
+	height: 45vh;
+	width: 40vh;
 	display: flex;
 	padding: 20px;
 }
