@@ -15,16 +15,20 @@ class EntregadorAdmin(ReverseModelAdmin):
     inline_type = 'stacked'
     search_fields = ['nome']
     inline_reverse = [
-        ('endereco', {'fields': ['logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf']}),
+        ('endereco', {'fields': ['logradouro', 'numero', 'complemento', 'bairro', 'cidade','cep', 'uf']}),
     ]
 
 
 class ClienteAdmin(ReverseModelAdmin):
+    model = Cliente
     inline_type = 'stacked'
-    search_fields = ['nome']
+    search_fields = ['id', 'nome', 'telefone']
+    list_display = ['id', 'nome', 'telefone']
+    list_display_links = ['id', 'nome', 'telefone']
     inline_reverse = [
-        ('endereco', {'fields': ['logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf']}),
+        ('endereco', {'fields': ['id', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'cep', 'uf']}),
     ]
+    # inline_reverse = ['endereco']
 
 
 admin.site.register(Entregador, EntregadorAdmin)

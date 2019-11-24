@@ -14,7 +14,8 @@ class ItemPizzaInline(admin.TabularInline):
 class ItemBebidaInline(admin.TabularInline):
     model = ItemBebida
     extra = 0
-    fields = ['id','bebida_tamanho' , 'quantidade', 'preco', 'get_preco']
+    # fields = ['id','bebida_tamanho' , 'quantidade', 'preco', 'get_preco']
+    fields = ['bebida_tamanho' , 'quantidade', 'get_preco']
     readonly_fields = ['get_preco']
 
 """
@@ -35,7 +36,7 @@ class PedidoAdmin(admin.ModelAdmin):
     inlines = [ItemPizzaInline, ItemBebidaInline]
     autocomplete_fields = ['cliente','forma_de_pagamento',]
     fieldsets = (( None, {
-      'fields': ('cliente', ('forma_de_pagamento', 'troco_para'),'observacao')
+      'fields': ('cliente', ('forma_de_pagamento', 'troco_para'),'observacao', 'get_total')
     }),
                  ('Opções de Entrega', {
                      'classes': ('collapse',),

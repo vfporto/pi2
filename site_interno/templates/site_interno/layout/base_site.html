@@ -1,4 +1,4 @@
-{% extends "admin/base.html" %}
+{% extends "site_interno/layout/base.html" %}
 {% load admin_static %}
 
 {# Additional <head> content here, some extra meta tags or favicon #}
@@ -50,8 +50,14 @@
 {#{% block footer_branding %}#}
 {#{% endblock %}#}
 
+{% block footer_links %}
+
+{% endblock %}
+
+
 
 {# Footer copyright (right side) #}
-{#{% block copyright %}#}
-{#  Copyright &copy; 2013 Client<br>Developed by <a href="http://yoursite.com" target="_blank">YourName</a> #}
-{#{% endblock %}#}
+{% block copyright %}
+{#  Copyright &copy; 2013 Client<br>Developed by <a href="http://yoursite.com" target="_blank">YourName</a>#}
+    Trabalho desenvolvido por Fernando, Jefferson e Fabrício (disponivel em: <a href="https://github.com/vfporto/pi2">https://github.com/vfporto/pi2</a>)
+{% endblock %}
