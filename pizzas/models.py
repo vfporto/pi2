@@ -15,6 +15,7 @@ class Ingrediente(models.Model):
 class TipoPizza(models.Model):
     nome = models.CharField(max_length=50)
     valor_adicional = models.DecimalField(decimal_places=2, max_digits=7, default=0)
+    disponivel = models.BooleanField(default=True)
 
     def __str__(self):
         return self.nome
@@ -29,6 +30,7 @@ class SaborBorda(models.Model):
     valor_adicional = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     disponivel = models.BooleanField(default=True)
     ingredientes = models.ManyToManyField(Ingrediente, related_name='sabores_borda', through='SaborBordaIngrediente', blank=True)
+    ordem = models.IntegerField(default=0)
 
     def __str__(self):
         return self.nome
@@ -36,6 +38,7 @@ class SaborBorda(models.Model):
     class Meta:
         verbose_name = 'Sabor da Borda'
         verbose_name_plural = 'Sabores de Bordas'
+        ordering = ['ordem', 'nome']
 
 class SaborPizza(models.Model):
     nome = models.CharField(max_length=50)
@@ -80,7 +83,7 @@ class TamanhoPizza(models.Model):
     preco = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     multiplicador = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     ordem = models.IntegerField(default=0)
-
+    disponivel = models.BooleanField(default=True)
 
     def __str__(self):
         return self.nome

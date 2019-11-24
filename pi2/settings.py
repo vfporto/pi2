@@ -91,33 +91,35 @@ WSGI_APPLICATION = 'pi2.wsgi.application'
 # }
 
 DATABASES = {
+    # Mudar para default o banco que quiser usar, e
     'default': {
+    # 'sqlite'{
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, "db.sqlite3"),
     },
 
-    # 'default': { #Postgres
-    #     'ENGINE': 'django.db.backends.postgresql',  #Postgres-> pip install psycopg2
-    #     'NAME': 'pyzza',
-    #     'USER': 'postgres',
-    #     'PASSWORD': 'bancodedados',
-    #     'HOST': 'localhost',
-    #     'PORT': '5432',
-    # },
+    'POSTGRES': { #Postgres
+        'ENGINE': 'django.db.backends.postgresql',  #Postgres-> pip install psycopg2
+        'NAME': 'pyzza',
+        'USER': 'postgres',
+        'PASSWORD': 'bancodedados',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    },
 
-    # 'default': {  # MySQL
-    #     'ENGINE': 'django.db.backends.mysql',     #MySQL 1 -> pip install mysqlclient
-    #     # 'ENGINE': 'mysql.connector.django',       #MySQL 2 -> pip install mysql-connector-python==8.0.12
-    #     'NAME': 'pyzza',
-    #     'USER': 'root',
-    #     'PASSWORD': 'bancodedados',
-    #     'HOST': 'localhost',
-    #     'PORT': '3306',
-    #     # Tentativa de resolver incompatibilidade das versoes > 8.0.12 do mysql-connector-python
-    #     # 'OPTIONS': {
-    #     #     'use_pure': True,
-    #     # }
-    # },
+    'mysql': {  # MySQL
+        # 'ENGINE': 'django.db.backends.mysql',     #MySQL 1 -> pip install mysqlclient
+        'ENGINE': 'mysql.connector.django',       #MySQL 2 -> pip install mysql-connector-python==8.0.12
+        'NAME': 'pyzza',
+        'USER': 'root',
+        'PASSWORD': 'bancodedados',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        # Tentativa de resolver incompatibilidade das versoes > 8.0.12 do mysql-connector-python
+        # 'OPTIONS': {
+        #     'use_pure': True,
+        # }
+    },
 }
 
 # Password validation

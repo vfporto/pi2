@@ -24,10 +24,10 @@ class BordaIngredienteInLine(admin.TabularInline):
 
 class SaborBordaAdmin(admin.ModelAdmin):
     search_fields = ['nome']
-    list_display = ['id', 'nome', 'valor_adicional', 'disponivel']
+    list_display = ['id', 'nome', 'valor_adicional', 'disponivel', 'ordem']
     list_display_links = ['id', 'nome', 'valor_adicional']
-    list_editable = ['disponivel']
-    ordering = ['nome']
+    list_editable = ['disponivel', 'ordem']
+    ordering = ['ordem', 'nome']
     inlines = [BordaIngredienteInLine]
 
 

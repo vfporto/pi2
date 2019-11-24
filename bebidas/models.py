@@ -4,6 +4,7 @@ from django.db import models
 # Bebidas
 class TamanhoBebida(models.Model):
     nome = models.CharField(max_length=50)
+    disponivel = models.BooleanField(default=True)
 
     def __str__(self):
         return self.nome
@@ -15,6 +16,7 @@ class TamanhoBebida(models.Model):
 
 class Bebida(models.Model):
     nome = models.CharField(max_length=50)
+    disponivel = models.BooleanField(default=True)
     tamanhos = models.ManyToManyField(TamanhoBebida, through='BebidaTamanhoBebida', related_name='bebidas')
 
     def __str__(self):
