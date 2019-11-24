@@ -17,7 +17,13 @@
 {% block content %}
 <h1>Relatório</h1>
     {% if lista %}
-        <table class="list-group-item-light">
+        <tbody>
+        <table class="table">
+               <tr>
+                <th>Nome Ingrediente</th>
+                <th>Quantidade Estoque</th>
+                <th>Unidade Medida</th>
+            </tr>
         {% for item in lista %}
             <tr>
                 <td>{{ item.nome }}</td>
@@ -26,7 +32,7 @@
             </tr>
         {% endfor %}
         </table>
-
+</tbody>
     {% endif %}
 
 {% endblock %}

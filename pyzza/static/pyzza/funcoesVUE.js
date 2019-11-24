@@ -66,8 +66,8 @@
 
         },
         methods: {
-            adicionar_pizza: function(pizza){
-                this.pizzas_selecionadas.push(pizza);
+            adicionar_pizza: function(pizzas){
+                this.pizzas_selecionadas.push(pizzas);
             },
 
                   /*busca as pizzas na api*/
@@ -78,8 +78,8 @@
             },
 
             /*funcao que remove as pizzas da comanda.*/
-            remover_pizza: function (pizza) {
-                this.pizzas_selecionadas = this.pizzas_selecionadas.filter(x => x.id != pizza.id);
+            remover_pizza: function (pizzas) {
+                this.pizzas_selecionadas = this.pizzas_selecionadas.filter(x => x.id != pizzas.id);
             },
 
               //Busca bebidas na API
