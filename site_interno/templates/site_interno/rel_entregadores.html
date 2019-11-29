@@ -15,7 +15,8 @@
 
 {% block breadcrumbs %}{% endblock %}
 {% block content %}
-<h1>Relatório Ingredientes</h1>
+<h1>Relatório de Entregas</h1>
+    <p>Quantidade de entregas feitas por cada entregadores</p>
     {% if lista %}
         <div class="container">
         <div class="row">
@@ -23,15 +24,18 @@
             <tbody>
                 <table class="table">
                      <tr>
-                         <th><h3>Nome Ingrediente</h3></th>
-                         <th><h3>Quantidade Estoque</h3></th>
-                         <th><h3>Unidade Medida</h3></th>
+                         <th><h3>Nome Entregador</h3></th>
+                         <th><h3>Telefone</h3></th>
+                         <th><h3>Endereço</h3></th>
+                         <th><h3>Qtd Entregas</h3></th>
             </tr>
         {% for item in lista %}
             <tr>
                 <td>{{ item.nome }}</td>
-                <td>{{ item.qt_estoque }}</td>
-                <td>{{ item.un_medida }}</td>
+                <td>{{ item.telefone }}</td>
+                <td>{{ item.endereco.logradouro}} - {{ item.endereco.numero }}</td>
+                 <td>{{item.pedido_set.count}}</td>
+
             </tr>
         {% endfor %}
                 </table>
@@ -39,22 +43,6 @@
             </div>
         </div>
         </div>
-{#        <tbody>#}
-{#        <table class="table table-condensed">#}
-{#               <tr>#}
-{#                <th>Nome Ingrediente</th>#}
-{#                <th>Quantidade Estoque</th>#}
-{#                <th>Unidade Medida</th>#}
-{#            </tr>#}
-{#        {% for item in lista %}#}
-{#            <tr>#}
-{#                <td>{{ item.nome }}</td>#}
-{#                <td>{{ item.qt_estoque }}</td>#}
-{#                <td>{{ item.un_medida }}</td>#}
-{#            </tr>#}
-{#        {% endfor %}#}
-{#        </table>#}
-{#</tbody>#}
     {% endif %}
 
 {% endblock %}

@@ -92,13 +92,13 @@ WSGI_APPLICATION = 'pi2.wsgi.application'
 
 DATABASES = {
     # Mudar para default o banco que quiser usar, e
-    'default': {
+    'sqlite': {
     # 'sqlite'{
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, "db.sqlite3"),
     },
 
-    'POSTGRES': { #Postgres
+    'default': { #Postgres
         'ENGINE': 'django.db.backends.postgresql',  #Postgres-> pip install psycopg2
         'NAME': 'pyzza',
         'USER': 'postgres',
@@ -244,6 +244,7 @@ SUIT_CONFIG={
             # 'permissions': 'empresa.view_empresa'
         },
         { 'label': 'Relatório de Ingredientes', 'icon': 'icon-list-alt', 'url': '/interno/rel_ingredientes/',},
+        {'label': 'Relatório de Entregadores', 'icon': 'icon-list-alt', 'url': '/interno/rel_entregadores/', },
 
 ),
 

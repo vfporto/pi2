@@ -20,5 +20,7 @@ from site_interno import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('rel_ingredientes/', views.rel_ingredientes, name='rel_ingredientes')
+    path('rel_ingredientes/', views.rel_ingredientes, name='rel_ingredientes'),
+    path('rel_entregadores/', views.rel_entregadores, name='rel_entregadores')
+
 ]
