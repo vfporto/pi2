@@ -45,7 +45,7 @@
             tamanho_selecionado: {max_sabores:0},
             num_sabores_selecionado: {},
             pedido: {},
-
+            errors:[],
             // tamanhos_selecionados:[], //jogar fora
             // qtd_sabores:[], //acho que tb vai fora
             // qtd_sabores_selecionados: [], //e esse tambem...S
@@ -117,9 +117,19 @@
                      console.log("to aqui");
                 })
             },
-
+        checkForm:function(e) {
+          if(this.tamanhos)
+              return true;
+          this.errors = [];
+          if(!this.tamanhos) this.errors.push("Escolha um tamanho.");
+          e.preventDefault();
+    },
     });
 /*fecha modal*/
     $('#btn-fecha').on('click', function () {
         $('.modal').modal('hide');
     });
+// Material Select Initialization
+$(document).ready(function() {
+$('.mdb-select').materialSelect();
+});

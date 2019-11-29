@@ -5,7 +5,19 @@
 	font-family: "Guthen Bloots Personal Use";
 	src: local("Guthen Bloots Personal Use"), url("fontes/Guthen_Bloots.TTF") format("truetype");
 }
-
+.bebidas {
+    width: 94%;
+    height: 100%;
+    align-items: center;
+    position: relative;
+}
+.banner-pedir-pizza {
+    width: 94%;
+    height: 100%;
+	margin-top: 1em;
+	margin-bottom: 1em;
+    position: relative;
+}
 .card {
     width: 650px;
     right: 70px;
