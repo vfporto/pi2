@@ -4,6 +4,7 @@ from django.db import models
 # Bebidas
 class TamanhoBebida(models.Model):
     nome = models.CharField(max_length=50)
+    ordem = models.IntegerField(default=0)
     disponivel = models.BooleanField(default=True)
 
     def __str__(self):
@@ -22,10 +23,13 @@ class Bebida(models.Model):
     def __str__(self):
         return self.nome
 
+    class Meta:
+        ordering = ['nome']
+
 
 class BebidaTamanhoBebida(models.Model):
     tamanho_bebida = models.ForeignKey(TamanhoBebida, on_delete=models.CASCADE)#, related_name='bebidas')
-    bebida = models.ForeignKey(Bebida, on_delete=models.CASCADE)#, related_name='tamanhos')
+    bebida = models.ForeignKey(Bebida, on_delete=models.CASCADE, related_name='opcoes')#, related_name='tamanhos')
     preco = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     disponivel = models.BooleanField(default=True)
 

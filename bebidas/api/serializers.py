@@ -13,14 +13,17 @@ class BebidaTamanhoBebida_Serializer(serializers.ModelSerializer):
     class Meta:
         model = BebidaTamanhoBebida
         # fields = ('preco', 'bebida', 'tamanho_bebida')
-        fields = ('__all__')
-
+        # fields = ('__all__')
+        fields = ('id', 'preco', 'tamanho_bebida')
 
 class Bebida_Serializer(serializers.ModelSerializer):
-    tamanhos = BebidaTamanhoBebida_Serializer(many=True, read_only=True)
+    # tamanhos = TamanhoBebida_Serializer(many=True, read_only=True)
+    opcoes = BebidaTamanhoBebida_Serializer(many=True)
+
 
     class Meta:
         model = Bebida
         # fields = ('__all__')
-        fields = ('id', 'nome', 'tamanhos')
+        fields = ('id', 'nome', 'disponivel', 'tamanhos', 'opcoes')
+        # fields = ('id', 'nome', 'disponivel', 'opcoes')
 

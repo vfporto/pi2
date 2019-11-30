@@ -15,6 +15,7 @@ class Ingrediente(models.Model):
 class TipoPizza(models.Model):
     nome = models.CharField(max_length=50)
     valor_adicional = models.DecimalField(decimal_places=2, max_digits=7, default=0)
+    ordem = models.IntegerField(default=0)
     disponivel = models.BooleanField(default=True)
 
     def __str__(self):
@@ -23,6 +24,7 @@ class TipoPizza(models.Model):
     class Meta:
         verbose_name = 'Tipo de Pizza'
         verbose_name_plural = 'Tipos de Pizzas'
+        ordering = ['ordem']
 
 
 class SaborBorda(models.Model):
@@ -55,6 +57,7 @@ class SaborPizza(models.Model):
     class Meta:
         verbose_name = 'Sabor de Pizza'
         verbose_name_plural = 'Sabores de Pizzas'
+        ordering = ['tipo_pizza','nome']
 
 
 class SaborPizzaIngrediente(models.Model):
