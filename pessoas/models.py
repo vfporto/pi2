@@ -18,6 +18,7 @@ class Entregador(models.Model):
     telefone = models.CharField(max_length=100)
     endereco = models.OneToOneField(Endereco, on_delete=models.CASCADE, related_name='endereco_entregador')
 
+
     def __str__(self):
         return self.nome
 
