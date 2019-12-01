@@ -24,24 +24,33 @@
             <tbody>
                 <table class="table">
                      <tr>
-                         <th><h3>Nome Cliente</h3></th>
-                         <th><h3>Telefone</h3></th>
-                         <th><h3>Sabor da Pizza</h3></th>
-                         <th><h3>STATUS</h3></th>
+                         <th class="text-center"><h3>NÚMERO</h3></th>
+                         <th class="text-center"><h3>HORA</h3></th>
+                         <th class="text-center"><h3>CLIENTE</h3></th>
+                         <th class="text-center"><h3>TELEFONE</h3></th>
+                         <th class="text-center"><h3>PREÇO</h3></th>
+                          <th class="text-center"><h3>STATUS</h3></th>
                          <th class="text-center"><h3>ACÕES</h3></th>
 
-        {% for item in lista %}
+            {% for pedido in lista %}
             <tr>
-                <td>{{ item.cliente.nome }}</td>
-                <td>{{ item.cliente.telefone }}</td>
-                <td>{{ item.cliente.telefone}}</td>
-                <td>SOLICITADO</td>
+                <td class="text-center">{{ pedido.id }}</td>
+                <td class="text-center">{{ pedido.data.time }}</td>
+                <td class="text-center">{{ pedido.cliente.nome }}</td>
+                <td class="text-center">{{ pedido.cliente.telefone}}</td>
+                <td class="text-center">{{ pedido.get_total}}</td>
+                <td class="text-center">{{ pedido.status_pedido }}</td>
                 <td class="text-center">
-                    <button class="text-center btn-success">PRODUZIR</button>
+                    {% if pedido.status_pedido.id == 1 %}
+                        <button class="text-center btn-success" href="#myModal{{ pedido.id }}" role="button" data-toggle="modal">PRODUZIR</button>
+                      {% elif pedido.status_pedido.id == 2 %}
+                        <button class="text-center btn-warning"  role="button" data-toggle="modal">ENTREGA</button>
+
+                    {% endif %}
+
+
                     <button class="text-center btn-danger">CANCELAR</button>
                 </td>
-
-
             </tr>
         {% endfor %}
                 </table>
@@ -49,6 +58,75 @@
             </div>
         </div>
         </div>
+                <!-- IMPLEMENTAÇÃO DA MODAL COM A DESCRIÇÃO DO PEDIDO-->
+{#<div id="myModal" class="modal hide fade">#}
+{##}
+{#    <div class="modal-header">#}
+{#        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>#}
+{#        <h3>PEDIDO No 435 <span style="float: right"> Data: 30/11/2019</span></h3>#}
+{#    </div>#}
+{##}
+{#    <div class="modal-body">#}
+{#        <p></p>#}
+{##}
+{#    </div>#}
+{##}
+{#    <div class="modal-footer">#}
+{#        <a href="#" class="btn" data-dismiss="modal">IMPRIMIR</a>#}
+{#        <a href="#" class="btn btn-primary">CONFIRMAR</a>#}
+{#    </div>#}
+{#</div>#}
+
+{% for pedido in lista %}
+    <div id="myModal{{ pedido.id }}" class="modal hide fade">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+            <h3>PEDIDO No {{ pedido.id }} <span style="float: right"> Data: {{ pedido.data }}</span></h3>
+        </div>
+
+        <div class="modal-body">
+        <h3>Dados do Cliente</h3>
+            <p>Cliente: {{ pedido.cliente.nome }}</p>
+            <p>Telefone: {{ pedido.cliente.telefone }}</p>
+            <p>Endereço: {{ pedido.cliente.endereco.logradouro }}, {{ pedido.cliente.endereco.numero }}</p>
+            <p>Bairro: {{ pedido.cliente.endereco.bairro }}</p>
+            <hr>
+            {% for item in pedido.itens_pizza.all %}
+                <p>Pizza {{ item.tamanho_pizza }}</p>
+                <p>Sabor(es):</p>
+                {% for sabor in item.sabores.all %}
+                    <p>-> {{ sabor.nome }}</p>
+                {% endfor %}
+                <p>Borda: {{ item.sabor_borda.nome }}</p>
+                <p>Quantidade: {{ item.quantidade }}</p>
+                <p>Preco: {{ item.get_preco }}</p>
+                <hr>
+            {% endfor %}
+            <hr>
+            {% for item in pedido.itens_bebida.all %}
+                <p>{{ item.bebida_tamanho.bebida.nome }} - {{ item.bebida_tamanho.tamanho_bebida.nome }} </p>
+                <p>- Qt: {{ item.quantidade }} - Preço: {{ item.get_preco }}</p>
+            {% endfor %}
+            <hr>
+            <p>**TOTAL**: {{ pedido.get_total }}</p>
+            <p>Forma de pagamento: {{ pedido.forma_de_pagamento.nome }}</p>
+            <p>Observações: {{ pedido.observacao }}</p>
+        
+
+        </div>
+
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">IMPRIMIR</a>
+            <a href="#" class="btn btn-primary">CONFIRMAR</a>
+        </div>
+    </div>
+{% endfor %}
+
+
+
+
+
     {% endif %}
 
 {% endblock %}
