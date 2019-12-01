@@ -1420,34 +1420,6 @@
     }
   },
   {
-    "model": "pedidos.statuspedido",
-    "pk": 1,
-    "fields": {
-      "nome": "SOLICITADO"
-    }
-  },
-  {
-    "model": "pedidos.statuspedido",
-    "pk": 2,
-    "fields": {
-      "nome": "EM_PRODUCAO"
-    }
-  },
-  {
-    "model": "pedidos.statuspedido",
-    "pk": 3,
-    "fields": {
-      "nome": "CONCLUIDO"
-    }
-  },
-  {
-    "model": "pedidos.statuspedido",
-    "pk": 4,
-    "fields": {
-      "nome": "CANCELADO"
-    }
-  },
-  {
     "model": "pedidos.formadepagamento",
     "pk": 1,
     "fields": {
