@@ -15,8 +15,8 @@
 
 {% block breadcrumbs %}{% endblock %}
 {% block content %}
-<h1>Relatório de Entregas</h1>
-    <p>Quantidade de entregas feitas por cada entregadores</p>
+<h1>Relatório de Pedidos</h1>
+    <p>Solicitações de pedidos do dia em tempo real</p>
     {% if lista %}
         <div class="container">
         <div class="row">
@@ -24,18 +24,23 @@
             <tbody>
                 <table class="table">
                      <tr>
-                         <th><h3>Nome Entregador</h3></th>
+                         <th><h3>Nome Cliente</h3></th>
                          <th><h3>Telefone</h3></th>
-                         <th><h3>Endereço</h3></th>
-                         <th><h3>Qtd Entregas</h3></th>
-            </tr>
+                         <th><h3>Sabor da Pizza</h3></th>
+                         <th><h3>STATUS</h3></th>
+                         <th class="text-center"><h3>ACÕES</h3></th>
 
         {% for item in lista %}
             <tr>
-                <td>{{ item.nome }}</td>
-                <td>{{ item.telefone }}</td>
-                <td>{{ item.endereco.logradouro}} - {{ item.endereco.numero }}</td>
-                 <td>{{item.pedido.count}}</td>
+                <td>{{ item.cliente.nome }}</td>
+                <td>{{ item.cliente.telefone }}</td>
+                <td>{{ item.cliente.telefone}}</td>
+                <td>SOLICITADO</td>
+                <td class="text-center">
+                    <button class="text-center btn-success">PRODUZIR</button>
+                    <button class="text-center btn-danger">CANCELAR</button>
+                </td>
+
 
             </tr>
         {% endfor %}

@@ -38,7 +38,7 @@ class Pedido(models.Model):
     observacao = models.TextField(default='', blank=True, null=True)
     forma_de_pagamento = models.ForeignKey(FormaDePagamento, on_delete=models.PROTECT, default=1)
     status_pedido = models.ForeignKey(StatusPedido, on_delete=models.PROTECT, default=1)
-    entregador = models.ForeignKey(Entregador, on_delete=models.PROTECT, null=True, blank=True)
+    entregador = models.ForeignKey(Entregador, on_delete=models.PROTECT, null=True, blank=True, related_name='pedido')
     cliente = models.ForeignKey(Cliente, on_delete=models.PROTECT)
 
     def __str__(self):
