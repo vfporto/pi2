@@ -26,5 +26,6 @@ def rel_entregadores(request):
 @login_required(login_url='/admin/login')
 def dashboard_pedidos(request):
     # TODO: corrigir a busca de pedidos do dashboard
-    lista = Pedido.objects.all()
+    lista = Pedido.objects.filter(status_pedido_id__lt=3)
     return render(request, 'site_interno/dashboard_pedidos.html', {'lista': lista})
+
