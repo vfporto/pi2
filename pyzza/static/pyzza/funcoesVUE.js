@@ -1,34 +1,8 @@
 /*aqui criamos as estancias do vue*/
 
-var exemplo = {
-    "itens_pizza": [
-        {
-            "id": 3,
-            "quantidade": 2,
-            "pedido": 2,
-            "tamanho_pizza": 1,
-            "sabor_borda": 2,
-            "sabores": [
-                3,
-                4
-            ]
-        }
-    ],
-    "itens_bebida": [
-        {
-            "id": 2,
-            "quantidade": 1,
-            "pedido": 2,
-            "bebida_tamanho": 1
-        }
-    ],
-    "troco_para": "0.00",
-    "observacao": "",
-    "forma_de_pagamento": 1,
-    "cliente": 1
-};
 
 
+//---------------------------------------------------------------------------------
 var app = new Vue({
 
     el: '#app',
@@ -36,19 +10,19 @@ var app = new Vue({
 
     /*todos meus dados que seria O array JSON, temos 2 array*/
     data: {
-        sabor_borda: {
-            id: 1,
-            nome: "",
-            valor_adicional: 0
-        },
-
-        item_pizza: {
-            sabores: [],
-            sabor_borda: {},
-            tamanho_pizza: {},
-            quantidade: 0,
-            preco: 0,
-        },
+        // sabor_borda: {
+        //     id: 1,
+        //     nome: "",
+        //     valor_adicional: 0
+        // },
+        //
+        // item_pizza: {
+        //     sabores: [],
+        //     sabor_borda: {},
+        //     tamanho_pizza: {},
+        //     quantidade: 0,
+        //     preco: 0,
+        // },
 
         tamanhos: [],
         sabores_pizza: [],
@@ -64,95 +38,7 @@ var app = new Vue({
         bebida_selecionada: {},
         num_bebidas_selecionada: 0,
         pedido: {
-            itens_pizza: [
-                //--------------------------
-              /*  {
-                    id: 1,
-                    sabores: [
-                        {
-                            id: 1,
-                            nome: "Calabresa",
-                            descricao: "Pizza de calabresa c/ as melhores calabresas.",
-                            valor_adicional: "0.00",
-                            disponivel: true,
-                            imagem: "http://127.0.0.1:8000/imagens/sabor_pizza_img/calabresa_tradicional_SkMrYjw.png",
-                            tipo_pizza: 1
-                        },
-                        {
-                            id: 3,
-                            nome: "4 queijos",
-                            descricao: "de 4 vaca diferente",
-                            valor_adicional: "0.00",
-                            disponivel: true,
-                            imagem: "http://127.0.0.1:8000/imagens/sabor_pizza_img/4queijos_tradicional_RlRBepe.png",
-                            tipo_pizza: 1
-                        }
-                    ],
-                    sabor_borda: {
-                        id: 1,
-                        nome: "Catupiry",
-                        valor_adicional: "3.00",
-                        disponivel: true
-                    },
-                    tamanho_pizza: {
-                        id: 2,
-                        nome: "Média",
-                        max_sabores: 1,
-                        preco: "30.00",
-                        multiplicador: "0.15",
-                        ordem: 2,
-                        disponivel: true
-                    },
-                    quantidade: 1,
-                    preco: "0.00",
-                    descontado_estoque: false,
-                    pedido: 1
-                },
-                {
-                    id: 1,
-                    sabores: [
-                        {
-                            id: 1,
-                            nome: "Napolitana",
-                            descricao: "Pizza de calabresa c/ as melhores calabresas.",
-                            valor_adicional: "0.00",
-                            disponivel: true,
-                            imagem: "http://127.0.0.1:8000/imagens/sabor_pizza_img/calabresa_tradicional_SkMrYjw.png",
-                            tipo_pizza: 1
-                        },
-                        {
-                            id: 3,
-                            nome: "Portuguesa",
-                            descricao: "de 4 vaca diferente",
-                            valor_adicional: "0.00",
-                            disponivel: true,
-                            imagem: "http://127.0.0.1:8000/imagens/sabor_pizza_img/4queijos_tradicional_RlRBepe.png",
-                            tipo_pizza: 1
-                        }
-                    ],
-                    sabor_borda: {
-                        id: 1,
-                        nome: "Sem Borda",
-                        valor_adicional: "3.00",
-                        disponivel: true
-                    },
-                    tamanho_pizza: {
-                        id: 2,
-                        nome: "Grande",
-                        max_sabores: 1,
-                        preco: "30.00",
-                        multiplicador: "0.15",
-                        ordem: 2,
-                        disponivel: true
-                    },
-                    quantidade: 2,
-                    preco: "0.00",
-                    descontado_estoque: false,
-                    pedido: 1
-                }*/
-                //------
-                //--------------------
-            ],
+            itens_pizza: [],
             itens_bebida: [],
             troco_para: 0,
             observacao: "",
