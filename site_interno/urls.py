@@ -22,5 +22,9 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('rel_ingredientes/', views.rel_ingredientes, name='rel_ingredientes'),
     path('dashboard_pedidos/', views.dashboard_pedidos, name='dashboard_pedidos'),
+    path('rel_entregadores/', views.rel_entregadores, name='rel_entregadores'),
+    path('rel_pizzas_produzidas/', views.rel_pizzas_produzidas, name='rel_pizzas_produzidas'),
+    path('set_status_pedido/<pedido_id>/<status_id>', views.set_status_pedido, name='set_status_pedido'),
+    path('set_status_pedido_em_entrega/<pedido_id>/', views.set_status_pedido_em_entrega, name='set_status_pedido_em_entrega'),
 
 ]

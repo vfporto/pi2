@@ -1,0 +1,93 @@
+{% extends "site_interno/layout/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}
+
+
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'web/styles/loader.css' %}" media="all">
+{% endblock %}
+
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+{% block content %}
+<h1>Relatório de Pizzas e Bebidas Vendidas</h1>
+
+    {% if listapizzas %}
+        <div class="container">
+        <div class="row">
+            <div class="span12">
+                <h1>Pizzas</h1>
+
+            <tbody>
+                <table class="table">
+                     <tr>
+{#                         <th><h3>DATA</h3></th>#}
+                          <th><h3>QUANTIDADE</h3></th>
+                         <th><h3>SABORES</h3></th>
+                         <th><h3>PRECO</h3></th>
+            </tr>
+
+        {% for item in listapizzas %}
+
+            <tr>
+                <td class="text-center">{{ item.quantidade }}</td>
+                <td class="text-center">
+                    {% for sabor in item.sabores.all %}
+                        {{ sabor.nome }} -
+                    {% endfor %}
+                 </td>
+                  <td class="text-center">{{ item.get_preco }}</td>
+            </tr>
+        {% endfor %}
+                    <td class="text-center"> total</td>
+                    <td class="text-center"> total </td>
+                    <td class="text-center">total </td>
+                </table>
+            </tbody>
+            </div>
+        </div>
+        </div>
+    {% endif %}
+
+    <!--tabela de bebidas-->
+    {% if listabebidas %}
+         <div class="container">
+        <div class="row">
+            <div class="span12">
+          <h1>Bebidas</h1>
+
+            <tbody>
+                <table class="table">
+                     <tr>
+{#                         <th><h3>DATA</h3></th>#}
+                          <th><h3>QUANTIDADE</h3></th>
+                         <th><h3>DESCRICAO</h3></th>
+                         <th><h3>PRECO</h3></th>
+            </tr>
+
+        {% for item in listabebidas %}
+
+            <tr>
+                <td class="text-center">{{ item.quantidade }}</td>
+                <td class="text-center">
+                    {{ item.bebida_tamanho.bebida.nome }} - {{ item.bebida_tamanho.tamanho_bebida.nome }}
+                 </td>
+                  <td class="text-center">{{ item.get_preco }}</td>
+            </tr>
+        {% endfor %}
+                    <td class="text-center"> total</td>
+                    <td class="text-center"> total </td>
+                    <td class="text-center">total </td>
+                </table>
+            </tbody>
+            </div>
+        </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

@@ -40,6 +40,8 @@ class Pedido(models.Model):
     status_pedido = models.ForeignKey(StatusPedido, on_delete=models.PROTECT, default=1)
     entregador = models.ForeignKey(Entregador, on_delete=models.PROTECT, null=True, blank=True, related_name='pedido')
     cliente = models.ForeignKey(Cliente, on_delete=models.PROTECT)
+    descontado_estoque = models.BooleanField(default=False)
+
 
     def __str__(self):
         return self.data.strftime("%B %d, %Y, %I:%M %p") + " " + self.cliente.nome
@@ -58,32 +60,38 @@ class Pedido(models.Model):
         Pedido.objects.filter(pk=self.id).update(total=self.get_total())
 
     def consumirIngredientes(self):
-        #TODO: Utilizar funções de banco para consumirIngredientes
-        itens_pizza = self.itens_pizza.all()
-        for item in itens_pizza:
-            num_sabores = item.sabores.count()
-            if(num_sabores > 0):
-                print("ItemPizza -> tamanho: %s (%d sabor(es)) -> Qtde: %s " % (item.tamanho_pizza.nome, num_sabores, item.quantidade))
-                for sabor in item.sabores.all():
-                    print("  %s %s" % ("SaborPizza: ", sabor.nome))
-                    for ingrediente in sabor.ingredientes.all():
-                        pivot = sabor.ingredientes_pivot.filter(ingrediente=ingrediente).get()
-                        qt_consumo = ((pivot.quantidade * item.tamanho_pizza.multiplicador) * item.quantidade)/num_sabores
-                        nova_quantidade = ingrediente.qt_estoque - qt_consumo
-                        print("    %s :  %5.2f - %5.2f = %5.2f" % (
-                            ingrediente.nome, ingrediente.qt_estoque, qt_consumo, nova_quantidade))
-                        ingrediente.qt_estoque = nova_quantidade
-                        ingrediente.save()
-                borda = item.sabor_borda
-                print("  %s %s" % ("SaborBorda: ", borda.nome))
-                for ingrediente in borda.ingredientes.all():
-                    pivot = borda.ingredientes_borda_pivot.filter(ingrediente=ingrediente).get()
-                    qt_consumo = (pivot.quantidade * item.tamanho_pizza.multiplicador) * item.quantidade
-                    nova_quantidade = ingrediente.qt_estoque - qt_consumo
-                    print("    %s :  %5.2f - %5.2f = %5.2f" % (
-                        ingrediente.nome, ingrediente.qt_estoque, qt_consumo, nova_quantidade))
-                    ingrediente.qt_estoque = nova_quantidade
-                    ingrediente.save()
+        if not self.descontado_estoque:
+            try:
+                with transaction.atomic():
+                    #TODO: Utilizar funções de banco para consumirIngredientes
+                    itens_pizza = self.itens_pizza.all()
+                    for item in itens_pizza:
+                        num_sabores = item.sabores.count()
+                        if(num_sabores > 0):
+                            print("ItemPizza -> tamanho: %s (%d sabor(es)) -> Qtde: %s " % (item.tamanho_pizza.nome, num_sabores, item.quantidade))
+                            for sabor in item.sabores.all():
+                                print("  %s %s" % ("SaborPizza: ", sabor.nome))
+                                for ingrediente in sabor.ingredientes.all():
+                                    pivot = sabor.ingredientes_pivot.filter(ingrediente=ingrediente).get()
+                                    qt_consumo = ((pivot.quantidade * item.tamanho_pizza.multiplicador) * item.quantidade)/num_sabores
+                                    nova_quantidade = ingrediente.qt_estoque - qt_consumo
+                                    print("    %s :  %5.2f - %5.2f = %5.2f" % (
+                                        ingrediente.nome, ingrediente.qt_estoque, qt_consumo, nova_quantidade))
+                                    ingrediente.qt_estoque = nova_quantidade
+                                    ingrediente.save()
+                            borda = item.sabor_borda
+                            print("  %s %s" % ("SaborBorda: ", borda.nome))
+                            for ingrediente in borda.ingredientes.all():
+                                pivot = borda.ingredientes_borda_pivot.filter(ingrediente=ingrediente).get()
+                                qt_consumo = (pivot.quantidade * item.tamanho_pizza.multiplicador) * item.quantidade
+                                nova_quantidade = ingrediente.qt_estoque - qt_consumo
+                                print("    %s :  %5.2f - %5.2f = %5.2f" % (
+                                    ingrediente.nome, ingrediente.qt_estoque, qt_consumo, nova_quantidade))
+                                ingrediente.qt_estoque = nova_quantidade
+                                ingrediente.save()
+                    self.descontado_estoque = True
+            except:
+                pass
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         print("--------- PEDIDO PRE SAVE() ----------")
@@ -93,13 +101,14 @@ class Pedido(models.Model):
             # self.total = self.get_total()
             # self.consumirIngredientes()
             try:
-                with transaction.atomic():
-                    self.consumirIngredientes()
+                self.consumirIngredientes()
             except:
                 pass
 
         super().save(force_insert, force_update, using, update_fields)
         print("--------- PEDIDO POS SAVE() ----------")
+
+
 
 
 class ItemBebida(models.Model):

@@ -411,3 +411,11 @@ body {
 .escolha-um-sabor{
 	margin-top: 10px;
 }
+p.dados-pedidos-comanda {
+	font-size: 15px;
+	font-family: monospace;
+	text-align: left;
+}
+p.valor-pedidos-comanda{
+	float: right;
+}

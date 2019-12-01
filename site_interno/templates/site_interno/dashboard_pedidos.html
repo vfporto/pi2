@@ -15,7 +15,7 @@
 
 {% block breadcrumbs %}{% endblock %}
 {% block content %}
-<h1>Relatório de Pedidos</h1>
+<h1>Dashboard Pedidos</h1>
     <p>Solicitações de pedidos do dia em tempo real</p>
     {% if lista %}
         <div class="container">
@@ -42,14 +42,16 @@
                 <td class="text-center">{{ pedido.status_pedido }}</td>
                 <td class="text-center">
                     {% if pedido.status_pedido.id == 1 %}
-                        <button class="text-center btn-success" href="#myModal{{ pedido.id }}" role="button" data-toggle="modal">PRODUZIR</button>
+                        <button class="text-center btn-primary" href="#myModal{{ pedido.id }}" role="button" data-toggle="modal" style="padding-top: 4px;padding-bottom: 4px;padding-right: 12px;padding-left: 12px;border-radius: 5px;">PRODUZIR</button>
                       {% elif pedido.status_pedido.id == 2 %}
-                        <button class="text-center btn-warning"  role="button" data-toggle="modal">ENTREGA</button>
+                        <button class="text-center btn-warning"  href="#myModalEntregar{{ pedido.id }}" role="button" data-toggle="modal" style="padding-top: 3px;padding-bottom: 3px;padding-right: 10px;padding-left: 10px;border-radius: 5px;">ENTREGAR</button>
+                      {% elif pedido.status_pedido.id == 3 %}
+                        <a href="/interno/set_status_pedido/{{ pedido.id }}/4" class="btn btn-success text-center" >CONCLUIR</a>
 
                     {% endif %}
 
-
-                    <button class="text-center btn-danger">CANCELAR</button>
+                    <button class="btn btn-danger text-center" href="#myModalCanceladas{{ pedido.id }}" role="button" data-toggle="modal" >CANCELAR</button>
+{#                    <button class="text-center btn-danger">CANCELAR</button>#}
                 </td>
             </tr>
         {% endfor %}
@@ -86,24 +88,26 @@
         </div>
 
         <div class="modal-body">
-        <h3>Dados do Cliente</h3>
-            <p>Cliente: {{ pedido.cliente.nome }}</p>
-            <p>Telefone: {{ pedido.cliente.telefone }}</p>
-            <p>Endereço: {{ pedido.cliente.endereco.logradouro }}, {{ pedido.cliente.endereco.numero }}</p>
-            <p>Bairro: {{ pedido.cliente.endereco.bairro }}</p>
+        <h3 class="text-lg-left">Dados do Cliente</h3>
+            <p class="dados-pedidos-comanda">Cliente: {{ pedido.cliente.nome }}</p>
+            <p class="dados-pedidos-comanda">Telefone: {{ pedido.cliente.telefone }}</p>
+            <p class="dados-pedidos-comanda">Endereço: {{ pedido.cliente.endereco.logradouro }}, {{ pedido.cliente.endereco.numero }}</p>
+            <p class="dados-pedidos-comanda">Bairro: {{ pedido.cliente.endereco.bairro }}</p>
             <hr>
+        <h3 class="text-left">Dados da Pizza</h3>
             {% for item in pedido.itens_pizza.all %}
-                <p>Pizza {{ item.tamanho_pizza }}</p>
-                <p>Sabor(es):</p>
+                <p class="dados-pedidos-comanda">Pizza {{ item.tamanho_pizza }}</p>
+                <p class="dados-pedidos-comanda">Sabor(es):</p>
                 {% for sabor in item.sabores.all %}
                     <p>-> {{ sabor.nome }}</p>
                 {% endfor %}
-                <p>Borda: {{ item.sabor_borda.nome }}</p>
-                <p>Quantidade: {{ item.quantidade }}</p>
-                <p>Preco: {{ item.get_preco }}</p>
+                <p class="dados-pedidos-comanda">Borda: {{ item.sabor_borda.nome }}</p>
+                <p class="dados-pedidos-comanda">Quantidade: {{ item.quantidade }}</p>
+                <p class="valor-pedidos-comanda">Preco: {{ item.get_preco }}</p>
                 <hr>
             {% endfor %}
             <hr>
+        <h3 class="text-left text-black-50">Dados da Bebida</h3>
             {% for item in pedido.itens_bebida.all %}
                 <p>{{ item.bebida_tamanho.bebida.nome }} - {{ item.bebida_tamanho.tamanho_bebida.nome }} </p>
                 <p>- Qt: {{ item.quantidade }} - Preço: {{ item.get_preco }}</p>
@@ -112,16 +116,65 @@
             <p>**TOTAL**: {{ pedido.get_total }}</p>
             <p>Forma de pagamento: {{ pedido.forma_de_pagamento.nome }}</p>
             <p>Observações: {{ pedido.observacao }}</p>
-        
-
         </div>
 
         <div class="modal-footer">
             <a href="#" class="btn" data-dismiss="modal">IMPRIMIR</a>
-            <a href="#" class="btn btn-primary">CONFIRMAR</a>
+            <a href="/interno/set_status_pedido/{{ pedido.id }}/2" class="btn btn-primary">CONFIRMAR</a>
         </div>
     </div>
 {% endfor %}
+
+
+{% for pedido in lista %}
+    <div id="myModalEntregar{{ pedido.id }}" class="modal hide fade">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+            <h3>PEDIDO No {{ pedido.id }} <span style="float: right"> {{ pedido.data }}</span></h3>
+        </div>
+
+        <div class="modal-body">
+            <h3 class="text-left">Escolha o entregador</h3>
+            <form action="/interno/set_status_pedido_em_entrega/{{ pedido.id }}/" method="post">
+                 {% csrf_token %}
+                 <select class="custom-select" name="entregador">
+                    {% for entregador in entregadores %}
+                        <option value="{{ entregador.id }}">{{ entregador.nome }}</option>
+                    {% endfor %}
+
+                </select>
+                <div class="modal-footer">
+                    <a href="#" class="btn" data-dismiss="modal">CANCELAR</a>
+                    <input class="btn btn-primary" type="submit" value="CONFIRMAR">
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+{% endfor %}
+
+{% for pedido in lista %}
+    <div id="myModalCanceladas{{pedido.id}}" class="modal hide fade">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+    </div>
+
+    <div class="modal-body">
+        <h3>Tem certeza que deseja cancelar o pedido?</h3>
+    </div>
+
+    <div class="modal-footer">
+        <a href="#" class="btn btn-dark" data-dismiss="modal">NÃO</a>
+        <a href="/interno/set_status_pedido/{{ pedido.id }}/5" class="btn btn-danger text-center">SIM TENHO CERTEZA</a>
+    </div>
+</div>
+
+{% endfor %}
+
+
 
 
 

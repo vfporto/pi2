@@ -246,8 +246,9 @@ SUIT_CONFIG={
         { 'label': 'Relatório de Ingredientes', 'icon': 'icon-list-alt', 'url': '/interno/rel_ingredientes/',},
         {'label': 'Relatório de Entregadores', 'icon': 'icon-list-alt', 'url': '/interno/rel_entregadores/', },
         {'label': 'Dashboard Pedidos', 'icon': 'icon-list-alt', 'url': '/interno/dashboard_pedidos/', },
+        {'label': 'Relatório de Produção', 'icon': 'icon-list-alt', 'url': '/interno/rel_pizzas_produzidas/', },
 
-    ),
+),
 
 }
 # Lista de icones utilizaveis
