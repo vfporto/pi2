@@ -9,300 +9,311 @@
 {% block content %}
     <img src="" alt="" width="30px" height="">
     <div id="app" class="content">
-        <div class="row">
-            {#COLUNA FAZER PEDIDOS#}
-            <div class="col-6"><!--col-12-->
-                <div class="pedidos"><h1>FAÇA SEU PEDIDO!</h1></div>
-                <div style="background-color: #e89d00; width: 95% ;height: 100px; margin-top: 1em;margin-bottom: 2em;">
-                    ESCOLHA UMA PIZZA
-                </div>
-                <div style="background-color: #e89d00; width: 95% ;height: 100px; margin-top: 1em;"> ESCOLHA UMA
-                    BEBIDA
-                </div>
+    <div class="row">
+        {#COLUNA FAZER PEDIDOS#}
+        <div class="col-6"><!--col-12-->
+            <div class="pedidos"><h1>FAÇA SEU PEDIDO!</h1></div>
+            <div style="background-color: #e89d00; width: 95% ;height: 100px; margin-top: 1em;margin-bottom: 2em;">
+                ESCOLHA UMA PIZZA
             </div>
+            <div style="background-color: #e89d00; width: 95% ;height: 100px; margin-top: 1em;"> ESCOLHA UMA
+                BEBIDA
+            </div>
+        </div>
 
 
-            {#            <div class="col-lg-3">#}
-            {#                <img src="{% static 'pyzza/image/escolha-pizza.jpg' %}" alt="" class="img-pedidos">#}
-            {#            </div>#}
-            {#            <div class="col-lg-3">#}
-            {#                <img src="{% static 'pyzza/image/escolha-bebidas.jpg' %}" alt="" class="img-pedidos">#}
-            {#            </div>#}
+        {#            <div class="col-lg-3">#}
+        {#                <img src="{% static 'pyzza/image/escolha-pizza.jpg' %}" alt="" class="img-pedidos">#}
+        {#            </div>#}
+        {#            <div class="col-lg-3">#}
+        {#                <img src="{% static 'pyzza/image/escolha-bebidas.jpg' %}" alt="" class="img-pedidos">#}
+        {#            </div>#}
 
-            <!--dados do pedido-->
-            <div class="col-6">
+        <!--dados do pedido-->
+        <div class="col-6">
 
-                {#                <div class="pedidos"><h3>DADOS DO PEDIDO</h3></div>#}
-                <div class="container">
-                    <!-- Editable table -->
-                    <div class="card">
-                        {% csrf_token %}
-                        <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Carrinho de
-                            Compras</h3>
-                        <div class="card-body">
+            {#                <div class="pedidos"><h3>DADOS DO PEDIDO</h3></div>#}
+            <div class="container">
+                <!-- Editable table -->
+                <div class="card">
+                    {% csrf_token %}
+                    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Carrinho de
+                        Compras</h3>
+                    <div class="card-body">
+                        <div id="table" class="table-editable table-responsive">
+                            {#      <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i#}
+                            {#            class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>#}
+                            {#                                <table>#}
+                            {#                                    <tr v-for="ip in pedido.itens_pizza">#}
+                            {#                                        <td v-for="sabor in ip.sabores">[[ sabor.nome ]]</td>#}
+                            {#                                    </tr>#}
+                            {#                                </table>#}
+                            <table class="table table-bordered table-responsive-md table-striped text-center">
+                                <h4 style="font-weight: 900">Pizza</h4>
+                                <thead>
+                                <tr>
+                                    <th class="text-center titulo-tabela">Qtd</th>
+                                    <th class="text-center titulo-tabela">Sabor(es)</th>
+                                    <th class="text-center titulo-tabela">Tamanho</th>
+                                    <th class="text-center titulo-tabela">Borda</th>
+                                    <th class="text-center titulo-tabela">Remover</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="ip in pedido.itens_pizza">
+                                    <td>
+                                        <span class="minus">-</span>
+                                        <input type="text" v-bind:value="ip.quantidade"/>
+                                        <span class="plus">+</span>
+                                    </td>
+                                    <td class="pt-3-half"><p v-for="sabor in ip.sabores">[[ sabor.nome ]] </p></td>
+                                    <td class="pt-3-half">[[ ip.tamanho_pizza.nome ]]</td>
+                                    <td class="pt-3-half"> [[ ip.sabor_borda.nome ]]</td>
+                                    <td>
+                                          <span class="table-remove">
+                                              <button type="button" class="btn btn-danger"
+                                                      v-on:click="remover_pizza(pizzas)">
+                                              <i class="far fa-trash-alt"></i>
+                                              </button>
+                                          </span>
+                                    </td>
+                                </tr>
+                                <!-- This is our clonable table line -->
+                                {#          <tr>#}
+                                {#            <td class="pt-3-half" contenteditable="true">Guerra Cortez</td>#}
+                                {#            <td class="pt-3-half" contenteditable="true">45</td>#}
+                                {#            <td class="pt-3-half" contenteditable="true">Insectus</td>#}
+                                {#            <td class="pt-3-half" contenteditable="true">USA</td>#}
+                                {##}
+                                {#            <td>#}
+                                {#              <span class="table-remove"><button type="button"#}
+                                {#                  class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>#}
+                                {#            </td>#}
+                                {#          </tr>#}
+                                {#          <!-- This is our clonable table line -->#}
+                                {#          <tr>#}
+                                {#            <td class="pt-3-half" contenteditable="true">Guadalupe House</td>#}
+                                {#            <td class="pt-3-half" contenteditable="true">26</td>#}
+                                {#            <td class="pt-3-half" contenteditable="true">Isotronic</td>#}
+                                {#            <td class="pt-3-half" contenteditable="true">Germany</td>#}
+                                {#            <td>#}
+                                {#              <span class="table-remove"><button type="button"#}
+                                {#                  class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>#}
+                                {#            </td>#}
+                                {#          </tr>#}
+                                {#          <!-- This is our clonable table line -->#}
+                                {#          <tr class="hide">#}
+                                {#            <td class="pt-3-half" contenteditable="true">Elisa Gallagher</td>#}
+                                {#            <td class="pt-3-half" contenteditable="true">31</td>#}
+                                {#            <td class="pt-3-half" contenteditable="true">Portica</td>#}
+                                {#            <td class="pt-3-half" contenteditable="true">United Kingdom</td>#}
+                                {#            <td>#}
+                                {#              <span class="table-remove"><button type="button"#}
+                                {#                  class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>#}
+                                {#            </td>#}
+                                {#          </tr>#}
+                                </tbody>
+                            </table>
                             <div id="table" class="table-editable table-responsive">
                                 {#      <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i#}
                                 {#            class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>#}
-{#                                <table>#}
-{#                                    <tr v-for="ip in pedido.itens_pizza">#}
-{#                                        <td v-for="sabor in ip.sabores">[[ sabor.nome ]]</td>#}
-{#                                    </tr>#}
-{#                                </table>#}
                                 <table class="table table-bordered table-responsive-md table-striped text-center">
-                                    <h4 style="font-weight: 900">Pizza</h4>
+                                    <h4 style="font-weight: 900">Bebidas</h4>
                                     <thead>
                                     <tr>
                                         <th class="text-center titulo-tabela">Qtd</th>
-                                        <th class="text-center titulo-tabela">Sabor(es)</th>
+                                        <th class="text-center titulo-tabela">Sabor</th>
                                         <th class="text-center titulo-tabela">Tamanho</th>
-                                        <th class="text-center titulo-tabela">Borda</th>
+                                        <th class="text-center titulo-tabela">Valor</th>
                                         <th class="text-center titulo-tabela">Remover</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr v-for="ip in pedido.itens_pizza">
-                                        <td>
+                                    <tr>
+                                        <td id="number">
                                             <span class="minus">-</span>
-                                            <input type="text" v-bind:value="ip.quantidade"/>
+                                            <input type="text" value="1"/>
                                             <span class="plus">+</span>
                                         </td>
-                                        <td class="pt-3-half"> <p  v-for="sabor in ip.sabores">[[ sabor.nome ]] </p></td>
-                                        <td class="pt-3-half" >[[ ip.tamanho_pizza.nome ]] </td>
-                                        <td class="pt-3-half"> [[ ip.sabor_borda.nome ]] </td>
+                                        <td class="pt-3-half">Coca Cola</td>
+                                        <td class="pt-3-half">2 Litros</td>
+                                        <td class="pt-3-half">R$ 8,00</td>
                                         <td>
-                                          <span class="table-remove">
-                                              <button type="button" class="btn btn-danger" v-on:click="remover_pizza(pizzas)">
-                                              <i class="far fa-trash-alt"></i>
-                                              </button>
-                                          </span>
-                                        </td>
-                                    </tr>
-                                    <!-- This is our clonable table line -->
-                                    {#          <tr>#}
-                                    {#            <td class="pt-3-half" contenteditable="true">Guerra Cortez</td>#}
-                                    {#            <td class="pt-3-half" contenteditable="true">45</td>#}
-                                    {#            <td class="pt-3-half" contenteditable="true">Insectus</td>#}
-                                    {#            <td class="pt-3-half" contenteditable="true">USA</td>#}
-                                    {##}
-                                    {#            <td>#}
-                                    {#              <span class="table-remove"><button type="button"#}
-                                    {#                  class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>#}
-                                    {#            </td>#}
-                                    {#          </tr>#}
-                                    {#          <!-- This is our clonable table line -->#}
-                                    {#          <tr>#}
-                                    {#            <td class="pt-3-half" contenteditable="true">Guadalupe House</td>#}
-                                    {#            <td class="pt-3-half" contenteditable="true">26</td>#}
-                                    {#            <td class="pt-3-half" contenteditable="true">Isotronic</td>#}
-                                    {#            <td class="pt-3-half" contenteditable="true">Germany</td>#}
-                                    {#            <td>#}
-                                    {#              <span class="table-remove"><button type="button"#}
-                                    {#                  class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>#}
-                                    {#            </td>#}
-                                    {#          </tr>#}
-                                    {#          <!-- This is our clonable table line -->#}
-                                    {#          <tr class="hide">#}
-                                    {#            <td class="pt-3-half" contenteditable="true">Elisa Gallagher</td>#}
-                                    {#            <td class="pt-3-half" contenteditable="true">31</td>#}
-                                    {#            <td class="pt-3-half" contenteditable="true">Portica</td>#}
-                                    {#            <td class="pt-3-half" contenteditable="true">United Kingdom</td>#}
-                                    {#            <td>#}
-                                    {#              <span class="table-remove"><button type="button"#}
-                                    {#                  class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>#}
-                                    {#            </td>#}
-                                    {#          </tr>#}
-                                    </tbody>
-                                </table>
-                                <div id="table" class="table-editable table-responsive">
-                                    {#      <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i#}
-                                    {#            class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>#}
-                                    <table class="table table-bordered table-responsive-md table-striped text-center">
-                                        <h4 style="font-weight: 900">Bebidas</h4>
-                                        <thead>
-                                        <tr>
-                                            <th class="text-center titulo-tabela">Qtd</th>
-                                            <th class="text-center titulo-tabela">Sabor</th>
-                                            <th class="text-center titulo-tabela">Tamanho</th>
-                                            <th class="text-center titulo-tabela">Valor</th>
-                                            <th class="text-center titulo-tabela">Remover</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td id="number">
-                                                <span class="minus">-</span>
-                                                <input type="text" value="1"/>
-                                                <span class="plus">+</span>
-                                            </td>
-                                            <td class="pt-3-half">Coca Cola</td>
-                                            <td class="pt-3-half">2 Litros</td>
-                                            <td class="pt-3-half">R$ 8,00</td>
-                                            <td>
                 <span class="table-remove">
                     <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                 </span>
 
-                                            </td>
-                                        </tr>
-                                        <!-- This is our clonable table line -->
-                                        {#          <tr>#}
-                                        {#            <td class="pt-3-half" contenteditable="true">Guerra Cortez</td>#}
-                                        {#            <td class="pt-3-half" contenteditable="true">45</td>#}
-                                        {#            <td class="pt-3-half" contenteditable="true">Insectus</td>#}
-                                        {#            <td class="pt-3-half" contenteditable="true">USA</td>#}
-                                        {##}
-                                        {#            <td>#}
-                                        {#              <span class="table-remove"><button type="button"#}
-                                        {#                  class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>#}
-                                        {#            </td>#}
-                                        {#          </tr>#}
-                                        {#          <!-- This is our clonable table line -->#}
-                                        {#          <tr>#}
-                                        {#            <td class="pt-3-half" contenteditable="true">Guadalupe House</td>#}
-                                        {#            <td class="pt-3-half" contenteditable="true">26</td>#}
-                                        {#            <td class="pt-3-half" contenteditable="true">Isotronic</td>#}
-                                        {#            <td class="pt-3-half" contenteditable="true">Germany</td>#}
-                                        {#            <td>#}
-                                        {#              <span class="table-remove"><button type="button"#}
-                                        {#                  class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>#}
-                                        {#            </td>#}
-                                        {#          </tr>#}
-                                        {#          <!-- This is our clonable table line -->#}
-                                        {#          <tr class="hide">#}
-                                        {#            <td class="pt-3-half" contenteditable="true">Elisa Gallagher</td>#}
-                                        {#            <td class="pt-3-half" contenteditable="true">31</td>#}
-                                        {#            <td class="pt-3-half" contenteditable="true">Portica</td>#}
-                                        {#            <td class="pt-3-half" contenteditable="true">United Kingdom</td>#}
-                                        {#            <td>#}
-                                        {#              <span class="table-remove"><button type="button"#}
-                                        {#                  class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>#}
-                                        {#            </td>#}
-                                        {#          </tr>#}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Editable table -->
-                        {#                    <ul class="list-group">#}
-                        {#                        <li class="list-group-item d-flex justify-content-between align-items-center">#}
-                        {#                            <p>NOME: JEFFERSON RODRIGO SOTTO<br>Endereço: Rua flor de lis 100 - Vila Adriana<br>Cidade: Foz do Iguaçu<br>Telefone: (45) 9 99048090</p>#}
-                        {#                         </li>#}
-                        {##}
-                        {#                        <li class="list-group-item d-flex justify-content-between align-items-center">#}
-                        {#                            Pizza 4 queijo--------R$ 35.00#}
-                        {#                        </li>#}
-                        {#                        <li class="list-group-item d-flex justify-content-between align-items-center">#}
-                        {#                            Coca Cola 2 Litros-------R$ 5.00#}
-                        {#                        </li>#}
-                        {#                        <li class="list-group-item d-flex justify-content-between align-items-center">#}
-                        {#                            Borda de catupiry..........3.00#}
-                        {#                        </li>#}
-                        {#                     </ul>#}
-                    </div>
-                </div>
-            </div><!--end col-12-->
-        </div>
-
-        <!-- INICIO DA IMPLEMENTAÇÃO DAS MODAIS -->
-
-        <a data-toggle="modal" href="#myModal" class="btn btn-primary">Launch modal</a>
-        {% csrf_token %}
-        <div class="modal fade" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        {#        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>#}
-                        <h4 class="modal-title">QUAL TAMANHO?</h4>
-                    </div>
-                    <div class="container">
-                        <div class="modal-body">
-                            <label>ESCOLHA O TAMANHO DA SUA PIZZA!</label>
-                            <select id="selectTamanho" class="custom-select" v-model="tamanho_selecionado">
-                                <option v-for="tamanho in tamanhos" v-bind:value="tamanho">[[tamanho.nome]]</option>
-                            </select>
-                            <label>ESCOLHA QUANTOS SABORES!</label>
-                            {#                            <div id="selectSabores" v-model="num_sabores_selecionado">#}
-                            <div id="selectSabores">
-                                <button type="button" class="btn btn-outline-warning"
-                                        v-for="qtd in tamanho_selecionado.max_sabores" v-bind:key="qtd"
-                                        v-bind:value="qtd" @click="seleciona_num_sabores(qtd)">
-                                    [[ qtd ]]
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#" data-dismiss="modal" class="btn">Fechar</a>
-                        <a data-toggle="modal" href="#myModal2" class="btn btn-primary">Próximo</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="myModal2" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-             aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <input class="form-control" id="myInput" type="text" placeholder="Search..">
-                    <div class="input-group col-md-12">
-                        <div class="modal-header text-center">
-                            <h4 class="modal-title">AGORA ESCOLHA UM SABOR TOP!!</h4>
-                        </div>
-                        <div class="container">
-
-                            <div class="modal-body" v-for="pizza in pizzas">
-                                <div id="myTable" class="list-group" @click="adicionar_sabor_pizza(pizza)">
-                                    <span
-                                       class="list-group-item list-group-item-action flex-column align-items-start">
-                                        {#                                        <div class="d-flex w-100 justify-content-between" v-model="pizzas_selecionadas">#}
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 class="mb-1">[[pizza.nome]]</h5>
-                                            <small>[[pizza.tipo_pizza.nome]]</small>
-                                        </div>
-                                        <p class="mb-1">[[pizza.descricao]]</p>
-                                        <small>R$ [[pizza.valor_adicional]]</small>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <a data-toggle="modal" href="#myModal2" class="btn btn-primary">ANTERIOR</a>
-{#                                <a data-toggle="modal" href="#myModal3" class="btn btn-primary">PRÓXIMO</a>#}
-                                <a data-toggle="modal" href="#myModal4" class="btn btn-primary">PRÓXIMO</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div><!--end col-12-->
+    </div>
+
+    <!-- INICIO DA IMPLEMENTAÇÃO DAS MODAIS -->
+
+    <a data-toggle="modal" href="#myModal" class="btn btn-primary">Launch modal</a>
+    {% csrf_token %}
+
+    <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#exampleModal">
+        Left Sidebar Modal
+    </button>
+
+    <div class="modal left fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="nav flex-sm-column flex-row">
+                    {#                        <a class="nav-item nav-link active" href="#">Home</a>#}
+                    {#                        <a href="#" class="nav-item nav-link">Link</a>#}
+                    {#                        <a href="#" class="nav-item nav-link">Link</a>#}
+                    {#                        <a href="#" class="nav-item nav-link">Link</a>#}
+                    <label>ESCOLHA O TAMANHO DA SUA PIZZA!</label>
+                    <select id="selectTamanho" class="custom-select" v-model="tamanho_selecionado">
+                        <option v-for="tamanho in tamanhos" v-bind:value="tamanho">[[tamanho.nome]]</option>
+                    </select>
+                    <label style="margin-top: 10px;">ESCOLHA QUANTOS SABORES!</label>
+                    <div id="selectSabores" v-model="num_sabores_selecionado">
+                        <div id="selectSabores">
+                            <button type="button" class="btn btn-success"
+                                    v-for="qtd in tamanho_selecionado.max_sabores" v-bind:key="qtd"
+                                    v-bind:value="qtd" @click="seleciona_num_sabores(qtd)">
+                                [[ qtd ]]
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="escolha-um-sabor">ESCOLHA UM SABOR DE PIZZA!</h3>
+                    </div>
+                    <div id="my-select-sabor" class="dropdown-toggle-split" @click="adicionar_sabor_pizza(pizza)">
+                        <select id="select-sabor-pizza" class="custom-select" v-model="sabores_selecionados">
+                            <option v-for="pizza in pizzas" v-bind:value="pizza">[[pizza.nome]]</option>
+                        </select>
+
+                    </div>
+                    <div id="sabores-selecionados" v-for="imagem in sabores_selecionados">
+                        <div class="item" v-model="sabores_selecionados" v-bind:value="imagem"
+                             @click="adiciona_sabor_pizza(imagem)">
+                            <img src="[[imagem]]"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div><!--FINal secao de escolha de tamanho de pizzas-->
         </div>
-{#        <div class="modal fade" id="myModal3">#}
-{#            <div class="modal-dialog">#}
-{#                <div class="modal-content">#}
-{#                    <div class="modal-header">#}
-{#                        <h4 class="modal-title">NÃO VAI ESQUECER O GOLÊ!!</h4>#}
-{#                    </div>#}
-{#                    <div class="container">#}
-{#                        <div class="modal-body" v-for="bebida in bebidas">#}
-{#                            <div class="list-group">#}
-{#                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"#}
-{#                                   v-on:click="adicionar_bebidas(bebidas)">#}
-{#                                    <div class="d-flex w-100 justify-content-between">#}
-{#                                        <h5 class="mb-1">[[bebida.nome]]</h5>#}
-{#                                        <small>R$ 10,00</small>#}
-{#                                    </div>#}
-{#                                    <p class="mb-1">2 litros</p>#}
-                                    {#                    <small>R$ [[pizza.valor_adicional]]</small>#}
-{#                                </a>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <div class="modal-footer">#}
-                        {#          <a href="#" data-dismiss="modal" class="btn">Close</a>#}
-{#                        <a data-toggle="modal" href="#myModal2" class="btn-outline-warning">ANTERIOR</a>#}
-{#                        <a data-toggle="modal" href="#myModal4" class="btn btn-outline-dark">PRÓXIMO</a>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
+        {#        <div class="modal fade" id="myModal">#}
+        {#            <div class="modal-dialog">#}
+        {#                <div class="modal-content">#}
+        {#                    <div class="modal-header">#}
+        {#        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>#}
+        {#                        <h4 class="modal-title">QUAL TAMANHO?</h4>#}
+        {#                    </div>#}
+        {#                    <div class="container">#}
+        {#                        <div class="modal-body">#}
+        {#                            <label>ESCOLHA O TAMANHO DA SUA PIZZA!</label>#}
+        {#                            <select id="selectTamanho" class="custom-select" v-model="tamanho_selecionado">#}
+        {#                                <option v-for="tamanho in tamanhos" v-bind:value="tamanho">[[tamanho.nome]]</option>#}
+        {#                            </select>#}
+        {#                            <label>ESCOLHA QUANTOS SABORES!</label>#}
+        {#                                                        <div id="selectSabores" v-model="num_sabores_selecionado">#}
+        {#                            <div id="selectSabores">#}
+        {#                                <button type="button" class="btn btn-outline-warning"#}
+        {#                                        v-for="qtd in tamanho_selecionado.max_sabores" v-bind:key="qtd"#}
+        {#                                        v-bind:value="qtd" @click="seleciona_num_sabores(qtd)">#}
+        {#                                    [[ qtd ]]#}
+        {#                                </button>#}
+        {#                            </div>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                    <div class="modal-footer">#}
+        {#                        <a href="#" data-dismiss="modal" class="btn">Fechar</a>#}
+        {#                        <a data-toggle="modal" href="#myModal2" class="btn btn-primary">Próximo</a>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
+        {#        <div id="myModal2" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"#}
+        {#             aria-labelledby="myLargeModalLabel" aria-hidden="true">#}
+        {#            <div class="modal-dialog modal-lg">#}
+        {#                <div class="modal-content">#}
+        {#                    <input class="form-control" id="myInput" type="text" placeholder="Search..">#}
+        {#                    <div class="input-group col-md-12">#}
+        {#                        <div class="modal-header text-center">#}
+        {#                            <h4 class="modal-title">AGORA ESCOLHA UM SABOR TOP!!</h4>#}
+        {#                        </div>#}
+        {#                        <div class="container">#}
+        {#                            <div class="modal-body">#}
+        {#                                <div id="myTable" class="list-group" @click="adicionar_sabor_pizza(pizza)">#}
+        {#                                      <div class="btn-group">#}
+        {#                                        <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">ESCOLHA UM SABOR<span class="caret"></span></a>#}
+        {#                                        <ul class="dropdown-menu list-group">#}
+        {#                                          <li class="list-group-item" v-for="pizza in pizzas">#}
+        {#                                              <img src="../../static/pyzza/image/pizza-128.png" width="50px" height="50px" alt="">#}
+        {#                                                <a href="#" class="list-group-item-action text-center font-weight-bold">#}
+        {#                                                    [[pizza.nome]] -  <small>[[pizza.tipo_pizza.nome]]</small>#}
+        {#                                                </a>#}
+        {##}
+        {#                                          </li>#}
+        {#                                        </ul>#}
+        {#                                      </div>#}
+        {#                                    <span#}
+        {#                                       class="list-group-item list-group-item-action flex-column align-items-start">#}
+        {#                                        <div class="d-flex w-100 justify-content-between">#}
+        {#                                            <h5 class="mb-1">[[pizza.nome]]</h5>#}
+        {#                                            <small>[[pizza.tipo_pizza.nome]]</small>#}
+        {#                                        </div>#}
+        {#                                        <p class="mb-1">[[pizza.descricao]]</p>#}
+        {#                                        <small>R$ [[pizza.valor_adicional]]</small>#}
+        {#                                    </span>#}
+        {#                                </div>#}
+        {#                            </div>#}
+        {#                            <div class="modal-footer">#}
+        {#                                <a data-toggle="modal" href="#myModal2" class="btn btn-primary">ANTERIOR</a>#}
+        {#                                <a data-toggle="modal" href="#myModal3" class="btn btn-primary">PRÓXIMO</a>#}
+        {#                                <a data-toggle="modal" href="#myModal4" class="btn btn-primary">PRÓXIMO</a>#}
+        {#                            </div>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
+        {#        <div class="modal fade" id="myModal3">#}
+        {#            <div class="modal-dialog">#}
+        {#                <div class="modal-content">#}
+        {#                    <div class="modal-header">#}
+        {#                        <h4 class="modal-title">NÃO VAI ESQUECER O GOLÊ!!</h4>#}
+        {#                    </div>#}
+        {#                    <div class="container">#}
+        {#                        <div class="modal-body" v-for="bebida in bebidas">#}
+        {#                            <div class="list-group">#}
+        {#                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"#}
+        {#                                   v-on:click="adicionar_bebidas(bebidas)">#}
+        {#                                    <div class="d-flex w-100 justify-content-between">#}
+        {#                                        <h5 class="mb-1">[[bebida.nome]]</h5>#}
+        {#                                        <small>R$ 10,00</small>#}
+        {#                                    </div>#}
+        {#                                    <p class="mb-1">2 litros</p>#}
+        {#                    <small>R$ [[pizza.valor_adicional]]</small>#}
+        {#                                </a>#}
+        {#                            </div>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                    <div class="modal-footer">#}
+        {#          <a href="#" data-dismiss="modal" class="btn">Close</a>#}
+        {#                        <a data-toggle="modal" href="#myModal2" class="btn-outline-warning">ANTERIOR</a>#}
+        {#                        <a data-toggle="modal" href="#myModal4" class="btn btn-outline-dark">PRÓXIMO</a>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
         <div class="modal fade" id="myModal4">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -364,7 +375,7 @@
                     </div>
                     <div class="modal-footer">
                         {#                    <a href="#" class="btn btn-outline-warning">SEM BORDA</a>#}
-{#                        <a data-toggle="modal" href="#myModal3" class="btn-outline-warning">ANTERIOR</a>#}
+                        {#                        <a data-toggle="modal" href="#myModal3" class="btn-outline-warning">ANTERIOR</a>#}
                         <a data-toggle="modal" href="#myModal4" class="btn-outline-warning">ANTERIOR</a>
                         <span href="#" id="btn-fecha" data-dismiss="modal" class="btn" @click="adiciona_item_pizza()">INCLUIR NO PEDIDO</span>
                     </div>
