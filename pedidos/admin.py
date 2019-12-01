@@ -31,6 +31,8 @@ class PedidoAdmin(admin.ModelAdmin):
     #search_fields = ['']
     list_display = ['id', 'data', 'cliente', 'status_pedido', 'get_total']
     list_display_links = ['id', 'data', 'cliente','get_total', 'status_pedido']
+    list_filter = ['status_pedido', 'data']
+    search_fields = ['id', 'cliente__nome', 'cliente__telefone']
     ordering = ['data']
     readonly_fields = ['get_total', 'total']
     inlines = [ItemPizzaInline, ItemBebidaInline]

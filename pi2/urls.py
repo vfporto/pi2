@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from pizzas.api.viewsets import Pizza_Viewset, TamanhoPizza_Viewset
+from pizzas.api.viewsets import SaborPizza_Viewset, TamanhoPizza_Viewset, SaborBorda_Viewset
 from bebidas.api.viewsets import Bebida_Viewset
 from pedidos.api.viewsets import PedidoViewSet
 from site_interno import views as site_interno_views
@@ -27,7 +27,8 @@ from pi2 import settings
 from site_interno import views
 
 rotas_api = routers.DefaultRouter()
-rotas_api.register('pizza',Pizza_Viewset,'SaborPizza')
+rotas_api.register('sabor_pizza', SaborPizza_Viewset, 'SaborPizza')
+rotas_api.register('sabor_borda', SaborBorda_Viewset, 'SaborBorda')
 rotas_api.register('bebida',Bebida_Viewset,"Bebida")
 rotas_api.register('tamanho_pizza', TamanhoPizza_Viewset, 'TamanhoPizza')
 rotas_api.register('pedidos', PedidoViewSet, basename='Pedido')
