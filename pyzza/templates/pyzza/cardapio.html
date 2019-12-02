@@ -7,36 +7,26 @@
     <title>Cardapio</title>
 
 </head>
-
 <body>
 {% block content %}
 
-        <div class="pedidos">
-            <h1>OLHA ESSES SABORES.. waaahh!</h1>
-            <h4 id="sub_titulo_cardapio">Alienígenas!!</h4>
-        </div>
+    <div class="pedidos">
+        <h1>CARDÁPIO!</h1>
+     </div>
+  <div class="container">
+    <div class="row">
+             <div id="colunas-cardapio" class="card-body" style="width: 18rem;" v-for="pizza in sabores_pizza" align="center">
+                <img class="card-img-top" v-bind:src="[[pizza.imagem]]" alt="Card image cap"
+                     style="width: 130px; height: 130px;">
+                <div class="card-body">
+                    <p class="card-text">[[pizza.nome]]</p>
+                    <p class="card-text">[[pizza.descricao]]</p>
 
-    <div class="row" v-for="pizza in pizzas">
-        <div id="colunas-cardapio" class="col-3">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="[[pizza.imagem]]" alt="Imagem de capa do card">
-              <div class="card-body">
-                <h5 class="card-title">[[pizza.nome]]</h5>
-                <p class="card-text">[[pizza.descricao]]</p>
-                <a href="#" class="btn btn-primary">Pedir</a>
-              </div>
+                </div>
             </div>
         </div>
 
-
-        </div>
-        <div id="colunas-cardapio" class="col-3">[[pizza.valor_adicional]]</div>
-        <div id="colunas-cardapio" class="col-3"><img src="[[pizza.imagem]]" ></div>
-    </div>
-
-
-
-
+   </div>
 {% endblock %}
 </body>
 </html>
