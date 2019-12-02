@@ -1,5 +1,7 @@
 {% extends "site_interno/layout/base_site.html" %}
 {% load i18n admin_static %}
+{#{% load l10n %}#}
+{% load tz %}
 
 {% block extrastyle %}
 
@@ -15,8 +17,8 @@
 
 {% block breadcrumbs %}{% endblock %}
 {% block content %}
-<h1>Dashboard Pedidos</h1>
-    <p>Solicitações de pedidos do dia em tempo real</p>
+<h1 align="center">Acompanhamento de Pedidos</h1>
+    <h1> </h1>
     {% if lista %}
         <div class="container">
         <div class="row">
@@ -32,10 +34,14 @@
                           <th class="text-center"><h3>STATUS</h3></th>
                          <th class="text-center"><h3>ACÕES</h3></th>
 
-            {% for pedido in lista %}
+            {% for pedido in lista|dictsort:"id" %}
             <tr>
                 <td class="text-center">{{ pedido.id }}</td>
+{#                {% localtime on %}#}
+                {% timezone 'Brazil/East' %}
                 <td class="text-center">{{ pedido.data.time }}</td>
+{#                {% endlocaltime %}#}
+                {% endtimezone %}
                 <td class="text-center">{{ pedido.cliente.nome }}</td>
                 <td class="text-center">{{ pedido.cliente.telefone}}</td>
                 <td class="text-center">{{ pedido.get_total}}</td>
@@ -163,7 +169,7 @@
     </div>
 
     <div class="modal-body">
-        <h3>Tem certeza que deseja cancelar o pedido?</h3>
+        <h3>Tem certeza que deseja cancelar o pedido n. {{ pedido.id }}?</h3>
     </div>
 
     <div class="modal-footer">

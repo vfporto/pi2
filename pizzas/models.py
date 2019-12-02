@@ -11,6 +11,13 @@ class Ingrediente(models.Model):
     def __str__(self):
         return self.nome
 
+    def get_qt_compra(self):
+        qt = self.qt_maxima - self.qt_estoque
+        if qt < 0:
+            qt = 0
+        return qt;
+
+
 
 class TipoPizza(models.Model):
     nome = models.CharField(max_length=50)

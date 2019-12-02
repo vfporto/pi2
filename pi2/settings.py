@@ -157,7 +157,7 @@ LANGUAGE_CODE = 'pt-br'
 TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
 USE_L10N = True
-USE_TZ = True
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
@@ -237,16 +237,24 @@ SUIT_CONFIG={
             # 'permissions': 'empresa.view_empresa'
         },
         '-',
+        {'label': 'Dashboard Pedidos', 'icon': 'icon-list-alt', 'url': '/interno/dashboard_pedidos/', },
+        '-',
         {
             'label': 'Relatórios',
             'icon':'icon-list-alt',
             'url': '/interno/',
+            'models': (
+                {'label': 'Relatório de Entregadores', 'icon': 'icon-list-alt', 'url': '/interno/rel_entregadores/', },
+                {'label': 'Relatório de Ingredientes', 'icon': 'icon-list-alt', 'url': '/interno/rel_ingredientes/', },
+                {'label': 'Relatório de Produção', 'icon': 'icon-list-alt', 'url': '/interno/rel_pizzas_produzidas/', },
+            ),
             # 'permissions': 'empresa.view_empresa'
         },
-        { 'label': 'Relatório de Ingredientes', 'icon': 'icon-list-alt', 'url': '/interno/rel_ingredientes/',},
-        {'label': 'Relatório de Entregadores', 'icon': 'icon-list-alt', 'url': '/interno/rel_entregadores/', },
-        {'label': 'Dashboard Pedidos', 'icon': 'icon-list-alt', 'url': '/interno/dashboard_pedidos/', },
-        {'label': 'Relatório de Produção', 'icon': 'icon-list-alt', 'url': '/interno/rel_pizzas_produzidas/', },
+        '-',
+    # { 'label': 'Relatório de Ingredientes', 'icon': 'icon-list-alt', 'url': '/interno/rel_ingredientes/',},
+        # {'label': 'Relatório de Entregadores', 'icon': 'icon-list-alt', 'url': '/interno/rel_entregadores/', },
+        # {'label': 'Dashboard Pedidos', 'icon': 'icon-list-alt', 'url': '/interno/dashboard_pedidos/', },
+        # {'label': 'Relatório de Produção', 'icon': 'icon-list-alt', 'url': '/interno/rel_pizzas_produzidas/', },
 
 ),
 

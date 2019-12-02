@@ -6,13 +6,13 @@ p.dados-pedidos-comanda {
 p.valor-pedidos-comanda{
 	float: right;
 }
-body{
-		margin: 0;
-			padding: 0;
-			height: 100%;
-			background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
- 			/*background-image: url("../pyzza/image/fundo-preto.jpg");*/
- 			background-repeat: repeat;
-			background-size: cover;
-			background-attachment: fixed;
-}
+/*body{*/
+/*		margin: 0;*/
+/*			padding: 0;*/
+/*			height: 100%;*/
+/*			background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);*/
+/* 			!*background-image: url("../pyzza/image/fundo-preto.jpg");*!*/
+/* 			background-repeat: repeat;*/
+/*			background-size: cover;*/
+/*			background-attachment: fixed;*/
+/*}*/
