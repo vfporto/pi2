@@ -7,38 +7,38 @@
 </head>
 <body>
 {% block content %}
-    <img src="" alt="" width="30px" height="">
+    {#    <img src="" alt="" width="30px" height="">#}
     <div id="app" class="content">
         <div class="row">
             {#COLUNA FAZER PEDIDOS#}
-            <div class="col-6"><!--col-12-->
+            <div class="col-6" id="monte-seu-pedido"><!--col-12-->
                 <div class="pedidos"><h1>FAÇA SEU PEDIDO!</h1></div>
-                <div>
+                <div class="table-responsive">
                     <a data-toggle="modal" href="#exampleModal">
-                        <img style="background-color: #e89d00; width: 95% ;height: 180px; margin-top: 1em;margin-bottom: 0.5em;"
+                        <img class="banner-pedir-pizza"
                              src="{% static 'pyzza/image/bebida_pedidos.png' %}" alt="banner pedido bebidas">
                     </a>
                 </div>
-                <div>
+                <div class="table-responsive">
                     <a data-toggle="modal" href="#myModalBebidas">
-                        <img style="background-color: #e89d00; width: 95% ;height: 180px;"
+                        <img class="banner-pedir-bebidas"
                              src="{% static 'pyzza/image/pizza_pedido.png' %}" alt="banner pedido bebidas">
                     </a>
                 </div>
             </div>
+
             <!--dados do pedido-->
             <div class="col-6">
                 <div class="container">
                     <!-- Editable table -->
                     <div class="card">
                         {% csrf_token %}
-                        <h3 class="card-header text-center font-weight-bold text-uppercase py-4"
-                            style="font-family: 'Cabin Sketch'">Carrinho de Compras</h3>
+                        <h1 class="card-header text-center font-weight-bold text-uppercase py-4"
+                            style="font-family: 'Cabin Sketch'">Carrinho de Compras</h1>
                         <div class="card-body">
                             <div id="table" class="table-editable table-responsive">
                                 <table class="table table-bordered table-responsive-md table-striped text-center">
-                                    <h4 style="font-weight: 900; font-family: 'Cabin Sketch'; margin-top: 1em;">
-                                        Pizza(s)</h4>
+                                    <h3 style="font-weight: 900; font-family: 'Cabin Sketch';">Pizza(s)</h3>
                                     <thead>
                                     <tr>
                                         <th class="text-center titulo-tabela">Qtd</th>
@@ -73,7 +73,7 @@
                             </div>
                             <div id="table" class="table-editable table-responsive">
                                 <table class="table table-bordered table-responsive-md table-striped text-center">
-                                    <h4 style="font-weight: 900; font-family: 'Cabin Sketch'; margin-top: 1em;">
+                                    <h4 style="font-weight: 900; font-family: 'Cabin Sketch';">
                                         Bebidas</h4>
                                     <thead>
                                     <tr>
@@ -95,17 +95,27 @@
                                         <td class="pt-3-half">2 Litros</td>
                                         <td class="pt-3-half">R$ 8,00</td>
                                         <td>
-                                                    <span class="table-remove">
-                                                        <button type="button" class="btn btn-danger"><i
-                                                                class="far fa-trash-alt"></i></button>
-                                                    </span>
+                                            <span class="table-remove">
+                                                <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                            </span>
                                         </td>
                                     </tr>
                                     </tbody>
                                 </table>
-                                <button type="button" class="btn-warning" style="float: right" data-toggle="modal"
-                                        data-target="#modalLogin">ENVIAR PEDIDO
-                                </button>
+                                <h4 style="font-family: 'Cabin Sketch';font-weight: bold">FORMAS DE PAGAMENTO</h4>
+                                <select class="form-control-sm" id="f-pagamento">
+                                    <option value="credito">Cartão de Crédito</option>
+                                    <option value="dinheiro">Dinheiro</option>
+                                </select>
+                                <div class="form-group" style="margin-top: 1em;">
+                                    <h4 style="font-family: 'Cabin Sketch'; font-weight: bold;" for="exampleFormControlTextarea1">Observações</h4>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn-warning" style="float: right; border-radius: 12px; padding: 8px;" data-toggle="modal"
+                                            data-target="#modalLogin">ENVIAR PEDIDO
+                                    </button>
+                                </div>
                             </div>
                             {# div table #}
                         </div>

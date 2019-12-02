@@ -6,24 +6,21 @@
     src: local("Cabin Sketch"), url("fontes/cabin-sketch-bold.ttf") format("truetype");
 }
 
-.bebidas {
-    width: 94%;
-    height: 100%;
-    align-items: center;
+.banner-pedir-bebidas {
+    width: 100%;
+    height: 270px;
     position: relative;
 }
 
 .banner-pedir-pizza {
-    width: 94%;
-    height: 100%;
+    width: 100%;
+    height: 270px;
     margin-top: 1em;
     margin-bottom: 1em;
     position: relative;
 }
 
 .card {
-    width: 650px;
-    right: 70px;
     top: 1em;
 }
 
@@ -173,10 +170,13 @@ a.navbar-brand {
     text-align: center;
     font-family: "Cabin Sketch";
 }
+#monte-seu-pedido{
+    margin-bottom: 1em;
+}
 
 .pedidos {
     margin-top: 1em;
-    margin-right: 2em;
+    /*margin-right: 2em;*/
     padding-top: 15px;
     padding-bottom: 5px;
     background-color: #c0392b;
@@ -382,6 +382,22 @@ input {
 
 /* RESPONSIVE CSS mobile
 -------------------------------------------------- */
+@media only screen and (min-width: 800px) and (max-width: 1024px){
+    .banner-pedir-bebidas {
+    width: 100%;
+    height: 210px;
+    position: relative;
+}
+
+.banner-pedir-pizza {
+    width: 100%;
+    height: 210px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    position: relative;
+}
+
+}
 
 @media (min-width: 40em) {
     /* Bump up size of carousel content */
