@@ -32,7 +32,7 @@ class SaborPizza_Serializer(serializers.ModelSerializer):
     class Meta:
         model = SaborPizza
         # fields = ('__all__')
-        fields = ('id', 'nome', 'descricao', 'valor_adicional', 'imagem','tipo_pizza')# , 'ingredientes')
+        fields = ('id', 'nome', 'descricao', 'valor_adicional', 'imagem','disponivel', 'tipo_pizza', 'get_adicional_total')# , 'ingredientes')
 
 
 class TamanhoPizza_Serializer(serializers.ModelSerializer):

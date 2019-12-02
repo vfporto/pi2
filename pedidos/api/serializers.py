@@ -3,8 +3,7 @@ from rest_framework import serializers
 from bebidas.api.serializers import BebidaTamanhoBebida_Serializer
 from pedidos.models import Pedido, ItemPizza, StatusPedido, FormaDePagamento, ItemBebida
 
-from pyzza.api.serializers import SaborBordaSerializer, SaborPizzaSerializer, TamanhoPizzaSerializer
-
+from pizzas.api.serializers import SaborBorda_Serializer, SaborPizza_Serializer, TamanhoPizza_Serializer
 
 class StatusPedidoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -23,9 +22,9 @@ class ItemBebidaSerializer(serializers.ModelSerializer):
         fields = ('__all__')
 
 class ItemPizzaSerializer(serializers.ModelSerializer):
-    # sabores = SaborPizzaSerializer(many=True)
-    # sabor_borda = SaborBordaSerializer()
-    # tamanho_pizza = TamanhoPizzaSerializer()
+    # sabores = SaborPizza_Serializer(many=True)
+    # sabor_borda = Sabor_BordaSerializer()
+    # tamanho_pizza = TamanhoPizza_Serializer()
     class Meta:
         model = ItemPizza
         fields = ('__all__')

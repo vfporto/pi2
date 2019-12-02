@@ -9,6 +9,7 @@ class TamanhoPizza_Viewset(viewsets.ModelViewSet):
 
 
 class SaborPizza_Viewset (viewsets.ModelViewSet):
+    # TODO: corrigir queryset para fazer prefetch de TipoPizza
     queryset = SaborPizza.objects.filter(disponivel=True)
     # queryset = SaborPizza.objects.all()
     # queryset = queryset.prefetch_related()
