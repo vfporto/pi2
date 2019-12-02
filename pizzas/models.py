@@ -1,6 +1,11 @@
+from decimal import Decimal
+
 from django.db import models
 
 # Pizzas Models
+from django.forms import DecimalField
+
+
 class Ingrediente(models.Model):
     nome = models.CharField(max_length=50)
     qt_estoque = models.DecimalField(decimal_places=2, max_digits=7, default=0)
@@ -65,6 +70,10 @@ class SaborPizza(models.Model):
         verbose_name = 'Sabor de Pizza'
         verbose_name_plural = 'Sabores de Pizzas'
         ordering = ['tipo_pizza','nome']
+
+    def get_adicional_total(self):
+        adicional = self.tipo_pizza.valor_adicional + self.valor_adicional
+        return adicional.to_eng_string()
 
 
 class SaborPizzaIngrediente(models.Model):

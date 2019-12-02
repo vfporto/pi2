@@ -36,8 +36,10 @@ var app = new Vue({
         sabores_selecionados: [],
         borda_selecionada: {},
 
-        bebida_selecionada: {},
-        num_bebidas_selecionada: 0,
+        bebida_selecionada: null,
+        opcao_bebida_selecionada:{},// {id: 0},
+
+        num_bebidas_selecionada: 0, //retirar?
 
         pedido: {
             itens_pizza: [],
@@ -89,9 +91,10 @@ var app = new Vue({
                 quantidade: 1,
                 preco: 0,
             }
-            this.pedido.itens_pizza.push(newItem_pizza);
-            this.limpa_cache();
-
+            if(newItem_pizza.sabores.length>0) {
+                this.pedido.itens_pizza.push(newItem_pizza);
+                this.limpa_cache();
+            }
         },
         remove_item_pizza: function (index) {
             // this.pedido.itens_pizza = this.pedido.itens_pizza.filter(x => x.id != item.id);
@@ -166,6 +169,9 @@ var app = new Vue({
             this.num_sabores_selecionado = 0;
             this.sabores_selecionados = [];
             this.borda_selecionada = {};
+
+            bebida_selecionada = null;
+            opcao_bebida_selecionada = {};
         }
 
     },

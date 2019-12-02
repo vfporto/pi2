@@ -20,7 +20,6 @@ class Bebida_Serializer(serializers.ModelSerializer):
     # tamanhos = TamanhoBebida_Serializer(many=True, read_only=True)
     opcoes = BebidaTamanhoBebida_Serializer(many=True)
 
-
     class Meta:
         model = Bebida
         # fields = ('__all__')
