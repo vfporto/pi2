@@ -94,12 +94,138 @@
                                             </td>
                                         </tr>
                                         </tbody>
+
                                     </table>
+                                      <button type="button" class="btn-warning"
+                                              style="float: right" data-toggle="modal" data-target="#modalLogin">ENVIAR PEDIDO</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!--MODAL PARA LOGIN -->
+
+                <div style="margin-top: 2em;" class="modal" id="modalLogin" tabindex="-1" role="dialog">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                      <div class="modal-body">
+                        <div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+					<div style="margin-bottom:-4em;">
+						<img src="{% static 'pyzza/image/logo_top_do_projeto_novo.png' %}" alt="Logo">
+					</div>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+					<form>
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="text" name="" class="form-control input_user" value="" placeholder="Nome de usuário">
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" name="" class="form-control input_pass" value="" placeholder="Senha">
+						</div>
+						<div class="form-group">
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" id="customControlInline">
+								<label class="custom-control-label" for="customControlInline">Remember me</label>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="d-flex justify-content-center mt-3 login_container">
+					<button type="button" name="button" class="btn login_btn">Login</button>
+				</div>
+				<div class="mt-4">
+					<div class="d-flex justify-content-center links">
+						Ainda não tem cadastro? <a href="#" class="ml-2" data-toggle="modal" data-target="#modalCadastro">Cadastre-se</a>
+					</div>
+					<div class="d-flex justify-content-center links">
+						<a href="#">esqueceu a senha?</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+                      </div>
+                    </div>
+                  </div>
+
+                <!-- FIM DA MODAL -->
+
+                <!-- MODAL CADASTRE-SE -->
+<div class="modal" id="modalCadastro" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+              <div class="card card-outline-secondary">
+              <div class="card-header" id="header-modal-cadastro">
+                <h3 class="mb-0">Cadastro de usuário</h3>
+              </div>
+              <div class="card-body" style="background-color: rgba(255, 183, 33, 0.43);">
+                <form autocomplete="off" class="form" role="form">
+                  <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Nome</label>
+                    <div class="col-lg-9">
+                      <input class="form-control" type="text" value="Paulo">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Sobrenome</label>
+                    <div class="col-lg-9">
+                      <input class="form-control" type="text" value="da Silva">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                    <div class="col-lg-9">
+                      <input class="form-control" type="email" value="email@gmail.com">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Nome de Usuário</label>
+                    <div class="col-lg-9">
+                      <input class="form-control" type="text" value="Insira um nome para login">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Senha</label>
+                    <div class="col-lg-9">
+                      <input class="form-control" type="password" value="11111122333">
+												<small class="form-text text-muted" id="passwordHelpBlock">
+Sua senha deve ter entre 8 e 20 caracteres, conter letras e números e não deve conter espaços, caracteres especiais ou emoji.</small>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Confirme sua senha</label>
+                    <div class="col-lg-9">
+                      <input class="form-control" type="password" value="11111122333">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                         <div class="col-lg-9">
+                             <button style="float: right;" class="btn btn-success" type="button" value="Cancel">Salvar</button>
+                             <button style="float: right;" class="btn btn-danger" type="reset" value="Save Changes">Cancelar</button>
+                        </div>
+                  </div>
+                </form>
+              </div>
+            </div><!-- /form user info-->
+       </div>
+    </div>
+  </div>
+</div>
+
+                <!-- FINAL DA MODAL CADASTRE-SE-->
+
             </div><!--end col-12-->
         </div>
 
@@ -170,14 +296,14 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="nav flex-sm-column flex-row">
-                            <label>ESCOLHA O TAMANHO DA SUA PIZZA!</label>
+                            <label style="font-family: 'Cabin Sketch'; font-size: 26px;">ESCOLHA O TAMANHO DA SUA PIZZA!</label>
                             <select id="selectTamanho" class="custom-select" v-model="tamanho_selecionado">
                                 <option v-for="tamanho in tamanhos" v-bind:value="tamanho">[[tamanho.nome]]</option>
                             </select>
-                            <label style="margin-top: 10px;" v-if="tamanho_selecionado.max_sabores > 0">ESCOLHA QUANTOS SABORES!</label>
+                            <label style="margin-top: 10px; font-family: 'Cabin Sketch';  font-size: 18px;" v-if="tamanho_selecionado.max_sabores > 0">ESCOLHA QUANTOS SABORES!</label>
                             <div id="selectSabores">
                                 <div id="selectSabores">
-                                    <button type="button" class="btn btn-outline-success"
+                                    <button type="button" class="btn btn-outline-dark"
                                             v-for="qtd in tamanho_selecionado.max_sabores" v-bind:key="qtd"
                                             v-bind:value="qtd" @click="seleciona_num_sabores(qtd)">
                                         [[ qtd ]]
@@ -186,7 +312,7 @@
                             </div>
                             <div v-if="num_sabores_selecionado > 0">
                                 <div v-for="i,j in num_sabores_selecionado">
-                                    <label class="escolha-um-sabor" v-if="num_sabores_selecionado === 1">ESCOLHA O SABOR DA PIZZA!</label>
+                                    <label style="font-family: 'Cabin Sketch'; font-size: 18px;" class="escolha-um-sabor" v-if="num_sabores_selecionado === 1">ESCOLHA O SABOR DA PIZZA!</label>
                                     <label class="escolha-um-sabor" v-else>ESCOLHA O [[ i ]]º SABOR</label>
                                     <div class="dropdown-toggle-split">
                                         <select class="custom-select" v-model="sabores_selecionados[j]">
@@ -197,7 +323,7 @@
                             </div>
                             <div v-if="num_sabores_selecionado > 0">
                                 <hr>
-                                    <label class="escolha-um-sabor">ESCOLHA O SABOR DA BORDA!</label>
+                                    <label style="font-family: 'Cabin Sketch'; font-size: 26px;" class="escolha-um-sabor">ESCOLHA O SABOR DA BORDA!</label>
                                     <div class="dropdown-toggle-split">
                                         <select class="custom-select" v-model="borda_selecionada">
                                             <option v-for="borda in sabores_borda" v-bind:value="borda">[[borda.nome]]</option>

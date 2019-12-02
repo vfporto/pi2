@@ -1,207 +1,240 @@
 /*TELA DE LOGIN*/
 @charset "UTF-8";
 
-@font-face{
-	font-family: "Cabin Sketch";
-	src: local("Cabin Sketch"), url("fontes/cabin-sketch-bold.ttf") format("truetype");
+@font-face {
+    font-family: "Cabin Sketch";
+    src: local("Cabin Sketch"), url("fontes/cabin-sketch-bold.ttf") format("truetype");
 }
+
 .bebidas {
     width: 94%;
     height: 100%;
     align-items: center;
     position: relative;
 }
+
 .banner-pedir-pizza {
     width: 94%;
     height: 100%;
-	margin-top: 1em;
-	margin-bottom: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
     position: relative;
 }
+
 .card {
     width: 650px;
     right: 70px;
     top: 1em;
 }
-.pt-3-half{
-	font-size: 13px;
+
+.pt-3-half {
+    font-size: 13px;
 }
-.titulo-tabela{
-	font-size: 14px;
+
+.titulo-tabela {
+    font-size: 14px;
 }
 
 body,
-		html {
-			margin: 0;
-			padding: 0;
-			height: 100%;
- 			background-image: url("../pyzza/image/background_geral.jpg");
-			background-repeat: repeat;
-			background-size: contain;
-			background-attachment: fixed;
-			/*font-family: "Guthen Bloots Personal Use";*/
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url("../pyzza/image/background_geral.jpg");
+    background-repeat: repeat;
+    background-size: contain;
+    background-attachment: fixed;
+    /*font-family: "Guthen Bloots Personal Use";*/
 
-		}
-		.user_card {
-			height: 400px;
-			width: 350px;
-			margin-top: auto;
-			margin-bottom: auto;
-			background: #f39c12;
-			position: relative;
-			display: flex;
-			justify-content: center;
-			flex-direction: column;
-			padding: 10px;
-			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(243, 226, 0, 0.19);
-			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(243, 226, 0, 0.19);
-			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(243, 226, 0, 0.19);
-			border-radius: 5px;
+}
 
-		}
-		.brand_logo_container {
-			position: absolute;
-			height: 170px;
-			width: 170px;
-			top: -75px;
-			border-radius: 50%;
-			background: #60a3bc;
-			padding: 10px;
-			text-align: center;
-		}
-		.brand_logo {
-			height: 150px;
-			width: 150px;
-			border-radius: 50%;
-			border: 2px solid white;
-		}
-		.form_container {
-			margin-top: 100px;
-		}
-		.login_btn {
-			width: 100%;
-			background: #c0392b !important;
-			color: white !important;
-		}
-		.login_btn:focus {
-			box-shadow: none !important;
-			outline: 0px !important;
-		}
-		.login_container {
-			padding: 0 2rem;
-		}
-		.input-group-text {
-			background: #c0392b !important;
-			color: white !important;
-			border: 0 !important;
-			border-radius: 0.25rem 0 0 0.25rem !important;
-		}
-		.input_user,
-		.input_pass:focus {
-			box-shadow: none !important;
-			outline: 0px !important;
-		}
-		.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-			background-color: #c0392b !important;
-		}
+.user_card {
+    height: 400px;
+    width: 350px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: linear-gradient(to top, #e89d00 0%, #eacda3 100%);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(243, 226, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(243, 226, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(243, 226, 0, 0.19);
+    border-radius: 5px;
+
+}
+
+.brand_logo_container {
+    position: absolute;
+    height: 170px;
+    width: 170px;
+    top: -75px;
+    border-radius: 50%;
+    background: #60a3bc;
+    padding: 10px;
+    text-align: center;
+}
+
+.brand_logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.form_container {
+    margin-top: 100px;
+}
+
+.login_btn {
+    width: 100%;
+    background: #c0392b !important;
+    color: white !important;
+}
+
+.login_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+.login_container {
+    padding: 0 2rem;
+}
+
+.input-group-text {
+    background: #c0392b !important;
+    color: white !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+
+.input_user,
+.input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #c0392b !important;
+}
+
 /*************************************FIM DA ESTILIZAÇÃO DA TELA DE LOGIN*******************************/
 
-h1{
-	font-size: 55px;
+h1 {
+    font-size: 55px;
 }
-#menu-principal{
- 	background-color: #22110a;
- }
-footer{
-	background-color: #22110a;
+
+#menu-principal {
+    background-color: #22110a;
 }
-.escolha-tamanho{
-	margin-top: 2em;
-	font-family: "Cabin Sketch";
-	text-align: center;
-	color:#f39c12;
+
+footer {
+    background-color: #22110a;
 }
-.titulo_tipo_salgadas{
-	font-family: "Klavika Regular";
-	color: #ff9b00;
-	margin-top: 1em;
+
+.escolha-tamanho {
+    margin-top: 2em;
+    font-family: "Cabin Sketch";
+    text-align: center;
+    color: #f39c12;
 }
-.titulo_tipo_doces{
-	font-family: "Klavika Regular";
-	color: #c69500;
-	margin-top: 1em;
+
+.titulo_tipo_salgadas {
+    font-family: "Klavika Regular";
+    color: #ff9b00;
+    margin-top: 1em;
 }
-.menu-header a{
-	margin-left: 30px;
+
+.titulo_tipo_doces {
+    font-family: "Klavika Regular";
+    color: #c69500;
+    margin-top: 1em;
 }
+
+.menu-header a {
+    margin-left: 30px;
+}
+
 a.navbar-brand:hover {
     font-size: 31px;
 }
-a.navbar-brand{
-	font-family: "Cabin Sketch";
+
+a.navbar-brand {
+    font-family: "Cabin Sketch";
 }
-.carrinho{
-	margin-top: 1em;
-	padding-top: 15px;
-	padding-bottom: 5px;
-	background-color: #f39c12;
-	text-align: center;
-	font-family: "Cabin Sketch";
+
+.carrinho {
+    margin-top: 1em;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    background-color: #f39c12;
+    text-align: center;
+    font-family: "Cabin Sketch";
 }
-.pedidos{
-	margin-top: 1em;
-	margin-right: 2em;
-	padding-top: 15px;
-	padding-bottom: 5px;
-	background-color: #c0392b;
-	text-align: center;
-	font-family: "Cabin Sketch";
-	color: #f39c12;
+
+.pedidos {
+    margin-top: 1em;
+    margin-right: 2em;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    background-color: #c0392b;
+    text-align: center;
+    font-family: "Cabin Sketch";
+    color: #f39c12;
 }
-#imagem_pizzas{
-	width: 50% !important;
-	height: auto;
+
+#imagem_pizzas {
+    width: 50% !important;
+    height: auto;
 }
-#texto_copyright{
-	color: #ffffff !important;
+
+#texto_copyright {
+    color: #ffffff !important;
 }
-#sub_titulo_cardapio{
-	color: #ffffff;
-	font-family: "Klavika Regular";
+
+#sub_titulo_cardapio {
+    color: #ffffff;
+    font-family: "Klavika Regular";
 }
-#colunas-cardapio{
+
+#colunas-cardapio {
     border-radius: 30px;
     background-color: #e89d00;
-     padding: 20px;
+    padding: 20px;
     background-color: gainsboro;
     margin-left: 10px;
     margin-top: 10px;
 }
+
 /* CUSTOMIZANDO O CARROSSEL
 -------------------------------------------------- */
 
 /* CLASS BASE DO CARROSSEL */
 .carousel {
-  margin-bottom: 2rem;
-	margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
 }
+
 /* SE TIVER LEGENDA PODEMOS AJUSTAR AQUI  */
 .carousel-caption {
-  bottom: 3rem;
-  z-index: 10;
+    bottom: 3rem;
+    z-index: 10;
 }
 
 /* DECLARANDO POSICAO DOS ELEMENTOS TAMANHOS ETC */
 .carousel-item {
-  height: 28rem;
-  background-color: #ebca55;
+    height: 28rem;
+    background-color: #ebca55;
 }
+
 .carousel-item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 33rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 33rem;
 }
 
 
@@ -211,15 +244,17 @@ a.navbar-brand{
 /*
 PARA ALINHAR AO CENTRO AS 3 COLUNAS ABAIXO DO CARROSEL */
 .marketing .col-lg-4 {
-  margin-bottom: 1.5rem;
-  text-align: center;
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
+
 .marketing h2 {
-  font-weight: 400;
+    font-weight: 400;
 }
+
 .marketing .col-lg-4 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
+    margin-right: .75rem;
+    margin-left: .75rem;
 }
 
 
@@ -227,202 +262,237 @@ PARA ALINHAR AO CENTRO AS 3 COLUNAS ABAIXO DO CARROSEL */
 ------------------------- */
 
 .featurette-divider {
-  margin: 5rem 0;
+    margin: 5rem 0;
 }
 
 /* Diluir os títulos de marketing */
 .featurette-heading {
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -.05rem;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem;
 }
 
 
 /*PAGINA DE CONTATOS*/
-body{
-		background-color: #25274d;
-	}
-	.contact{
-		padding: 4%;
-		/*height: 400px;*/
-	}
-	/*.col-md-3{*/
-	/*	background: #ff9b00;*/
-	/*	padding: 4%;*/
-	/*	border-top-left-radius: 0.5rem;*/
-	/*	border-bottom-left-radius: 0.5rem;*/
-	/*}*/
-	.contact-info{
-		margin-top:10%;
-	}
-	.contact-info img{
-		margin-bottom: 15%;
-	}
-	.contact-info h2{
-		margin-bottom: 10%;
-	}
-	.col-md-9{
-		background: #fff;
-		padding: 3%;
-		border-top-right-radius: 0.5rem;
-		border-bottom-right-radius: 0.5rem;
-	}
-	.contact-form label{
-		font-weight:600;
-	}
-	.contact-form button{
-		background: #25274d;
-		color: #fff;
-		font-weight: 600;
-		width: 25%;
-	}
-	.contact-form button:focus{
-		box-shadow:none;
-	}
+body {
+    background-color: #25274d;
+}
+
+.contact {
+    padding: 4%;
+    /*height: 400px;*/
+}
+
+/*.col-md-3{*/
+/*	background: #ff9b00;*/
+/*	padding: 4%;*/
+/*	border-top-left-radius: 0.5rem;*/
+/*	border-bottom-left-radius: 0.5rem;*/
+/*}*/
+.contact-info {
+    margin-top: 10%;
+}
+
+.contact-info img {
+    margin-bottom: 15%;
+}
+
+.contact-info h2 {
+    margin-bottom: 10%;
+}
+
+.col-md-9 {
+    background: #fff;
+    padding: 3%;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.contact-form label {
+    font-weight: 600;
+}
+
+.contact-form button {
+    background: #25274d;
+    color: #fff;
+    font-weight: 600;
+    width: 25%;
+}
+
+.contact-form button:focus {
+    box-shadow: none;
+}
 
 /*FINAL PAGINA DE CONTATOS*/
-	span {cursor:pointer; }
-		.number{
-			margin:100px;
-		}
-		.minus, .plus{
-			width:18px;
-			height:28px;
-			background:#f2f2f2;
-			border-radius:3px;
-			/*padding:8px 5px 8px 5px;*/
-			border:1px solid #ddd;
-      display: inline-block;
-      vertical-align: middle;
-      text-align: center;
-		}
-		input{
-			height:30px;
-			width: 30px;
-			text-align: center;
-			font-size: 13px;
-			border:1px solid #ddd;
-			border-radius:4px;
-      		display: inline-block;
-      		vertical-align: middle;
+span {
+    cursor: pointer;
 }
+
+.number {
+    margin: 100px;
+}
+
+.minus, .plus {
+    width: 18px;
+    height: 28px;
+    background: #f2f2f2;
+    border-radius: 3px;
+    /*padding:8px 5px 8px 5px;*/
+    border: 1px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+
+input {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .img-pedidos {
-	border-radius: 35px;
-	height: 45vh;
-	width: 40vh;
-	display: flex;
-	padding: 20px;
+    border-radius: 35px;
+    height: 45vh;
+    width: 40vh;
+    display: flex;
+    padding: 20px;
 }
-.coluna-pedido{
-	align-items: center;
-	align-content: center;
-	display: table-cell;
-	margin-left: 1em;
+
+.coluna-pedido {
+    align-items: center;
+    align-content: center;
+    display: table-cell;
+    margin-left: 1em;
 }
-.col-8{
-	background-color: #e89d00;
-	padding: 5px;
+
+.col-8 {
+    background-color: #e89d00;
+    padding: 5px;
 }
-.col-4{
-	background-color: #fefefe;
- }
+
+.col-4 {
+    background-color: #fefefe;
+}
 
 
 /* RESPONSIVE CSS mobile
 -------------------------------------------------- */
 
 @media (min-width: 40em) {
-  /* Bump up size of carousel content */
-  .carousel-caption p {
-    margin-bottom: 1.25rem;
-    font-size: 1.25rem;
-    line-height: 1.4;
-  }
+    /* Bump up size of carousel content */
+    .carousel-caption p {
+        margin-bottom: 1.25rem;
+        font-size: 1.25rem;
+        line-height: 1.4;
+    }
 
-  .featurette-heading {
-    font-size: 50px;
-  }
+    .featurette-heading {
+        font-size: 50px;
+    }
 }
 
 @media (min-width: 62em) {
-  .featurette-heading {
-    margin-top: 7rem;
-  }
+    .featurette-heading {
+        margin-top: 7rem;
+    }
 }
+
 /*estilizacao das novas modais*/
 .modal.left .modal-dialog {
-	position: fixed;
-	margin: auto;
-	width: 620px;
-	height: 100%;
-	-webkit-transform: translate3d(0%, 0, 0);
-	-ms-transform: translate3d(0%, 0, 0);
-	-o-transform: translate3d(0%, 0, 0);
-	transform: translate3d(0%, 0, 0);
+    position: fixed;
+    margin: auto;
+    width: 620px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
 }
 
 .modal.left .modal-content {
-	height: 100%;
-	overflow-y: auto;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .modal.left .modal-body {
-	padding: 15px 15px 80px;
+    padding: 15px 15px 80px;
+}
+
+.modal-body {
+    background-color: #f39c12;
+}
+
+#header-modal-cadastro {
+    background-color: brown;
+    color: #fefefe;
+}
+
+.logo-modal {
+    margin-top: 2em;
 }
 
 .modal.left.fade .modal-dialog {
-	left: -320px;
-	-webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
-	-moz-transition: opacity 0.3s linear, left 0.3s ease-out;
-	-o-transition: opacity 0.3s linear, left 0.3s ease-out;
-	transition: opacity 0.3s linear, left 0.3s ease-out;
+    left: -320px;
+    -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+    transition: opacity 0.3s linear, left 0.3s ease-out;
 }
 
 .modal.left.fade.show .modal-dialog {
-	left: 0;
+    left: 0;
 }
 
 /* ----- MODAL STYLE ----- */
 .modal-content {
-	border-radius: 0;
-	border: none;
+    border-radius: 0;
+    border: none;
 }
 
 .modal-header {
-	border-bottom-color: #eeeeee;
-	background-color: #fafafa;
+    border-bottom-color: #eeeeee;
+    background-color: #fafafa;
 }
 
 /* ----- v CAN BE DELETED v ----- */
 body {
-	background-color: #78909c;
+    background-color: #78909c;
 }
 
 .demo {
-	padding-top: 60px;
-	padding-bottom: 110px;
+    padding-top: 60px;
+    padding-bottom: 110px;
 }
 
 .btn-demo {
-	margin: 15px;
-	padding: 10px 15px;
-	border-radius: 0;
-	font-size: 16px;
-	background-color: #ffffff;
+    margin: 15px;
+    padding: 10px 15px;
+    border-radius: 0;
+    font-size: 16px;
+    background-color: #ffffff;
 }
 
 .btn-demo:focus {
-	outline: 0;
+    outline: 0;
 }
-.escolha-um-sabor{
-	margin-top: 10px;
+
+.escolha-um-sabor {
+    margin-top: 10px;
 }
+
 p.dados-pedidos-comanda {
-	font-size: 15px;
-	font-family: monospace;
-	text-align: left;
+    font-size: 15px;
+    font-family: monospace;
+    text-align: left;
 }
-p.valor-pedidos-comanda{
-	float: right;
+
+p.valor-pedidos-comanda {
+    float: right;
 }
+
 /*ESTILIZACAO DA PAGINA DE CARDAPIO*/
