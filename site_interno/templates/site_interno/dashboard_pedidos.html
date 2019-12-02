@@ -57,33 +57,72 @@
                     {% endif %}
 
                     <button class="btn btn-danger text-center" href="#myModalCanceladas{{ pedido.id }}" role="button" data-toggle="modal" >CANCELAR</button>
-{#                    <button class="text-center btn-danger">CANCELAR</button>#}
+                    <button class="text-center btn-dark" href="#modalDetalhes{{ pedido.id }}" role="button" data-toggle="modal"
+                            style="padding-top: 4px;padding-bottom: 4px;padding-right: 12px;padding-left: 12px;border-radius: 5px;">DETALHES</button>
                 </td>
             </tr>
         {% endfor %}
+                                <!-- IMPLEMENTAÇÃO DA MODAL COM A DESCRIÇÃO DO PEDIDO-->
+        {% for pedido in lista %}
+
+            <div id="modalDetalhes{{ pedido.id }}" class="modal hide fade">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                    <p><span style="float: right"> {{ pedido.data }}</span></p>
+                </div>
+
+                <div class="modal-body">
+                <h1>DETALHES DO PEDIDO - No {{ pedido.id }}</h1>
+                    <h3>Dados do Cliente</h3>
+                        <p class="dados-pedidos-comanda">{{ pedido.cliente }}</p>
+                        <p class="dados-pedidos-comanda">{{ pedido.cliente.telefone }}</p>
+                        <p class="dados-pedidos-comanda">{{ pedido.cliente.endereco.logradouro }} - {{ pedido.cliente.endereco.numero }}</p>
+                    <hr>
+                    <h3 class="text-left">Dados da Pizza</h3>
+                    {% for item in pedido.itens_pizza.all %}
+                        <p class="dados-pedidos-comanda">Pizza {{ item.tamanho_pizza }}</p>
+                        <p class="dados-pedidos-comanda">Sabor(es):</p>
+                        {% for sabor in item.sabores.all %}
+                            <p style="color: brown">-> {{ sabor.nome }}</p>
+                        {% endfor %}
+                        <p class="dados-pedidos-comanda">Borda: {{ item.sabor_borda.nome }}</p>
+                        <p class="dados-pedidos-comanda">Quantidade: {{ item.quantidade }}</p>
+{#                        <p class="valor-pedidos-comanda">Preco: {{ item.get_preco }}</p>#}
+                        <hr>
+                    {% endfor %}
+
+                   <h3 class="text-left text-black-50">Dados da Bebida</h3>
+                        {% for item in pedido.itens_bebida.all %}
+                            <p class="dados-pedidos-comanda" >{{ item.bebida_tamanho.bebida.nome }} - {{ item.bebida_tamanho.tamanho_bebida.nome }} </p>
+                            <p class="dados-pedidos-comanda" >- Qt: {{ item.quantidade }} - Preço: {{ item.get_preco }}</p>
+                        {% endfor %}
+                        <hr>
+                    <h3>Dados do Pagamento/Observações</h3>
+                            <p class="dados-pedidos-comanda">Forma de pagamento: {{ pedido.forma_de_pagamento.nome }}</p>
+                            <p class="dados-pedidos-comanda" >Observações: {{ pedido.observacao }}</p>
+                    <hr>
+                    <h3>Dados do Entregador</h3>
+                    <p class="dados-pedidos-comanda">Nome:{{ pedido.entregador }}</p>
+                    <p class="dados-pedidos-comanda">Telefone:{{ pedido.entregador.telefone }}</p>
+                    <hr>
+                    <p style="float: right; font-size: 23px; font-weight: bold;">**TOTAL**: {{ pedido.get_total }}</p>
+
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <a href="#" class="btn" data-dismiss="modal">FECHAR</a>
+                    </div>
+             </div>
+  {% endfor %}
+                <!-- IMPLEMENTAÇÃO DA MODAL COM A DESCRIÇÃO DO PEDIDO-->
+
                 </table>
             </tbody>
             </div>
         </div>
         </div>
-                <!-- IMPLEMENTAÇÃO DA MODAL COM A DESCRIÇÃO DO PEDIDO-->
-{#<div id="myModal" class="modal hide fade">#}
-{##}
-{#    <div class="modal-header">#}
-{#        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>#}
-{#        <h3>PEDIDO No 435 <span style="float: right"> Data: 30/11/2019</span></h3>#}
-{#    </div>#}
-{##}
-{#    <div class="modal-body">#}
-{#        <p></p>#}
-{##}
-{#    </div>#}
-{##}
-{#    <div class="modal-footer">#}
-{#        <a href="#" class="btn" data-dismiss="modal">IMPRIMIR</a>#}
-{#        <a href="#" class="btn btn-primary">CONFIRMAR</a>#}
-{#    </div>#}
-{#</div>#}
 
 {% for pedido in lista %}
     <div id="myModal{{ pedido.id }}" class="modal hide fade">
@@ -179,12 +218,6 @@
 </div>
 
 {% endfor %}
-
-
-
-
-
-
 
     {% endif %}
 
