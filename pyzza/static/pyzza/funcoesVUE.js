@@ -30,6 +30,7 @@ var app = new Vue({
         bebidas: [],
         formas_pagamento: [],
 
+
         tamanho_selecionado: {max_sabores: 0},
         num_sabores_selecionado: 0,
         sabores_selecionados: [],
@@ -37,6 +38,7 @@ var app = new Vue({
 
         bebida_selecionada: {},
         num_bebidas_selecionada: 0,
+
         pedido: {
             itens_pizza: [],
             itens_bebida: [],

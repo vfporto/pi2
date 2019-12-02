@@ -15,7 +15,7 @@
 
 {% block breadcrumbs %}{% endblock %}
 {% block content %}
-<h1>Relatório de Pizzas e Bebidas Vendidas</h1>
+<h1 align="center">Relatório de Pizzas e Bebidas Vendidas</h1>
 
     {% if listapizzas %}
         <div class="container">
@@ -27,15 +27,15 @@
                 <table class="table">
                      <tr>
 {#                         <th><h3>DATA</h3></th>#}
-                          <th><h3>QUANTIDADE</h3></th>
-                         <th><h3>SABORES</h3></th>
-                         <th><h3>PRECO</h3></th>
+                          <th class="text-center"><h3>QUANTIDADE</h3></th>
+                         <th class="text-center"><h3>SABORES</h3></th>
+                         <th class="text-center"><h3>PRECO</h3></th>
             </tr>
 
         {% for item in listapizzas %}
 
             <tr>
-                <td class="text-center">{{ item.quantidade }}</td>
+                <td class="text-center">{{ item.qt_total }}</td>
                 <td class="text-center">
                     {% for sabor in item.sabores.all %}
                         {{ sabor.nome }} -
@@ -44,9 +44,9 @@
                   <td class="text-center">{{ item.get_preco }}</td>
             </tr>
         {% endfor %}
-                    <td class="text-center"> total</td>
-                    <td class="text-center"> total </td>
-                    <td class="text-center">total </td>
+                    <td class="text-center"> {{ qt_pizzas }}</td>
+                    <td class="text-center"> <-- TOTAL --> </td>
+                    <td class="text-center"> {{ preco_pizzas }} </td>
                 </table>
             </tbody>
             </div>
@@ -65,9 +65,9 @@
                 <table class="table">
                      <tr>
 {#                         <th><h3>DATA</h3></th>#}
-                          <th><h3>QUANTIDADE</h3></th>
-                         <th><h3>DESCRICAO</h3></th>
-                         <th><h3>PRECO</h3></th>
+                          <th class="text-center"><h3>QUANTIDADE</h3></th>
+                         <th class="text-center"><h3>DESCRICAO</h3></th>
+                         <th class="text-center"><h3>PRECO</h3></th>
             </tr>
 
         {% for item in listabebidas %}
@@ -80,9 +80,9 @@
                   <td class="text-center">{{ item.get_preco }}</td>
             </tr>
         {% endfor %}
-                    <td class="text-center"> total</td>
-                    <td class="text-center"> total </td>
-                    <td class="text-center">total </td>
+                    <td class="text-center"> {{ qt_bebidas }}</td>
+                    <td class="text-center"> <-- TOTAL --></td>
+                    <td class="text-center"> {{ preco_bebidas }} </td>
                 </table>
             </tbody>
             </div>

@@ -15,7 +15,7 @@
 
 {% block breadcrumbs %}{% endblock %}
 {% block content %}
-<h1>Relatório Ingredientes</h1>
+<h1 align="center">Sugestão de Compra de Ingredientes</h1>
     {% if lista %}
         <div class="container">
         <div class="row">
@@ -23,15 +23,19 @@
             <tbody>
                 <table class="table">
                      <tr>
-                         <th><h3>Nome Ingrediente</h3></th>
-                         <th><h3>Quantidade Estoque</h3></th>
-                         <th><h3>Unidade Medida</h3></th>
+                         <th><h4>Ingrediente</h4></th>
+                         <th><h4>Estoque Atual</h4></th>
+                         <th><h4 align="">Ref. Min</h4></th>
+                         <th><h4>Ref. Max</h4></th>
+                         <th><h4>Sugestão para Compra</h4></th>
             </tr>
         {% for item in lista %}
             <tr>
                 <td>{{ item.nome }}</td>
-                <td>{{ item.qt_estoque }}</td>
-                <td>{{ item.un_medida }}</td>
+                <td>{{ item.qt_estoque }} {{ item.un_medida }}</td>
+                <td>{{ item.qt_minima }}</td>
+                <td>{{ item.qt_maxima }}</td>
+                <td>{{ item.get_qt_compra }} {{ item.un_medida }}</td>
             </tr>
         {% endfor %}
                 </table>
