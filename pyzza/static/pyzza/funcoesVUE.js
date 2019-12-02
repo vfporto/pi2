@@ -198,9 +198,21 @@ var app = new Vue({
             })
         },
          enviar_pedido: function () {
-            this.$http.get('/api/forma_de_pagamento/').then(dados => {
-                this.formas_pagamento = dados.body;
-            })
+             let headers = {
+                 'Content-Type': 'application/json',
+                 "X-CSRFToken": token
+             };
+
+             this.$http.post(`/api/envio_pedido/`, this.pedido, {headers})
+                 .then(response => {
+                     // this.mensagemSucesso = `Solicitação ${this.escalaConfirma.id} ${aceita} com sucesso`;
+
+                 }).catch(erro => {
+
+             })
+                 .finally(() => {
+
+                 });
         },
 
         limpa_cache: function () {

@@ -129,7 +129,7 @@
 {#                                    </button>#}
 
                                     <button type="button" class="btn-warning" style="float: right; border-radius: 12px;
-                                        padding: 8px;" >
+                                        padding: 8px;" v-on:click="enviar_pedido()">
                                         ENVIAR PEDIDO
                                     </button>
                                 </div>
@@ -348,7 +348,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
                             <button type="button" class="btn btn-primary" data-dismiss="modal"
-                                    @click="adiciona_item_bebida()">INCLUIR NO PEDIDO
+                                    v-on:click="adiciona_item_bebida()">INCLUIR NO PEDIDO
                             </button>
                         </div>
                     </div>

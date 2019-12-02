@@ -20,7 +20,7 @@ from rest_framework import routers
 
 from pizzas.api.viewsets import SaborPizza_Viewset, TamanhoPizza_Viewset, SaborBorda_Viewset
 from bebidas.api.viewsets import Bebida_Viewset
-from pedidos.api.viewsets import PedidoViewSet, FormaDePagamentoViewSet
+from pedidos.api.viewsets import PedidoViewSet, FormaDePagamentoViewSet, EnvioPedido
 from site_interno import views as site_interno_views
 
 from pi2 import settings
@@ -33,6 +33,7 @@ rotas_api.register('bebida',Bebida_Viewset,"Bebida")
 rotas_api.register('tamanho_pizza', TamanhoPizza_Viewset, 'TamanhoPizza')
 rotas_api.register('pedidos', PedidoViewSet, basename='Pedido')
 rotas_api.register('forma_de_pagamento', FormaDePagamentoViewSet, 'FormaDePagamento')
+# rotas_api.register('envio_pedido/', EnvioPedido, 'EnvioPedido')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -41,6 +42,7 @@ urlpatterns = [
     path('interno/', include('site_interno.urls')),
     path('', include('pyzza.urls')),
     path('site_interno', views.index, name='index'),
+    path('api/envio_pedido/', EnvioPedido)
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
