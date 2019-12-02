@@ -45,6 +45,7 @@
                                         <th class="text-center titulo-tabela">Sabor(es)</th>
                                         <th class="text-center titulo-tabela">Tamanho</th>
                                         <th class="text-center titulo-tabela">Borda</th>
+                                        <th class="text-center titulo-tabela">Preço</th>
                                         <th class="text-center titulo-tabela">Remover</th>
                                     </tr>
                                     </thead>
@@ -59,6 +60,7 @@
                                         </td>
                                         <td class="pt-3-half">[[ item.tamanho_pizza.nome ]]</td>
                                         <td class="pt-3-half"> [[ item.sabor_borda.nome ]]</td>
+                                        <td class="pt-3-half"> [[ item.preco]]</td>
                                         <td>
                                               <span class="table-remove">
                                                   <button type="button" class="btn btn-danger"
@@ -115,7 +117,7 @@
                                 <div v-if="pedido.forma_de_pagamento">
                                     <div v-if="pedido.forma_de_pagamento.id === 1">
                                     <h4 style="font-family: 'Cabin Sketch';font-weight: bold">TROCO PARA</h4>
-                                   <input type="text" name="troco_para" id="troco_para" v-model="pedido.troco_para" width="500px">
+                                   <span style="font-family: 'Cabin Sketch'; font-size: 18px;">R$</span><input type="number" name="troco_para" id="troco_para" v-model="pedido.troco_para" style="width: 100px">
                                 </div>
                                 </div>
                                 <div class="form-group" style="margin-top: 1em;">

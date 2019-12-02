@@ -90,7 +90,7 @@ var app = new Vue({
                 sabores: this.sabores_selecionados,
                 sabor_borda: this.borda_selecionada,
                 quantidade: 1,
-                preco: 0,
+                preco: parseFloat(this.tamanho_selecionado.preco) + parseFloat(this.borda_selecionada.valor_adicional),
             }
             if(newItem_pizza.sabores.length>0) { //se foi definido tamanho
                 sabores_validos = 0;
@@ -103,7 +103,14 @@ var app = new Vue({
                             this.pedido.itens_pizza.push(newItem_pizza); //adiciona e limpa o cache
                             this.limpa_cache();
                         }
+                    adicional=0
+                    for (var i = 0; i < newItem_pizza.sabores.length; i++) {
+                        adicional += parseFloat(newItem_pizza.sabores[i].valor_adicional)
+                    }
+                    adicional = adicional / newItem_pizza.sabores.length;
+                    newItem_pizza.preco += adicional;
                 }
+
             }
         },
         remove_item_pizza: function (index) {
