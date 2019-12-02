@@ -78,42 +78,59 @@
                                     <thead>
                                     <tr>
                                         <th class="text-center titulo-tabela">Qtd</th>
-                                        <th class="text-center titulo-tabela">Sabor</th>
+                                        <th class="text-center titulo-tabela">Bebida</th>
                                         <th class="text-center titulo-tabela">Tamanho</th>
-                                        <th class="text-center titulo-tabela">Valor</th>
+                                        <th class="text-center titulo-tabela">Preço</th>
                                         <th class="text-center titulo-tabela">Remover</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
+                                    <tr v-for="(item,i) in pedido.itens_bebida">
                                         <td id="number">
                                             <span class="minus">-</span>
-                                            <input type="text" value="1"/>
+                                            <input type="text" v-bind:value="item.quantidade"/>
                                             <span class="plus">+</span>
                                         </td>
-                                        <td class="pt-3-half">Coca Cola</td>
-                                        <td class="pt-3-half">2 Litros</td>
-                                        <td class="pt-3-half">R$ 8,00</td>
+                                        <td class="pt-3-half">[[ item.nome ]]</td>
+                                        <td class="pt-3-half">[[ item.tamanho]]</td>
+                                        <td class="pt-3-half">R$ [[ item.preco ]]</td>
                                         <td>
                                             <span class="table-remove">
-                                                <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                                <button type="button" class="btn btn-danger"
+                                                v-on:click="remove_item_bebida(i)">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </button>
                                             </span>
                                         </td>
                                     </tr>
                                     </tbody>
                                 </table>
-                                <h4 style="font-family: 'Cabin Sketch';font-weight: bold">FORMAS DE PAGAMENTO</h4>
-                                <select class="form-control-sm" id="f-pagamento">
-                                    <option value="credito">Cartão de Crédito</option>
-                                    <option value="dinheiro">Dinheiro</option>
+                                <h4 style="font-family: 'Cabin Sketch';font-weight: bold">FORMA DE PAGAMENTO</h4>
+{#                                <select id="selectBebida" class="custom-select" v-model="bebida_selecionada">#}
+{#                                <option v-for="bitem in bebidas" v-bind:value="bitem">[[bitem.nome]]</option>#}
+
+                                <select class="form-control-sm" id="f-pagamento" v-model="pedido.forma_de_pagamento">
+                                    <option v-for="forma in formas_pagamento" v-bind:value="forma">[[forma.nome]]</option>
                                 </select>
+                                <div v-if="pedido.forma_de_pagamento">
+                                    <div v-if="pedido.forma_de_pagamento.id === 1">
+                                    <h4 style="font-family: 'Cabin Sketch';font-weight: bold">TROCO PARA</h4>
+                                   <input type="text" name="troco_para" id="troco_para" v-model="pedido.troco_para" width="500px">
+                                </div>
+                                </div>
                                 <div class="form-group" style="margin-top: 1em;">
                                     <h4 style="font-family: 'Cabin Sketch'; font-weight: bold;" for="exampleFormControlTextarea1">Observações</h4>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="pedido.observacao"></textarea>
                                 </div>
                                 <div>
-                                    <button type="button" class="btn-warning" style="float: right; border-radius: 12px; padding: 8px;" data-toggle="modal"
-                                            data-target="#modalLogin">ENVIAR PEDIDO
+{#                                    ENVIAR PEDIDO ORIGINAL#}
+{#                                    <button type="button" class="btn-warning" style="float: right; border-radius: 12px; padding: 8px;" data-toggle="modal"#}
+{#                                            data-target="#modalLogin">ENVIAR PEDIDO#}
+{#                                    </button>#}
+
+                                    <button type="button" class="btn-warning" style="float: right; border-radius: 12px;
+                                        padding: 8px;" >
+                                        ENVIAR PEDIDO
                                     </button>
                                 </div>
                             </div>
@@ -284,7 +301,7 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="nav flex-sm-column flex-row">
-                            <label>ESCOLHA UM BEBIDA</label>
+                            <label>ESCOLHA UMA BEBIDA</label>
                             <select id="selectBebida" class="custom-select" v-model="bebida_selecionada">
                                 <option v-for="bitem in bebidas" v-bind:value="bitem">[[bitem.nome]]</option>
                             </select>
@@ -318,11 +335,20 @@
                             {#                                        </select>#}
                             {#                                    </div>#}
                             {#                            </div>#}
+                            <div v-if="bebida_selecionada">
+                                    <label class="escolha-um-sabor">ESCOLHA O TAMANHO DA BEBIDA</label>
+                                    <div class="dropdown-toggle-split">
+                                        <select class="custom-select" v-model="opcao_bebida_selecionada">
+                                            <option v-for="opcao in bebida_selecionada.opcoes" v-bind:value="opcao">[[opcao.tamanho_bebida.nome]] - (Preço: R$ [[opcao.preco]])
+                                            </option>
+                                        </select>
+                                    </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
                             <button type="button" class="btn btn-primary" data-dismiss="modal"
-                                    @click="adiciona_item_pizza()">INCLUIR NO PEDIDO
+                                    @click="adiciona_item_bebida()">INCLUIR NO PEDIDO
                             </button>
                         </div>
                     </div>
@@ -340,7 +366,7 @@
                             <label style="font-family: 'Cabin Sketch'; font-size: 26px;">ESCOLHA O TAMANHO DA SUA
                                 PIZZA!</label>
                             <select id="selectTamanho" class="custom-select" v-model="tamanho_selecionado">
-                                <option v-for="tamanho in tamanhos" v-bind:value="tamanho">[[tamanho.nome]]</option>
+                                <option v-for="tamanho in tamanhos" v-bind:value="tamanho">[[tamanho.nome]]  -  (A partir de R$ [[tamanho.preco]])</option>
                             </select>
                             <label style="margin-top: 10px; font-family: 'Cabin Sketch';  font-size: 18px;"
                                    v-if="tamanho_selecionado.max_sabores > 0">ESCOLHA QUANTOS SABORES!</label>
@@ -361,7 +387,7 @@
                                     <label class="escolha-um-sabor" v-else>ESCOLHA O [[ i ]]º SABOR</label>
                                     <div class="dropdown-toggle-split">
                                         <select class="custom-select" v-model="sabores_selecionados[j]">
-                                            <option v-for="pizza in sabores_pizza" v-bind:value="pizza">[[pizza.nome]]
+                                            <option v-for="sabor in sabores_pizza" v-bind:value="sabor">[[sabor.nome]] - (Adicional: R$ [[sabor.get_adicional_total]])
                                             </option>
                                         </select>
                                     </div>
@@ -373,7 +399,7 @@
                                     O SABOR DA BORDA!</label>
                                 <div class="dropdown-toggle-split">
                                     <select class="custom-select" v-model="borda_selecionada">
-                                        <option v-for="borda in sabores_borda" v-bind:value="borda">[[borda.nome]]
+                                        <option v-for="borda in sabores_borda" v-bind:value="borda">[[borda.nome]] - (Adicional: R$ [[borda.valor_adicional]])
                                         </option>
                                     </select>
                                 </div>

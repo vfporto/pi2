@@ -47,7 +47,10 @@ class PedidoAdmin(admin.ModelAdmin):
                  )
 
 class FormaDePagamentoAdmin(admin.ModelAdmin):
+    list_display = ['id', 'nome']
+    list_display_links = ['id', 'nome']
     search_fields = ['nome']
+    ordering = ['id']
 
 # admin.site.register(StatusPedido)
 admin.site.register(FormaDePagamento, FormaDePagamentoAdmin)
