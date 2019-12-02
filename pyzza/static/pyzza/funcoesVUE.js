@@ -34,10 +34,11 @@ var app = new Vue({
         tamanho_selecionado: {max_sabores: 0},
         num_sabores_selecionado: 0,
         sabores_selecionados: [],
-        borda_selecionada: {},
+        borda_selecionada: null,
 
         bebida_selecionada: null,
         opcao_bebida_selecionada:{},// {id: 0},
+        //forma_pagamento_selecionada: null,
 
         num_bebidas_selecionada: 0, //retirar?
 
@@ -46,7 +47,7 @@ var app = new Vue({
             itens_bebida: [],
             troco_para: 0,
             observacao: "",
-            forma_de_pagamento: 1,
+            forma_de_pagamento: null,
             cliente: 1
         }, //end pedido
 
@@ -80,7 +81,7 @@ var app = new Vue({
             for (var i = 0; i < qtd; i++) {
                 // console.log("i:"+i);
                 // this.sabores_selecionados.push({"nome": ""});
-                this.sabores_selecionados.push({});
+                this.sabores_selecionados.push(null);
             }
         },
         adiciona_item_pizza() {
@@ -91,9 +92,18 @@ var app = new Vue({
                 quantidade: 1,
                 preco: 0,
             }
-            if(newItem_pizza.sabores.length>0) {
-                this.pedido.itens_pizza.push(newItem_pizza);
-                this.limpa_cache();
+            if(newItem_pizza.sabores.length>0) { //se foi definido tamanho
+                sabores_validos = 0;
+                for (var i = 0; i < newItem_pizza.sabores.length; i++) {
+                    if (newItem_pizza.sabores[i] != null)
+                        sabores_validos++;
+                }
+                if (newItem_pizza.sabores.length === sabores_validos) { //se nenhum sabor for nulo
+                        if(newItem_pizza.sabor_borda != null) { //se foi escolhida borda
+                            this.pedido.itens_pizza.push(newItem_pizza); //adiciona e limpa o cache
+                            this.limpa_cache();
+                        }
+                }
             }
         },
         remove_item_pizza: function (index) {
@@ -107,6 +117,29 @@ var app = new Vue({
                 this.sabores_selecionados.push(pizza);
             }
         },
+        adiciona_item_bebida: function(){
+            if(this.bebida_selecionada != null){
+                if(this.opcao_bebida_selecionada != null){
+                   let newItemBebida = {
+                       id : this.opcao_bebida_selecionada.id,
+                       nome: this.bebida_selecionada.nome,
+                       tamanho: this.opcao_bebida_selecionada.tamanho_bebida.nome,
+                       preco: this.opcao_bebida_selecionada.preco,
+                       quantidade: 1
+                    }//@@
+                    this.pedido.itens_bebida.push(newItemBebida);
+                   this.limpa_cache();
+                }
+            }
+        },
+       remove_item_bebida: function (index) {
+            // this.pedido.itens_pizza = this.pedido.itens_pizza.filter(x => x.id != item.id);
+            console.log("remove bebida item index: "+index);
+            // this.pedido.itens_pizza = this.pedido.itens_pizza.splice(index,1);
+            this.pedido.itens_bebida.splice(index,1);
+        },
+
+
 
         /*busca as pizzas na api*/
         busca_pizzas: function () {
@@ -160,18 +193,36 @@ var app = new Vue({
             })
         },
         busca_formas_pagamento: function () {
-            this.$http.get('/api/sabor_borda/').then(dados => {
-                this.sabores_borda = dados.body;
+            this.$http.get('/api/forma_de_pagamento/').then(dados => {
+                this.formas_pagamento = dados.body;
             })
         },
+         enviar_pedido: function () {
+             let headers = {
+                 'Content-Type': 'application/json',
+                 "X-CSRFToken": token
+             };
+
+             this.$http.post(`/api/envio_pedido/`, this.pedido, {headers})
+                 .then(response => {
+                     // this.mensagemSucesso = `Solicitação ${this.escalaConfirma.id} ${aceita} com sucesso`;
+
+                 }).catch(erro => {
+
+             })
+                 .finally(() => {
+
+                 });
+        },
+
         limpa_cache: function () {
             this.tamanho_selecionado = {max_sabores: 0};
             this.num_sabores_selecionado = 0;
             this.sabores_selecionados = [];
-            this.borda_selecionada = {};
+            this.borda_selecionada = null;
 
-            bebida_selecionada = null;
-            opcao_bebida_selecionada = {};
+            this.bebida_selecionada = null;
+            this.opcao_bebida_selecionada = null;
         }
 
     },

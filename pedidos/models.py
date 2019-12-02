@@ -146,11 +146,12 @@ class ItemPizza(models.Model):
         preco += self.tamanho_pizza.preco
         preco += self.sabor_borda.valor_adicional
         preco_sabores = 0
-        for sabor in self.sabores.all():  # .filter(itempizza=self.pk):
-            preco_sabores += sabor.tipo_pizza.valor_adicional
-            preco_sabores += sabor.valor_adicional
-        preco_sabores = preco_sabores / self.sabores.count()
-        preco += preco_sabores
+        if self.sabores.count() > 0:
+            for sabor in self.sabores.all():  # .filter(itempizza=self.pk):
+                preco_sabores += sabor.tipo_pizza.valor_adicional
+                preco_sabores += sabor.valor_adicional
+            preco_sabores = preco_sabores / self.sabores.count()
+            preco += preco_sabores
         preco *= self.quantidade
         # print(preco_sabores)
         return preco

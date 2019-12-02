@@ -1,4 +1,6 @@
 from rest_framework import serializers
+
+from pedidos.models import FormaDePagamento
 from pizzas.models import SaborPizza, Ingrediente, SaborPizzaIngrediente, TipoPizza, TamanhoPizza, SaborBorda
 
 
@@ -38,5 +40,10 @@ class SaborPizza_Serializer(serializers.ModelSerializer):
 class TamanhoPizza_Serializer(serializers.ModelSerializer):
     class Meta:
         model = TamanhoPizza
+        fields = ('__all__')
+
+class FormaDePagamento_Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = FormaDePagamento
         fields = ('__all__')
 
