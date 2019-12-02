@@ -156,6 +156,7 @@ a.navbar-brand{
 	background-color: #c0392b;
 	text-align: center;
 	font-family: "Cabin Sketch";
+	color: #f39c12;
 }
 #imagem_pizzas{
 	width: 50% !important;
@@ -169,10 +170,12 @@ a.navbar-brand{
 	font-family: "Klavika Regular";
 }
 #colunas-cardapio{
-	background-color: #e8e8e8;
-	border-radius: 5px;
-	padding: 5px;
-
+    border-radius: 30px;
+    background-color: #e89d00;
+     padding: 20px;
+    background-color: gainsboro;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 /* CUSTOMIZANDO O CARROSSEL
 -------------------------------------------------- */

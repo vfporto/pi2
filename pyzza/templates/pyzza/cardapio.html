@@ -13,14 +13,14 @@
     <div class="pedidos">
         <h1>CARDÁPIO!</h1>
      </div>
-  <div class="container">
+  <div class="container" style="margin-top: 1em;">
     <div class="row">
-             <div id="colunas-cardapio" class="card-body" style="width: 18rem;" v-for="pizza in sabores_pizza" align="center">
+             <div id="colunas-cardapio" class="card-body" style="width: 18rem;" v-for="pizza in sabores_pizza" align="center" >
                 <img class="card-img-top" v-bind:src="[[pizza.imagem]]" alt="Card image cap"
                      style="width: 130px; height: 130px;">
                 <div class="card-body">
-                    <p class="card-text">[[pizza.nome]]</p>
-                    <p class="card-text">[[pizza.descricao]]</p>
+                    <h2  style="font-family: 'Cabin Sketch'" class="card-text">[[pizza.nome]]</h2>
+                    <p style="font-family: 'DejaVu Sans Condensed'" class="card-text">[[pizza.descricao]]</p>
 
                 </div>
             </div>

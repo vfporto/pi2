@@ -15,12 +15,12 @@
                 <div class="pedidos"><h1>FAÇA SEU PEDIDO!</h1></div>
                 <div>
                     <a data-toggle="modal" href="#exampleModal">
-                    <img style="background-color: #e89d00; width: 95% ;height: 220px; margin-top: 1em;margin-bottom: 0.5em;" src="{% static 'pyzza/image/pede_pizza.png' %}" alt="banner pedido bebidas">
+                    <img style="background-color: #e89d00; width: 95% ;height: 180px; margin-top: 1em;margin-bottom: 0.5em;" src="{% static 'pyzza/image/pede_pizza.png' %}" alt="banner pedido bebidas">
                     </a>
                 </div>
                 <div>
                     <a data-toggle="modal" href="#myModalBebidas">
-                    <img style="background-color: #e89d00; width: 95% ;height: 220px; margin-top: 1em;margin-bottom: 1em;" src="{% static 'pyzza/image/pede_bebida.png' %}" alt="banner pedido bebidas">
+                    <img style="background-color: #e89d00; width: 95% ;height: 180px;" src="{% static 'pyzza/image/pede_bebida.png' %}" alt="banner pedido bebidas">
                     </a>
                 </div>
             </div>
@@ -30,11 +30,11 @@
                     <!-- Editable table -->
                     <div class="card">
                         {% csrf_token %}
-                        <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Carrinho de Compras</h3>
+                        <h3 class="card-header text-center font-weight-bold text-uppercase py-4" style="font-family: 'Cabin Sketch'">Carrinho de Compras</h3>
                         <div class="card-body">
                             <div id="table" class="table-editable table-responsive">
                                 <table class="table table-bordered table-responsive-md table-striped text-center">
-                                    <h4 style="font-weight: 900">Pizza(s)</h4>
+                                    <h4 style="font-weight: 900; font-family: 'Cabin Sketch'">Pizza(s)</h4>
                                     <thead>
                                         <tr>
                                             <th class="text-center titulo-tabela">Qtd</th>
@@ -66,7 +66,7 @@
                                 </table>
                                 <div id="table" class="table-editable table-responsive">
                                     <table class="table table-bordered table-responsive-md table-striped text-center">
-                                        <h4 style="font-weight: 900">Bebidas</h4>
+                                        <h4 style="font-weight: 900; font-family: 'Cabin Sketch'">Bebidas</h4>
                                         <thead>
                                         <tr>
                                             <th class="text-center titulo-tabela">Qtd</th>
