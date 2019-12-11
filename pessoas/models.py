@@ -31,9 +31,8 @@ class Cliente(models.Model):
     nome = models.CharField(max_length=100)
     telefone = models.CharField(max_length=100)
     endereco = models.OneToOneField(Endereco, on_delete=models.CASCADE, related_name='endereco_cliente')
-
-    # usuario = models.ForeignKey(User, on_delete=models.CASCADE, unique=True, null=True)
     usuario = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
+    # usuario = models.ForeignKey(User, on_delete=models.CASCADE, unique=True, null=True)
 
     def __str__(self):
         return self.nome

@@ -22,9 +22,10 @@ class EntregadorAdmin(ReverseModelAdmin):
 class ClienteAdmin(ReverseModelAdmin):
     model = Cliente
     inline_type = 'stacked'
-    search_fields = ['id', 'nome', 'telefone']
+    search_fields = ['id', 'nome', 'telefone', 'endereco']
     list_display = ['id', 'nome', 'telefone']
     list_display_links = ['id', 'nome', 'telefone']
+    # fields = ['nome', 'telefone', 'endereco_id']
     inline_reverse = [
         ('endereco', {'fields': ['id', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'cep', 'uf']}),
     ]

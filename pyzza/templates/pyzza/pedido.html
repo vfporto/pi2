@@ -52,15 +52,16 @@
                                     <tbody>
                                     <tr v-for="(item,i) in pedido.itens_pizza">
                                         <td>
-                                            <span class="minus">-</span>
-                                            <input type="text" v-bind:value="item.quantidade"/>
-                                            <span class="plus">+</span>
+                                            <input name="ip_qtd" type="number" min="1" v-model="item.quantidade"/>
+{#                                            <span class="minus">-</span>#}
+{#                                            <input name="ip_qtd" type="text" v-model="item.quantidade"/>#}
+{#                                            <span class="plus">+</span>#}
                                         </td>
                                         <td class="pt-3-half"><p v-for="sabor in item.sabores">[[ sabor.nome ]] </p>
                                         </td>
                                         <td class="pt-3-half">[[ item.tamanho_pizza.nome ]]</td>
                                         <td class="pt-3-half"> [[ item.sabor_borda.nome ]]</td>
-                                        <td class="pt-3-half"> [[ item.preco]]</td>
+                                        <td class="pt-3-half"> [[ preco_formatado(item.preco()) ]]</td>
                                         <td>
                                               <span class="table-remove">
                                                   <button type="button" class="btn btn-danger"
@@ -76,7 +77,7 @@
                             <div id="table" class="table-editable table-responsive">
                                 <table class="table table-bordered table-responsive-md table-striped text-center">
                                     <h4 style="font-weight: 900; font-family: 'Cabin Sketch';">
-                                        Bebidas</h4>
+                                        Bebida(s)</h4>
                                     <thead>
                                     <tr>
                                         <th class="text-center titulo-tabela">Qtd</th>
@@ -89,13 +90,13 @@
                                     <tbody>
                                     <tr v-for="(item,i) in pedido.itens_bebida">
                                         <td id="number">
-                                            <span class="minus">-</span>
-                                            <input type="text" v-bind:value="item.quantidade"/>
-                                            <span class="plus">+</span>
+{#                                            <span class="minus">-</span>#}
+                                            <input name="ib_qtd" type="number" min="1" v-model="item.quantidade"/>
+{#                                            <span class="plus">+</span>#}
                                         </td>
                                         <td class="pt-3-half">[[ item.nome ]]</td>
                                         <td class="pt-3-half">[[ item.tamanho]]</td>
-                                        <td class="pt-3-half">R$ [[ item.preco ]]</td>
+                                        <td class="pt-3-half">[[ preco_formatado(item.preco()) ]]</td>
                                         <td>
                                             <span class="table-remove">
                                                 <button type="button" class="btn btn-danger"
@@ -107,33 +108,62 @@
                                     </tr>
                                     </tbody>
                                 </table>
-                                <h4 style="font-family: 'Cabin Sketch';font-weight: bold">FORMA DE PAGAMENTO</h4>
+                                <h4 style="font-family: 'Cabin Sketch';font-weight: bold" align="right">Total: [[ preco_formatado(pedido.total()) ]] </h4>
+                                <br>
+                                <h4 style="font-family: 'Cabin Sketch';font-weight: bold;float: left;">FORMA DE PAGAMENTO</h4>
 {#                                <select id="selectBebida" class="custom-select" v-model="bebida_selecionada">#}
 {#                                <option v-for="bitem in bebidas" v-bind:value="bitem">[[bitem.nome]]</option>#}
 
-                                <select class="form-control-sm" id="f-pagamento" v-model="pedido.forma_de_pagamento">
+                                <select class="form-control-sm" id="f-pagamento" v-model="pedido.forma_de_pagamento" style="float: right;">
                                     <option v-for="forma in formas_pagamento" v-bind:value="forma">[[forma.nome]]</option>
                                 </select>
+                                <br>
                                 <div v-if="pedido.forma_de_pagamento">
                                     <div v-if="pedido.forma_de_pagamento.id === 1">
-                                    <h4 style="font-family: 'Cabin Sketch';font-weight: bold">TROCO PARA</h4>
-                                   <span style="font-family: 'Cabin Sketch'; font-size: 18px;">R$</span><input type="number" name="troco_para" id="troco_para" v-model="pedido.troco_para" style="width: 100px">
+                                        <br>
+                                        <h4 style="font-family: 'Cabin Sketch';font-weight: bold;float: left;">TROCO PARA</h4>
+                                        <div style="float: right;">
+                                            <span style="font-family: 'Cabin Sketch'; font-size: 18px;">R$</span>
+                                            <input type="number" name="troco_para" id="troco_para"
+                                                v-model="pedido.troco_para" style="width: 100px">
+                                        </div>
+                                    </div>
                                 </div>
-                                </div>
+                                <br><br>
                                 <div class="form-group" style="margin-top: 1em;">
                                     <h4 style="font-family: 'Cabin Sketch'; font-weight: bold;" for="exampleFormControlTextarea1">Observações</h4>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="pedido.observacao"></textarea>
                                 </div>
                                 <div>
-{#                                    ENVIAR PEDIDO ORIGINAL#}
+{#                                    ENVIAR PEDIDO ORIGINAL@@#}
 {#                                    <button type="button" class="btn-warning" style="float: right; border-radius: 12px; padding: 8px;" data-toggle="modal"#}
 {#                                            data-target="#modalLogin">ENVIAR PEDIDO#}
 {#                                    </button>#}
 
-                                    <button type="button" class="btn-warning" style="float: right; border-radius: 12px;
-                                        padding: 8px;" v-on:click="enviar_pedido()">
+{#                                    <button type="button" class="btn-warning" style="float: right; border-radius: 12px;#}
+{#                                        padding: 8px;" v-on:click="enviar_pedido()">#}
+{#                                        @@ENVIAR PEDIDO#}
+{#                                    </button>#}
+
+{#                                    <button v-if="is_logado" type="button" class="btn-warning" style="float: right; border-radius: 12px;#}
+                                    <h5 style="font-family: 'Cabin Sketch'; font-weight: bold; color:red;float: left;" v-if="pedido_qt_erros > 0">[[ pedido_erro_msg ]] </h5>
+                                    <button type="button" class="btn-warning" style="float: right; border-radius: 12px; padding: 8px;"
+                                            v-on:click="enviar_pedido()">
+{#                                            v-on:click="enviar_pedido()" :disabled="pedido_qt_erros > 0">#}
                                         ENVIAR PEDIDO
                                     </button>
+
+{#                                    <button v-else type="button" class="btn-warning" style="float: right; border-radius: 12px; padding: 8px;" data-toggle="modal"#}
+{#                                            data-target="#modalLogin">ENVIAR PEDIDO#}
+{#                                    </button>#}
+
+                                    <br><br>
+                                    <div id="mensagem" class="alert alert-success alert-dismissible fade show" role="alert" v-if="mensagem">
+                                        [[ mensagem ]]
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             {# div table #}
@@ -145,59 +175,63 @@
                 {# div container #}
             </div>
             {# "col-6" #}
-            <!--MODAL PARA LOGIN -->
+            <!--MODAL PARA LOGIN $$-->
+{#            <div v-if="!is_logado">#}
+                <div style="margin-top: 2em;" class="modal" id="modalLogin" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
 
-            <div style="margin-top: 2em;" class="modal" id="modalLogin" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-
-                        <div class="modal-body">
-                            <div class="container h-100">
-                                <div class="d-flex justify-content-center h-100">
-                                    <div class="user_card">
-                                        <div class="d-flex justify-content-center">
-                                            <div style="margin-bottom:-4em;">
-                                                <img src="{% static 'pyzza/image/logo_top_do_projeto_novo.png' %}"
-                                                     alt="Logo">
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-center form_container">
-                                            <form>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-append">
-                                                        <span class="input-group-text">
-                                                            <i class="fas fa-user"></i>
-                                                        </span>
-                                                    </div>
-                                                    <input type="text" name="" class="form-control input_user" value=""
-                                                           placeholder="Nome de usuário">
+                            <div class="modal-body">
+                                <div class="container h-100">
+                                    <div class="d-flex justify-content-center h-100">
+                                        <div class="user_card">
+                                            <div class="d-flex justify-content-center">
+                                                <div style="margin-bottom:-4em;">
+                                                    <img src="{% static 'pyzza/image/logo_top_do_projeto_novo.png' %}"
+                                                         alt="Logo">
                                                 </div>
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-append">
-                                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                                    </div>
-                                                    <input type="password" name="" class="form-control input_pass"
-                                                           value="" placeholder="Senha">
-                                                </div>
-                                                {#                                                <div class="form-group">#}
-                                                {#                                                    <div class="custom-control custom-checkbox">#}
-                                                {#                                                        <input type="checkbox" class="custom-control-input"#}
-                                                {#                                                               id="customControlInline">#}
-                                                {#                                                        <label class="custom-control-label" for="customControlInline">Remember me</label>#}
-                                                {#                                                    </div>#}
-                                                {#                                                </div>#}
-                                            </form>
-                                        </div>
-                                        <div class="d-flex justify-content-center mt-3 login_container">
-                                            <button type="button" name="button" class="btn login_btn">Login</button>
-                                        </div>
-                                        <div class="mt-4">
-                                            <div class="d-flex justify-content-center links">
-                                                Ainda não tem cadastro? <a href="#" class="ml-2" data-toggle="modal"
-                                                                           data-target="#modalCadastro">Cadastre-se</a>
                                             </div>
-                                            <div class="d-flex justify-content-center links">
-                                                <a href="#">esqueceu a senha?</a>
+                                            <div class="d-flex justify-content-center form_container">
+                                                <form>
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text">
+                                                                <i class="fas fa-user"></i>
+                                                            </span>
+                                                        </div>
+                                                        <input type="text" name="" class="form-control input_user" v-model="login_data.username"
+                                                               placeholder="Nome de usuário">
+                                                    </div>
+                                                    <div class="input-group mb-2">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                                        </div>
+                                                        <input type="password" name="" class="form-control input_pass" v-model="login_data.password"
+                                                               placeholder="Senha">
+                                                    </div>
+                                                    {#                                                <div class="form-group">#}
+                                                    {#                                                    <div class="custom-control custom-checkbox">#}
+                                                    {#                                                        <input type="checkbox" class="custom-control-input"#}
+                                                    {#                                                               id="customControlInline">#}
+                                                    {#                                                        <label class="custom-control-label" for="customControlInline">Remember me</label>#}
+                                                    {#                                                    </div>#}
+                                                    {#                                                </div>#}
+                                                </form>
+                                            </div>
+                                            <div v-if="modal_login_mensagem">
+                                                <p>[[ modal_login_mensagem ]]</p>
+                                            </div>
+                                            <div class="d-flex justify-content-center mt-3 login_container">
+                                                <button type="button" name="button" class="btn login_btn" @click="efetuar_login()">Login</button>
+                                            </div>
+                                            <div class="mt-4">
+                                                <div class="d-flex justify-content-center links">
+                                                    Ainda não tem cadastro? <a href="#" class="ml-2" data-toggle="modal"
+                                                                               data-target="#modalCadastro">Cadastre-se</a>
+                                                </div>
+{#                                                <div class="d-flex justify-content-center links">#}
+{#                                                    <a href="#">esqueceu a senha?</a>#}
+{#                                                </div>#}
                                             </div>
                                         </div>
                                     </div>
@@ -206,7 +240,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+{#            </div>#}
 
             <!-- FIM DA MODAL -->
 
@@ -224,54 +258,126 @@
                                         <div class="form-group row">
                                             <label class="col-lg-3 col-form-label form-control-label">Nome</label>
                                             <div class="col-lg-9">
-                                                <input class="form-control" type="text" value="Paulo">
+                                                <input class="form-control" type="text" v-model="cliente_data.nome">
+                                                <small v-if="cliente_data_errors.nome" class="form-text" style="color: red;">
+                                                    [[ cliente_data_errors.nome ]]
+                                                </small>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label form-control-label">Sobrenome</label>
+                                            <label class="col-lg-3 col-form-label form-control-label">Telefone</label>
                                             <div class="col-lg-9">
-                                                <input class="form-control" type="text" value="da Silva">
+                                                <input class="form-control" type="text" v-model="cliente_data.telefone">
+                                                <small v-if="cliente_data_errors.telefone" class="form-text" style="color: red;">
+                                                    [[ cliente_data_errors.telefone ]]
+                                                </small>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                                            <label class="col-lg-3 col-form-label form-control-label">E-mail</label>
                                             <div class="col-lg-9">
-                                                <input class="form-control" type="email" value="email@gmail.com">
+                                                <input class="form-control" type="email" v-model="cliente_data.usuario.email">
+                                                 <small v-if="cliente_data_errors.email" class="form-text" style="color: red;">
+                                                    [[ cliente_data_errors.email ]]
+                                                </small>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label form-control-label">Nome de
-                                                Usuário</label>
+                                            <label class="col-lg-3 col-form-label form-control-label">Username</label>
                                             <div class="col-lg-9">
-                                                <input class="form-control" type="text"
-                                                       value="Insira um nome para login">
+                                                <input class="form-control" type="text" v-model="cliente_data.usuario.username">
+                                                <small v-if="cliente_data_errors.username" class="form-text" style="color: red;">
+                                                    [[ cliente_data_errors.username ]]
+                                                </small>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-lg-3 col-form-label form-control-label">Senha</label>
                                             <div class="col-lg-9">
-                                                <input class="form-control" type="password" value="11111122333">
-                                                <small class="form-text text-muted" id="passwordHelpBlock">
-                                                    Sua senha deve ter entre 8 e 20 caracteres, conter letras e números
-                                                    e não deve conter espaços, caracteres especiais ou emoji.</small>
+                                                <input class="form-control" type="password" v-model="cliente_data.usuario.password">
+                                                <small v-if="cliente_data_errors.password" class="form-text" style="color: red;">
+                                                    [[ cliente_data_errors.password ]]
+                                                </small>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label form-control-label">Confirme sua
-                                                senha</label>
+                                            <label class="col-lg-3 col-form-label form-control-label">Confirme sua senha</label>
                                             <div class="col-lg-9">
-                                                <input class="form-control" type="password" value="11111122333">
+                                                <input class="form-control" type="password" v-model="cliente_data.usuario.confirm_password">
+                                                <small v-if="cliente_data_errors.confirm_password" class="form-text" style="color: red;">
+                                                    [[ cliente_data_errors.confirm_password ]]
+                                                </small>
                                             </div>
                                         </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label form-control-label">CEP</label>
+                                            <div class="col-lg-9">
+                                                <input class="form-control" type="text" v-model="cliente_data.endereco.cep" maxlength="9" placeholder="Digite um cep para buscar endereço">
+                                                <small v-if="cliente_data_errors.cep" class="form-text" style="color: red;">
+                                                    [[ cliente_data_errors.cep ]]
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label form-control-label">Logradouro</label>
+                                            <div class="col-lg-9">
+                                                <input class="form-control" type="text" v-model="cliente_data.endereco.logradouro">
+                                                <small v-if="cliente_data_errors.logradouro" class="form-text" style="color: red;">
+                                                    [[ cliente_data_errors.logradouro ]]
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label form-control-label">Numero</label>
+                                            <div class="col-lg-9">
+                                                <input class="form-control" type="text" v-model="cliente_data.endereco.numero">
+                                                <small v-if="cliente_data_errors.numero" class="form-text" style="color: red;">
+                                                    [[ cliente_data_errors.numero ]]
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label form-control-label">Complemento</label>
+                                            <div class="col-lg-9">
+                                                <input class="form-control" type="text" v-model="cliente_data.endereco.complemento">
+                                                <small v-if="cliente_data_errors.complemento" class="form-text" style="color: red;">
+                                                    [[ cliente_data_errors.complemento ]]
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label form-control-label">Bairro</label>
+                                            <div class="col-lg-9">
+                                                <input class="form-control" type="text" v-model="cliente_data.endereco.bairro">
+                                                <small v-if="cliente_data_errors.bairro" class="form-text" style="color: red;">
+                                                    [[ cliente_data_errors.bairro ]]
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label form-control-label">Cidade</label>
+                                            <div class="col-lg-9">
+                                                <input class="form-control" type="text" v-model="cliente_data.endereco.cidade">
+                                                <small v-if="cliente_data_errors.cidade" class="form-text" style="color: red;">
+                                                    [[ cliente_data_errors.cidade ]]
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label form-control-label">Estado</label>
+                                            <div class="col-lg-9">
+                                                <input class="form-control" type="text" v-model="cliente_data.endereco.uf">
+                                                <small v-if="cliente_data_errors.uf" class="form-text" style="color: red;">
+                                                    [[ cliente_data_errors.uf ]]
+                                                </small>
+                                            </div>
+                                        </div>
+
                                         <div class="form-group row">
                                             <label class="col-lg-3 col-form-label form-control-label"></label>
                                             <div class="col-lg-9">
-                                                <button style="float: right;" class="btn btn-success" type="button"
-                                                        value="Cancel">Salvar
-                                                </button>
-                                                <button style="float: right;" class="btn btn-danger" type="reset"
-                                                        value="Save Changes">Cancelar
-                                                </button>
+                                                <button style="float: right;" class="btn btn-success" type="button" @click="efetuar_cadastro_cliente()">Cadastrar</button>
+                                                <button style="float: right;" class="btn btn-danger" type="reset" value="Save Changes">Cancelar</button>
                                             </div>
                                         </div>
                                     </form>
