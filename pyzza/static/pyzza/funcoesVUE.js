@@ -99,6 +99,7 @@ var app = new Vue({
 
         show_login_modal: false,
         is_logado :false,
+        pedido_enviado: false,
         modal_login_mensagem : null,
         mensagem: null,
 
@@ -289,6 +290,7 @@ var app = new Vue({
                             // this.mensagemSucesso = `Solicitação ${this.escalaConfirma.id} ${aceita} com sucesso`;
                             if (response.status == 200) {
                                 this.mensagem = "PEDIDO ENVIADO COM SUCESSO!"
+                                this.pedido_enviado = true;
                                 //$('#mensagem').alert();
                             } else {
                                 this.modal_login_mensagem = "Usuário/Senha incorreto(s)";
@@ -489,7 +491,28 @@ var app = new Vue({
                 });
             }
         },
-    },
+        novo_pedido: function () {
+            this.pedido = {
+                itens_pizza: [],
+                itens_bebida: [],
+                troco_para: 0,
+                observacao: "",
+                forma_de_pagamento: null,
+                // total: 0,
+                total: function () {
+                    total = 0;
+                    for (let i = 0; i < this.itens_pizza.length; i++) {
+                        total += this.itens_pizza[i].preco();
+                    }
+                    for (let i = 0; i < this.itens_bebida.length; i++) {
+                        total += this.itens_bebida[i].preco();
+                    }
+                    return total;
+                }
+            }
+            this.pedido_enviado = false;
+        },
+    }, //methods
 });
 /*fecha modal*/
 $('#btn-fecha').on('click', function () {

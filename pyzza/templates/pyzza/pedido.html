@@ -148,9 +148,14 @@
 {#                                    <button v-if="is_logado" type="button" class="btn-warning" style="float: right; border-radius: 12px;#}
                                     <h5 style="font-family: 'Cabin Sketch'; font-weight: bold; color:red;float: left;" v-if="pedido_qt_erros > 0">[[ pedido_erro_msg ]] </h5>
                                     <button type="button" class="btn-warning" style="float: right; border-radius: 12px; padding: 8px;"
-                                            v-on:click="enviar_pedido()">
+                                            v-on:click="enviar_pedido()" v-if="!pedido_enviado">
 {#                                            v-on:click="enviar_pedido()" :disabled="pedido_qt_erros > 0">#}
                                         ENVIAR PEDIDO
+                                    </button>
+                                    <button type="button" class="btn-success" style="float: right; border-radius: 12px; padding: 8px;"
+                                            v-on:click="novo_pedido()" v-if="pedido_enviado">
+{#                                            v-on:click="enviar_pedido()" :disabled="pedido_qt_erros > 0">#}
+                                        NOVO PEDIDO
                                     </button>
 
 {#                                    <button v-else type="button" class="btn-warning" style="float: right; border-radius: 12px; padding: 8px;" data-toggle="modal"#}
