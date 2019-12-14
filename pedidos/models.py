@@ -47,12 +47,15 @@ class Pedido(models.Model):
         return self.data.strftime("%B %d, %Y, %I:%M %p") + " " + self.cliente.nome
 
     def get_total(self):
-        preco = 0
-        for ip in self.itens_pizza.all():
-            preco += ip.get_preco()
-        for ib in self.itens_bebida.all():
-            preco += ib.get_preco()
-        return preco
+        if self.total <= 0:
+            preco = 0
+            for ip in self.itens_pizza.all():
+                preco += ip.get_preco()
+            for ib in self.itens_bebida.all():
+                preco += ib.get_preco()
+            self.total = preco
+            Pedido.objects.filter(id=self.id).update(total=self.total)
+        return self.total
 
     get_total.short_description = "Total"
 
@@ -119,7 +122,11 @@ class ItemBebida(models.Model):
     bebida_tamanho = models.ForeignKey(BebidaTamanhoBebida, on_delete=models.PROTECT)
 
     def get_preco(self):
-        return self.bebida_tamanho.preco * self.quantidade
+        if self.preco <= 0:
+            preco = self.bebida_tamanho.preco * self.quantidade
+            self.preco = preco
+            ItemBebida.objects.filter(id=self.id).update(preco=self.preco)
+        return self.preco
 
     get_preco.short_description = "Preço"
 
@@ -142,19 +149,21 @@ class ItemPizza(models.Model):
 
     # TODO: criar viewset para devolver preco de um itempizza recebido do front
     def get_preco(self):
-        preco = 0
-        preco += self.tamanho_pizza.preco
-        preco += self.sabor_borda.valor_adicional
-        preco_sabores = 0
-        if self.sabores.count() > 0:
-            for sabor in self.sabores.all():  # .filter(itempizza=self.pk):
-                preco_sabores += sabor.tipo_pizza.valor_adicional
-                preco_sabores += sabor.valor_adicional
-            preco_sabores = preco_sabores / self.sabores.count()
-            preco += preco_sabores
-        preco *= self.quantidade
-        # print(preco_sabores)
-        return preco
+        if self.preco <= 0:
+            preco = 0
+            preco += self.tamanho_pizza.preco
+            preco += self.sabor_borda.valor_adicional
+            preco_sabores = 0
+            if self.sabores.count() > 0:
+                for sabor in self.sabores.all():  # .filter(itempizza=self.pk):
+                    preco_sabores += sabor.tipo_pizza.valor_adicional
+                    preco_sabores += sabor.valor_adicional
+                preco_sabores = preco_sabores / self.sabores.count()
+                preco += preco_sabores
+            preco *= self.quantidade
+            self.preco = preco
+            ItemPizza.objects.filter(id=self.id).update(preco=self.preco)
+        return self.preco
 
     get_preco.short_description = "Preço"
 
