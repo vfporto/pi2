@@ -1,4 +1,4 @@
-Django==2.2.8
+Django==2.2.28
 django-reverse-admin==2.7.1
 django-suit==0.2.28
 mysql-connector-python==8.0.12
